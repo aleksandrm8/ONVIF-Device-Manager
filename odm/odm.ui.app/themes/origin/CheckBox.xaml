@@ -1,0 +1,89 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Style TargetType="{x:Type CheckBox}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=Background}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=Foreground}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ResourceKey=BorderBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Padding" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="HorizontalAlignment" Value="Left"/>
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="Template">		
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type CheckBox}">
+					<Grid
+						HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+						VerticalAlignment="{TemplateBinding VerticalAlignment}" 
+						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+						Background="Transparent">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="auto"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<Border
+							x:Name="bd" Margin="0" CornerRadius="2" Grid.Column="0"			
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"													
+							BorderBrush="{TemplateBinding BorderBrush}" 
+							BorderThickness="{TemplateBinding BorderThickness}" 
+							Background="{TemplateBinding Background}">
+							<Path
+								x:Name="iso" 	
+								Margin="2"
+								Fill="{TemplateBinding Foreground}" 								
+								Data="M 0 2.0 L 0 4.8 L 2.5 7.4 L 7.1 2.8 L 7.1 0 L 2.5 4.6 Z" />							
+						</Border>
+						<ContentPresenter
+							Margin="3,0,0,0"  Grid.Column="1" RecognizesAccessKey="True"							
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Fill" TargetName="iso" Value="{DynamicResource ResourceKey=ForegroundHighlight}"/>
+                            <Setter Property="Background" Value="{DynamicResource ResourceKey=BackgroundDisabled}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ResourceKey=ForegroundDisabled}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource ResourceKey=ForegroundDisabled}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="false">
+							<Setter Property="Visibility" TargetName="iso" Value="Hidden"/>
+						</Trigger>
+						<Trigger Property="IsChecked" Value="{x:Null}"/>
+						<Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource ResourceKey=BackgroundHighlight}"/>
+                            <Setter Property="Fill" TargetName="iso" Value="{DynamicResource ResourceKey=ForegroundHighlight}"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource ResourceKey=BackgroundPressed}"/>
+                            <Setter Property="Fill" TargetName="iso" Value="{DynamicResource ResourceKey=ForegroundPressed}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="FocusVisualStyle">
+			<Setter.Value>
+				<Style >
+					<Setter Property="Control.Template">
+						<Setter.Value>
+							<ControlTemplate>
+								<Rectangle 
+									Margin="0" SnapsToDevicePixels="true" StrokeThickness="1" StrokeDashArray="1 2"
+									Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+							</ControlTemplate>							
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</Setter.Value>
+		</Setter>
+		
+	</Style>
+
+
+</ResourceDictionary>

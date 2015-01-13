@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ActionTriggerModifyView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+    <prop name="trigger" clr-type="ActionTrigger" />
+    <prop name="actions" clr-type="Action1[]" />
+    <prop name="topicSet" clr-type="TopicSetType" />
+	</model>
+  <result>
+    <option name="Apply">
+      <param name="model" clr-type="Model"/>
+    </option>
+    <option name="Cancel">
+      <param name="model" clr-type="Model"/>
+    </option>
+    <option name="Close"/>
+  </result>
+</activity>

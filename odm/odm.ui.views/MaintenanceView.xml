@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="MaintenanceView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="firmwareVersion" clr-type="string" read-only="true"/>
+		<prop name="capabilities" clr-type="Capabilities" read-only="true"/>
+		<prop name="isFirmwareUpgradeSupported" clr-type="bool" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Backup">
+			<param name="backupPath" clr-type="string"/>
+		</option>
+		<option name="Restore">
+			<param name="backupPath" clr-type="string"/>
+		</option>
+		<option name="SoftReset"/>
+		<option name="HardReset"/>
+		<!--<param name="type" clr-type="FactoryDefaultType"/>
+		</option>-->
+		<option name="Reboot"/>			
+		<option name="Upgrade">
+			<param name="firmwarePath" clr-type="string"/>
+		</option>
+		<option name="Close"/>
+	</result>
+</activity>

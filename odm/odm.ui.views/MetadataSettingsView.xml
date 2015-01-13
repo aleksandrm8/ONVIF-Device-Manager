@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="MetadataSettingsView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<use clr-ns="System.Xml.Schema"/>
+	<model>
+		
+		<prop name="includeAnalitycs" clr-type="bool"/>
+		<prop name="isPtzStatusSupported" clr-type="bool" read-only="true"/>
+		<prop name="includePtzStatus" clr-type="bool"/>
+		<prop name="isPtzPositionSupported" clr-type="bool" read-only="true"/>
+		<prop name="includePtzPosition" clr-type="bool"/>
+		<prop name="includeEvents" clr-type="bool"/>
+
+		<prop name="messageContentFilterDialects" clr-type="string[]" read-only="true"/>
+		<prop name="topicExpressionDialects" clr-type="string[]" read-only="true"/>
+		<prop name="isFixedTopicSet" clr-type="bool" read-only="true"/>
+		<prop name="topicSet" clr-type="TopicSetType" read-only="true"/>
+		<!--<prop name="messageContentSchemaSet" clr-type="XmlSchemaSet" read-only="true"/>-->
+		<prop name="topicExpressionFilters" clr-type="TopicExpressionFilter[]"/>
+		<prop name="messageContentFilters" clr-type="MessageContentFilter[]"/>
+	</model>
+
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="None"/>
+	</result>
+</activity>

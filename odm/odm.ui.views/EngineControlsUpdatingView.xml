@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlsUpdatingView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+  <model>
+    <prop name="control" clr-type="AnalyticsEngineControl" />
+  </model>
+  <result>
+    <option name="Finish">
+      <param name="config" clr-type="AnalyticsEngineControl"/>
+    </option>
+    <option name="ConfigureInputs">
+      <param name="config" clr-type="AnalyticsEngineControl"/>
+    </option>
+    <option name="ConfigureVac">
+      <param name="config" clr-type="AnalyticsEngineControl"/>
+    </option>
+    <option name="Abort"/>
+  </result>
+</activity>

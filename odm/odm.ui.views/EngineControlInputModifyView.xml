@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlInputModifyView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+    <prop name="vec" clr-type="VideoEncoderConfiguration" />
+  </model>
+	<result>
+		<option name="Finish">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="Abort"/>
+	</result>
+</activity>

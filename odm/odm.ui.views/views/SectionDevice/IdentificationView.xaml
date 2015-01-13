@@ -1,0 +1,176 @@
+﻿<UserControl 
+	x:Class="odm.ui.activities.IdentificationView"
+	xmlns:l="clr-namespace:odm.ui.controls"
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	x:Name="ctrl">
+	<Grid
+		Margin="10,15,10,10"
+		HorizontalAlignment="Left" VerticalAlignment="Top"
+		MaxWidth="400" MinWidth="250">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="6"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<Grid 
+			Grid.Row="0"
+			HorizontalAlignment="Stretch" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto" MinWidth="60"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
+			<Grid.Resources>
+				<Style TargetType="TextBox" BasedOn="{StaticResource ResourceKey={x:Type TextBox}}">
+					<Setter Property="Margin" Value="6,0,0,4" />
+					<Setter Property="VerticalContentAlignment" Value="Center" />
+					<Setter Property="MaxLines" Value="1" />
+					<Setter Property="Grid.Column" Value="1" />
+				</Style>
+				<Style TargetType="Label" BasedOn="{StaticResource ResourceKey={x:Type Label}}">
+					<Setter Property="Margin" Value="0,0,0,4" />
+					<Setter Property="Padding" Value="0" />
+					<Setter Property="VerticalContentAlignment" Value="Center" />
+					<Setter Property="Grid.Column" Value="0" />
+				</Style>
+			</Grid.Resources>
+			<!--Content="{Binding Strings.name, ElementName=ctrl}"-->
+			<Label
+				x:Name="nameCaption" 
+				Content="Name:"
+				Grid.Row="0"/>
+			<TextBox 
+				x:Name="nameValue"
+				Text="Device Name" 
+				Grid.Row="0"/>
+			<Label
+				x:Name="locationCaption"
+				Content="Location:"
+				Grid.Row="1"/>
+			<TextBox 
+				x:Name="locationValue" 
+				Text="Some location" 
+				Grid.Row="1"/>
+
+			<Label
+				x:Name="manufacturerCaption"
+				Content="Manufacturer:"
+				Grid.Row="2"/>
+			<TextBox 
+				x:Name="manufacturerValue" 
+				Text="Manufacturer"
+				Grid.Row="2"
+				IsReadOnly="True"/>
+
+			<Label
+				x:Name="modelCaption"
+				Content="Model:"
+				Grid.Row="3"/>
+			<TextBox 
+				x:Name="modelValue" 
+				Text="Device Model"
+				Grid.Row="3"
+				IsReadOnly="True"/>
+
+			<Label 
+				x:Name="hardwareCaption"
+				Content="Hardware:"
+				Grid.Row="4"/>
+			<TextBox 
+				x:Name="hardwareValue"
+				Text="r162"
+				Grid.Row="4" 
+				IsReadOnly="True"/>
+
+			<Label 
+				x:Name="firmwareCaption"
+				Content="Firmware:"
+				Grid.Row="5"/>
+			<TextBox 
+				x:Name="firmwareValue"
+				Text="v5.20"
+				Grid.Row="5" 
+				IsReadOnly="True"/>
+
+			<Label
+				x:Name="serialCaption"
+				Content="Serial #:"
+				Grid.Row="6"/>
+			<TextBox 
+				x:Name="serialValue" 
+				Text="00408CA57B94" 
+				Grid.Row="6"
+				IsReadOnly="True"/>
+
+			<Label 
+				x:Name="ipAddressCaption"
+				Content="IP address:"
+				Grid.Row="7"/>
+			<TextBox 
+				x:Name="ipAddressValue" 
+				Text="192.168.0.2"
+				Grid.Row="7"
+				IsReadOnly="True"/>
+
+			<Label 
+				x:Name="macCaption" 
+				Content="MAC:"
+				Grid.Row="8"/>
+			<TextBox
+				x:Name="macValue"
+				Text="00-40-8C-A5-7B-95"
+				Grid.Row="8"
+				IsReadOnly="True"/>
+
+			<Label 
+				x:Name="onvifVersionCaption" 
+				Content="ONVIF version:"
+				Grid.Row="9"/>
+			<TextBox
+				x:Name="onvifVersionValue"
+				Text="2.1"
+				Grid.Row="9"
+				IsReadOnly="True"/>
+
+            <Label  
+				Content="URI:"
+				Grid.Row="10"/>
+            <TextBox
+				x:Name="onvifUriValue"
+				Text="http://192.168.3.3/onvif-sevices"
+				Grid.Row="10"
+				IsReadOnly="True"/>
+        </Grid>
+
+		<StackPanel 
+			Grid.Row="2"
+			Margin="0" 
+			HorizontalAlignment="Right" Orientation="Horizontal">
+			<Button 
+				x:Name="applyButton"
+				Content="Apply" 
+				HorizontalAlignment="Left" Style="{StaticResource ButtonLeft}"/>
+			<Button 
+				x:Name="cancelButton"
+				Content="Cancel" 
+				Margin="0" HorizontalAlignment="Left" Style="{StaticResource ButtonRight}" />
+		</StackPanel>
+
+	</Grid>
+</UserControl>

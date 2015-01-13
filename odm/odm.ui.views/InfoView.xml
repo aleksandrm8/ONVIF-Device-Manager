@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="InfoView" clr-ns="odm.ui.activities">
+	<model>
+		<prop name="message" clr-type="string" read-only="true"/>
+		<!--<prop name="kind" clr-type="bool" read-only="true"/>-->
+	</model>
+	<result>
+		<option name="Ok"/>
+	</result>
+</activity>

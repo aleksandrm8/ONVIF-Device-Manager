@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14e1a0f2-ca90-4c89-af93-058a1dced77b}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>odm_ui_activities</RootNamespace>
+    <AssemblyName>odm.ui.activities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <Name>odm-ui-activities</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\Debug\odm_ui_activities.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\Release\odm.ui.activities.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoWarn>58</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.5\Microsoft.FSharp.Targets" Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.5\Microsoft.FSharp.Targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition="(!Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')) And (Exists('$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets'))" />
+  <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="(!Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')) And (!Exists('$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets')) And (Exists('$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets'))" />
+  <ItemGroup>
+    <Compile Include="..\~cfg\AssemblyInfo.global.fs">
+      <Link>Properties\AssemblyInfo.global.fs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.fs" />
+    <Compile Include="Primitives.fs" />
+    <Compile Include="SaveFileActivity.fs" />
+    <Compile Include="OpenFileActivity.fs" />
+    <Compile Include="IdentificationActivity.fs" />
+    <Compile Include="ProfileDescription.fs" />
+    <Compile Include="ConfigureProfileActivity.fs" />
+    <Compile Include="CreateProfileActivity.fs" />
+    <Compile Include="ProfileManagementActivity.fs" />
+    <Compile Include="NetworkSettingsActivity.fs" />
+    <Compile Include="TimeSettingsActivity.fs" />
+    <Compile Include="UpgradeFirmwareActivity.fs" />
+    <Compile Include="MaintenanceActivity.fs" />
+    <Compile Include="LiveVideoActivity.fs" />
+    <Compile Include="VideoSettingsActivity.fs" />
+    <Compile Include="PtzActivity.fs" />
+    <Compile Include="AnalyticsActivity.fs" />
+    <Compile Include="ImagingSettingsActivity.fs" />
+    <Compile Include="MetadataSettingsActivity.fs" />
+    <Compile Include="UserManagementActivity.fs" />
+    <Compile Include="CertificateManagementActivity.fs" />
+    <Compile Include="VideoPlayerActivity.fs" />
+    <Compile Include="SelectReceiverActivity.fs" />
+    <Compile Include="NvaControlManagmentActivity.fs" />
+    <None Include="packages.config" />
+    <Compile Include="ReceiverManagmentActivity.fs" />
+    <Compile Include="ActionManagementActivity.fs" />
+    <Compile Include="ActionTriggerManagementActivity.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FSharp.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\..\packages\Rx-Core.2.0.20823\lib\Net40\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\..\packages\Rx-Interfaces.2.0.20823\lib\Net40\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\..\packages\Rx-Linq.2.0.20823\lib\Net40\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Discovery, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <ProjectReference Include="..\..\onvif\onvif.services\onvif.services.csproj">
+      <Name>onvif.services</Name>
+      <Project>{3cb4f764-648f-4aa3-9e85-91992337d3ea}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\onvif\onvif.session\onvif.session.fsproj">
+      <Name>onvif.session</Name>
+      <Project>{902a3ff3-e9bd-443d-8fc1-69aa42b5f76b}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\onvif\onvif.utils\onvif.utils.fsproj">
+      <Name>onvif.utils</Name>
+      <Project>{55ded141-56c3-4da9-be07-03708d7a2275}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.bindings\utils.bindings.csproj">
+      <Name>utils.bindings</Name>
+      <Project>{161f40e9-5db5-4aac-93e3-20533c8ec463}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.common\utils.common.csproj">
+      <Name>utils.common</Name>
+      <Project>{2faa440a-87d3-41ab-9931-25ac306a25ba}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.diagnostics\utils.diagnostics.csproj">
+      <Name>utils.diagnostics</Name>
+      <Project>{c89d83ca-c0fa-4573-a63e-f716dd628696}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.fsharp\utils.fsharp.fsproj">
+      <Name>utils.fsharp</Name>
+      <Project>{04196c86-66f6-4a9c-be0b-90aa5353b1c6}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.linq\utils.linq.csproj">
+      <Name>utils.linq</Name>
+      <Project>{65fb2c9f-3a0f-4e3f-adbd-912bc6f08508}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj">
+      <Name>utils.xml</Name>
+      <Project>{c00b45e2-5aba-4f7a-bd85-505594794aae}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\odm.infra\odm.infra.fsproj">
+      <Name>odm.infra</Name>
+      <Project>{a13dcae1-f908-431b-94ba-9cce4c11d496}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\odm.localization\odm.localization.csproj">
+      <Name>odm.localization</Name>
+      <Project>{88a8b3a8-7758-4e5a-8da8-692bac98b07b}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\odm.player\odm.player.media\odm.player.media.csproj">
+      <Name>odm.player.media</Name>
+      <Project>{5ee86409-3ea7-482a-8702-6dca0d3bc4b1}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\odm.player\odm.player.net\odm.player.net.vcxproj">
+      <Name>odm.player.net</Name>
+      <Project>{d3eeb24e-79a7-48b3-8d58-edbabb68cf0a}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\odm.ui.views\odm.ui.views.csproj">
+      <Name>odm.ui.views</Name>
+      <Project>{fb9f3dd8-4b0e-4ed8-8f1d-dc52650d3596}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

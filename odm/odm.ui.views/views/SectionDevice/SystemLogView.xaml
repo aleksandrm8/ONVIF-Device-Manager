@@ -1,0 +1,155 @@
+﻿<l:BasePropertyControl x:Class="odm.ui.controls.SystemLogView"
+             xmlns:l="clr-namespace:odm.ui.controls"
+             xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <l:BasePropertyControl.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVisible"/> 
+    </l:BasePropertyControl.Resources>
+    
+    <l:ContentColumn Title="{Binding Titles.systemLog}" Background="{DynamicResource ResourceKey=PropertyBrush}">
+        <Grid HorizontalAlignment="Stretch">
+            <Grid 
+                Visibility="{Binding StateError}"
+                Margin="10,15,10,10" MaxWidth="400"
+                HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition x:Name="contentColumn" Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image 
+                    Grid.Row="0" Grid.Column="0" 
+                    Source="/odm.ui.views;component/images/alert3-th.png" 
+                    Width="42" Stretch="Uniform"
+                    Margin="0" VerticalAlignment="Top"/>
+                <TextBlock 
+                    Grid.Row="0" Grid.Column="2" 
+                    x:Name="message"
+                    Text="{Binding ErrorMessage}" 
+                    Margin="0" Padding="0"
+                    TextWrapping="Wrap" VerticalAlignment="Center"/>
+                <!--<Expander Header="Details" Visibility="Visible">
+			<WebBrowser/>
+		</Expander>-->
+                <StackPanel 
+                    x:Name="buttonsStackPanel"
+                    Grid.Row="2" Grid.Column="2"
+                    Margin="0"
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+                    <!--<Button 
+                        x:Name="detailsButton"
+				IsEnabled="False"
+				Content="Show details" 
+				Margin="0"
+				HorizontalAlignment="Right" Style="{DynamicResource ButtonLeft}"/>-->
+                    <Button 
+                        x:Name="okButton"
+                        cmd:Click.Command="{Binding btnErrorClose}"
+                        Content="{Binding ButtonStrings.close}" 
+                        Margin="3,0,0,0"
+                        HorizontalAlignment="Right"/>
+                    <!--Style="{DynamicResource ButtonRight}"/>-->
+                </StackPanel>
+            </Grid>
+            <Grid Visibility="{Binding StateLoading}" 
+                  Margin="10,15,10,10" MaxWidth="400" MinWidth="250"
+                  HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image 
+			        Width="40"
+			        Grid.Row="0" Grid.Column="0" 
+			        Source="/odm.ui.views;component/images/gears_th.png" 
+			        Margin="0" VerticalAlignment="Top" Stretch="Uniform"/>
+                <StackPanel 
+			        Grid.Row="0" Grid.Column="2" 
+			        Margin="0" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                    <TextBlock
+				        x:Name="messageBlock"
+				        Text="{Binding AppStrings.loading}" 
+				        Margin="0" Padding="0"
+				        TextWrapping="Wrap" />
+                    <ProgressBar 
+				        x:Name="progressValue"
+				        Visibility="{Binding IsProgressVisible}" 
+				        Height="16" IsIndeterminate="True" Margin="0,10,0,0"/>
+                </StackPanel>
+                <!--<StackPanel 
+			        Grid.Row="2" Grid.Column="2"
+			        Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button 
+				x:Name="cancelButton"
+				IsEnabled="False"
+				Content="Cancel" 
+				Margin="3,0,0,0" 
+				HorizontalAlignment="Right"/>
+                </StackPanel>-->
+            </Grid>
+            <DockPanel  Visibility="{Binding StateCommon}" HorizontalAlignment="Stretch">
+                <StackPanel Margin="3" DockPanel.Dock="Top" Orientation="Horizontal">
+                    <Label Margin="3,0,0,0" Content="{Binding Strings.logType}"/>
+                    <ComboBox Margin="3,0,0,0" SelectedItem="{Binding SelectedType}" ItemsSource="{Binding SysTypes}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Margin="3,0,0,0" cmd:Click.Command="{Binding OnGet}" Content="{Binding Strings.Get}"/>
+                </StackPanel>
+                <DockPanel Margin="3" DockPanel.Dock="Top" HorizontalAlignment="Stretch">
+                    <TextBlock DockPanel.Dock="Left"
+                               Margin="3"
+                               VerticalAlignment="Bottom"
+                               Foreground="DarkGray"
+                               FontWeight="Bold"
+                               Text="{Binding LogInfo}"/>
+                    <Button HorizontalAlignment="Right" 
+                            DockPanel.Dock="Right"
+                            Width="32" 
+                            Height="32"
+                            Padding="4"
+                            Margin="1"
+                            Name="btnSaveLog"
+                            cmd:Click.Command="{Binding OnSave}" 
+                            Visibility="{Binding IsEnabled, ElementName=btnSaveLog, Converter={StaticResource boolToVisible}}"
+                            Style="{DynamicResource ImageButton}">
+                        <Image Source="/odm.ui.views;component/images/diskette_icon.png"/>
+                    </Button>
+                    <Button HorizontalAlignment="Right" 
+                            DockPanel.Dock="Right"
+                            Width="32" 
+                            Height="32"
+                            Padding="4" 
+                            Margin="1"
+                            Name="btnSaveAttach"
+                            cmd:Click.Command="{Binding OnAttach}"
+                            Visibility="{Binding IsEnabled, ElementName=btnSaveAttach, Converter={StaticResource boolToVisible}}"
+                            Style="{DynamicResource ImageButton}">
+                        <Image Source="/odm.ui.views;component/images/PaperClip3_Black.png"/>
+                    </Button>
+                </DockPanel>
+                <TextBox IsReadOnly="True" Text="{Binding SystemLogString}" VerticalContentAlignment="Top" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+            </DockPanel>
+        </Grid>
+    </l:ContentColumn>
+</l:BasePropertyControl>

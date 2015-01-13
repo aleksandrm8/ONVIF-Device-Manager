@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ImagingSettingsView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="profToken" clr-type="string" read-only="true"/>
+    <prop name="sourceToken" clr-type="string" read-only="true"/>
+		
+		<prop name="options" clr-type="ImagingOptions20" read-only="true"/>
+		<prop name="settings" clr-type="ImagingSettings20"/>
+        <prop name="moveOptions" clr-type="MoveOptions20" read-only="true"/>
+  </model>
+
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="None"/>
+	</result>
+</activity>

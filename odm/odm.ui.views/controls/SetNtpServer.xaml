@@ -1,0 +1,12 @@
+﻿<Window x:Class="odm.ui.controls.SetNtpServer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:odm.ui.controls"
+        Title="SetNtpServer" 
+        SizeToContent="WidthAndHeight"
+		ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <DockPanel >
+        <TextBox Height="23" Name="ntpAddress" DockPanel.Dock="Top"/>
+        <Button Content="Button" Height="23" Name="setButton" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0"  />
+    </DockPanel>
+</Window>

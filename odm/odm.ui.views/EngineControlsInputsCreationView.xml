@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlsInputsCreationView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="receivers" clr-type="Receiver[]" />
+    <prop name="inputs" clr-type="AnalyticsEngineInput[]" />
+  </model>
+	<result>
+		<option name="Finish">
+			<param name="model" clr-type="Model"/>
+		</option>
+    <option name="Modify">
+      <param name="input" clr-type="AnalyticsEngineInput"/>
+    </option>
+		<option name="Abort"/>
+	</result>
+</activity>

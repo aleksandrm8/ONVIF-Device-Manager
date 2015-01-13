@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="VbBrushes.xaml"/>
+        <ResourceDictionary Source="VbButtons.xaml"/>
+        <ResourceDictionary Source="VbComboBox.xaml"/>
+        <ResourceDictionary Source="VbGroupBox.xaml"/>
+        <ResourceDictionary Source="VbSlider.xaml"/>
+        <ResourceDictionary Source="VbScroll.xaml"/>
+        <ResourceDictionary Source="VbLabel.xaml"/>
+        <ResourceDictionary Source="VbTextBox.xaml"/>
+        <ResourceDictionary Source="VbExpander.xaml"/>
+        <ResourceDictionary Source="VbRadioButton.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DrawingImage x:Key="images.odm_icon">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Geometry="F1 M 24,3.8147e-006C 37.2548,3.8147e-006 48,10.7452 48,24C 48,37.2548 37.2548,48 24,48C 10.7452,48 1.58946e-007,37.2548 1.58946e-007,24C 1.58946e-007,10.7452 10.7452,3.8147e-006 24,3.8147e-006 Z M 26.4638,4.04661C 16.3238,4.04661 8.10376,12.2667 8.10376,22.4067C 8.10376,32.5467 16.3238,40.7668 26.4638,40.7668C 36.6038,40.7668 44.8239,32.5467 44.8239,22.4067C 44.8239,12.2667 36.6038,4.04661 26.4638,4.04661 Z ">
+                    <GeometryDrawing.Brush>
+                        <RadialGradientBrush RadiusX="0.889628" RadiusY="0.889628" Center="0.139811,0.23071" GradientOrigin="0.139811,0.23071">
+                            <RadialGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <RotateTransform CenterX="0.139811" CenterY="0.23071" Angle="35.9524"/>
+                                </TransformGroup>
+                            </RadialGradientBrush.RelativeTransform>
+                            <GradientStop Color="#FF7AACDC" Offset="0"/>
+                            <GradientStop Color="#FF1E2187" Offset="1"/>
+                        </RadialGradientBrush>
+                    </GeometryDrawing.Brush>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+</ResourceDictionary>

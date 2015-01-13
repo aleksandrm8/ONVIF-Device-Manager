@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="odm.ui.controls.ExpressionFilterControl"
+			 xmlns:Local="clr-namespace:odm.ui.controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+			 x:Name="ctrl"
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+			<Grid Margin="0,6,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<!--Current fliters list-->
+				<GroupBox Name="groupFilters"
+						Margin="4"
+						Grid.Row="0"
+						Header="Fliter settings:">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<DockPanel Grid.Row="1" Grid.Column="0">
+							<CheckBox Margin="3" Visibility="Collapsed" DockPanel.Dock="Top" IsChecked="{Binding IsIncludeEvents, ElementName=ctrl}" Name="includeEvents" Content="{Binding strings.includeEvents, ElementName=ctrl}"/>
+							<Button Content="Delete"
+									IsEnabled="{Binding IsChecked, ElementName=includeEvents}"
+									Name="btnDeleteFilter" Margin="4,0,4,4" HorizontalAlignment="Right" DockPanel.Dock="Bottom"/>
+							<ScrollViewer  
+								VerticalScrollBarVisibility="Auto" 
+								Margin="4"
+								MinHeight="100" MinWidth="150">
+								<ListBox Name="valueFilters" IsEnabled="{Binding IsChecked, ElementName=includeEvents}">
+									<ListBox.ItemTemplate>
+										<DataTemplate>
+											<StackPanel Orientation="Horizontal">
+												<Label HorizontalAlignment="Center" Content="{Binding FilterTypeName}" Width="60"/>
+												<Label HorizontalAlignment="Center" Margin="6,0,0,0" MinWidth="200" MaxWidth="300" Content="{Binding Value}"/>
+											</StackPanel>
+										</DataTemplate>
+									</ListBox.ItemTemplate>
+								</ListBox>
+							</ScrollViewer>
+						</DockPanel>
+
+					</Grid>
+				</GroupBox>
+				<!--Add filter section-->
+				<Grid Grid.Column="1" Name="panelFilterEditor" IsEnabled="{Binding IsChecked, ElementName=includeEvents}"/>
+			</Grid>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

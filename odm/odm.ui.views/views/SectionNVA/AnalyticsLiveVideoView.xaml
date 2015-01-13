@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="odm.ui.activities.AnalyticsLiveVideoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:odm.ui.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             x:Name="root"
+             >
+    <DockPanel>
+        <Grid Margin="0,0,0,6">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Border x:Name="player" Margin="0" Background="Black"/>
+            <Viewbox>
+                <ItemsControl x:Name="objects">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:VAObjectView />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas ClipToBounds="True"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Viewbox>
+            <Viewbox>
+                <!--<ListBox x:Name="alarms" Margin="5">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <views:VAAlarmView/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.Template>
+                        <ControlTemplate>
+                            <ScrollViewer 
+                                x:Name="ScrollViewer" 
+                                Padding="{TemplateBinding Padding}"
+                                VerticalScrollBarVisibility="Auto"
+                                HorizontalScrollBarVisibility="Disabled"
+                                CanContentScroll="False"
+                                >
+                                <ItemsPresenter />
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </ListBox.Template>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="Focusable" Value="False"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>-->
+                <ItemsControl x:Name="alarms" Margin="5">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:VAAlarmView HorizontalAlignment="Right" Margin="3"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.Template>
+                        <ControlTemplate>
+                            <ScrollViewer
+                                x:Name="ScrollViewer"
+                                Padding="{TemplateBinding Padding}"
+                                VerticalScrollBarVisibility="Auto"
+                                HorizontalScrollBarVisibility="Disabled"
+                                CanContentScroll="False"
+                                >
+                                <ItemsPresenter />
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                </ItemsControl>
+            </Viewbox>
+            
+
+            <TextBox Grid.Row="1" Name="uriString"  Margin="2,4,2,0" HorizontalAlignment="Stretch" Background="White" Foreground="Black" IsReadOnly="True" Visibility="Collapsed"/>
+        </Grid>
+    </DockPanel>
+</UserControl>

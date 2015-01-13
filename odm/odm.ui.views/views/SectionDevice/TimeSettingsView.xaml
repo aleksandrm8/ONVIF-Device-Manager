@@ -1,0 +1,153 @@
+﻿<l:BasePropertyControl 
+	x:Class="odm.ui.activities.TimeSettingsView" 
+	x:Name="self"
+	xmlns:l="clr-namespace:odm.ui.controls"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	mc:Ignorable="d" >
+
+	<Grid 
+		Margin="10,15,10,10"
+		MinWidth="250"
+		HorizontalAlignment="Left" VerticalAlignment="Top">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="10"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="10"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="10"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Row="0" Margin="0">
+			<Grid 
+				x:Name="ErrorBlock"
+				Margin="0,0,0,10"
+				HorizontalAlignment="Stretch" VerticalAlignment="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="10" />
+					<ColumnDefinition x:Name="contentColumn" Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Image 
+					Grid.Row="0" Grid.Column="0" 
+					Source="/odm.ui.views;component/images/alert3-th.png" 
+					Width="42" Stretch="Uniform"
+					Margin="0" VerticalAlignment="Top"/>
+				<TextBlock 
+					x:Name="ErrorMessage"
+					Grid.Row="0" Grid.Column="2" 
+					Text="some message" 
+					Margin="0" Padding="0"
+					TextWrapping="Wrap" VerticalAlignment="Center"/>
+			</Grid>
+			<StackPanel Orientation="Horizontal" Margin="0">
+				<TextBlock 
+					x:Name="deviceDateTimeCaption"
+					Text="Current device time:"
+					Padding="0" Margin="0,0,4,0"
+					VerticalAlignment="Center"/>
+				<l:DateTimeControl x:Name="valueDeviceTime"/>
+			</StackPanel>
+		</StackPanel>
+
+		<GroupBox 
+			x:Name="timeZoneGroupBox"
+			Grid.Row="2"
+			Header="Time zone:"
+			Margin="0" Padding="4,8,4,4">
+
+			<StackPanel Margin="0">
+				<StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+					<ComboBox 
+						IsEditable="True"
+						IsReadOnly="True"
+						BorderThickness="0"
+						VerticalAlignment="Stretch"
+						x:Name="timeZonesComboBox"
+						Margin="0" HorizontalAlignment="Left" MinWidth="100" MaxWidth="350">
+					</ComboBox>
+					<Button Name="btnCustomTZ" Content="..." Margin="4,0,0,0" VerticalAlignment="Stretch"/>
+				</StackPanel>
+				<CheckBox 
+					x:Name="daylightCheckBox"
+					IsChecked="false" Content="Automatically adjust for daylight saving time changes."
+					Margin="0"/>
+			</StackPanel>
+		</GroupBox>
+
+		<GroupBox 
+			Grid.Row="4"
+			x:Name="timeSettingsGroupBox" 
+			Header="Time settings:"
+			Margin="0" Padding="4,8,4,4">
+			<GroupBox.Resources>
+				<BooleanToVisibilityConverter x:Key="boolToVisibility"/>
+			</GroupBox.Resources>
+			<StackPanel Margin="0">
+				<ComboBox
+					x:Name="mode"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left" Margin="0,0,0,8" MinWidth="100" MaxWidth="200">
+					<ComboBoxItem x:Name="syncWithComp" Content="Synchronize with NTP server"/>
+					<ComboBoxItem x:Name="syncWithNtp" Content="Synchronize with computer time"/>
+					<ComboBoxItem x:Name="setManual" Content="Set manually"/>
+				</ComboBox>
+				<!--<Label Content="Ntp server" Name="labelNtp" Grid.Column="2" Grid.Row="1"/>-->
+				<StackPanel 
+					Name="PanelNtpMode"
+					Margin="0" HorizontalAlignment="Stretch">
+					<TextBlock 
+						x:Name="ntpSettingsToolTip" 
+						Text="Please go to Network settings link to set up NTP servers"/>
+				</StackPanel>
+
+				<StackPanel 
+					x:Name="PanelManualMode"
+					HorizontalAlignment="Left" Margin="0" Orientation="Horizontal">
+					<TextBlock 
+						x:Name="newManualTimeCaption"
+						Text="New time:"
+						Padding="0" Margin="0,0,4,0" VerticalAlignment="Center" />
+					<l:TimePicker 
+						x:Name="newManualTimeValue"
+						SelectedTime="17:07:34" 
+						Margin="0,0,4,0" />
+					<DatePicker 
+						x:Name="newManualDateValue"
+						SelectedDate="07/15/2011"
+						Margin="0,0,4,0" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+				</StackPanel>
+
+				<StackPanel 
+					x:Name="PanelSystemMode"
+					HorizontalAlignment="Left" Margin="0" Orientation="Horizontal">
+
+					<TextBlock 
+						x:Name="newCompTimeCaption"
+						Text="New time:"
+						Padding="0" Margin="0,0,4,0" VerticalAlignment="Center" />
+					<l:DateTimeControl x:Name="valueNewTime"/>
+				</StackPanel>
+			</StackPanel>
+		</GroupBox>
+		
+		<StackPanel 
+			Grid.Row="6"
+			HorizontalAlignment="Right"
+			Orientation="Horizontal" Margin="0">
+			<Button 
+				x:Name="applyButton"
+				Content="Apply" 
+				HorizontalAlignment="Left" Style="{StaticResource ButtonLeft}"/>
+			<Button 
+				x:Name="cancelButton"
+				Content="Cancel" 
+				HorizontalAlignment="Left" Style="{StaticResource ButtonRight}" />
+		</StackPanel>
+		
+	</Grid>
+</l:BasePropertyControl>

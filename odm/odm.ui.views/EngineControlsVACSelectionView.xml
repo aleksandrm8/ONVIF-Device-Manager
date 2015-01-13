@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlsVACSelectionView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="active" clr-type="Receiver[]" />
+    <prop name="vacs" clr-type="AnalyticsEngineInput[]" />
+  </model>
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="Abort"/>
+	</result>
+</activity>

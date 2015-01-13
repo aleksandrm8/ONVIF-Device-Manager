@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="AnalyticsMetadataSettingsView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<use clr-ns="System.Xml.Schema"/>
+	<model>
+        <prop name="uri" clr-type="string" read-only="true"/>
+        <prop name="size" clr-type="VideoResolution" read-only="true"/>
+        <prop name="engineConfToken" clr-type="string" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="None"/>
+	</result>
+</activity>

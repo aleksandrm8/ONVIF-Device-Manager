@@ -1,0 +1,24 @@
+﻿<!-- 
+    Example of Usage: 
+    
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/utils.wpf;component/converters/Converters.xaml" />
+    </UserControl.Resources>
+-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:l="clr-namespace:utils"
+                    >
+    <l:CollapsedVisibilityConverter x:Key="CollapsedVisibilityConverter"/>
+    <l:HiddenVisibilityConverter x:Key="HiddenVisibilityConverter"/>
+    <l:IsNullConverter x:Key="IsNullConverter"/>
+    <l:BooleanToOppositeConverter x:Key="BooleanToOppositeConverter"/>
+    <l:MultiplyConverter x:Key="MultiplyConverter" />
+    <l:AddConverter x:Key="AddConverter" />
+
+    <l:ValueConverterGroup x:Key="IsNullToCollapsedConverter">
+        <StaticResource ResourceKey="IsNullConverter"/>
+        <StaticResource ResourceKey="BooleanToOppositeConverter"/>
+        <StaticResource ResourceKey="CollapsedVisibilityConverter"/>
+    </l:ValueConverterGroup>
+</ResourceDictionary>

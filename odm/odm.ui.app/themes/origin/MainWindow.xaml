@@ -1,0 +1,30 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:odm.ui.controls;assembly=odm.ui.views"
+	xmlns:ui="clr-namespace:odm.ui">
+
+	<Style x:Key="{x:Type ui:MainWindow}" TargetType="{x:Type ui:MainWindow}">
+		<Setter Property="WindowStyle" Value="SingleBorderWindow"/>
+		<Setter Property="ResizeMode" Value="CanResize"/>
+
+		<!--<Setter Property="Background" Value="#FF556688"/>-->
+		<Setter Property="Background" Value="#FF778899"/>
+		<!--<Setter Property="Background" Value="#FF4D6082"/>-->
+		<!--<Setter Property="Background" Value="#FFB4C0CE"/>-->
+		<!--<Setter Property="Background" Value="#FF889988"/>-->
+		<Setter Property="Foreground" Value="Gray"/>
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ui:MainWindow}">
+					<DockPanel Background="{TemplateBinding Background}">
+						<ContentPresenter DockPanel.Dock="Top" HorizontalAlignment="Right" VerticalAlignment="Center" ContentSource="ToolBar" Grid.Column="1"/>
+						<ContentPresenter Margin="0"/>
+					</DockPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

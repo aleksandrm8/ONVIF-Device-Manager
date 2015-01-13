@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ReceiversView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+    <prop name="receivers" clr-type="Receiver[]"/>
+    <prop name="selection" clr-type="Receiver" />
+	</model>
+  <result>
+    <option name="Create">
+      <param name="model" clr-type="Model"/>
+    </option>
+    <option name="Delete">
+      <param name="model" clr-type="Model"/>
+    </option>
+    <option name="Modify">
+      <param name="model" clr-type="Model"/>
+    </option>
+    <option name="Close"/>
+  </result>
+</activity>

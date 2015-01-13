@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="odm.ui.views.CustomAnalytics.TamperingDetectorsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:odm.ui.controls"
+             mc:Ignorable="d" 
+             x:Name="ctrl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
+            <ContentControl ToolTip="{Binding Strings.cameraRedirectedTip, ElementName=ctrl}">
+                <CheckBox Content="{Binding Strings.cameraRedirected, ElementName=ctrl}" IsEnabled="{Binding isCameraRedirectedEnabled, ElementName=ctrl}" Name="cameraRedirected" Height="16"/>
+            </ContentControl>
+            <ContentControl ToolTip="{Binding Strings.cameraObstructedTip, ElementName=ctrl}">
+                <CheckBox Content="{Binding Strings.cameraObstructed, ElementName=ctrl}" IsEnabled="{Binding isCameraObstructedEnabled, ElementName=ctrl}" Name="cameraObstructed" Height="16"/>
+            </ContentControl>
+            <Rectangle DockPanel.Dock="Top" Margin="2,10,2,10" 
+				HorizontalAlignment="Left" MinWidth="350" VerticalAlignment="Stretch" 
+				Height="2"
+				Fill="{DynamicResource BackgroundHighlight}"/>
+            <CheckBox Content="{Binding Strings.imageTooDark, ElementName=ctrl}" Name="imageTooDark" Height="16" Grid.Column="0" Grid.Row="2"/>
+            <CheckBox Content="{Binding Strings.imageTooBlurry, ElementName=ctrl}" Name="imageTooBlurry" Height="16" Grid.Column="0" Grid.Row="0"/>
+            <CheckBox Content="{Binding Strings.imageTooBright, ElementName=ctrl}" Name="imageTooBright" Height="16" Grid.Column="0" Grid.Row="1"/>
+            <CheckBox Content="{Binding Strings.imageTooNoisy, ElementName=ctrl}" Name="imageTooNoisy" Height="16" Grid.Column="0" Grid.Row="2"/>
+        </StackPanel>
+		<Border x:Name="playerHolder"  Background="Black" Margin="0,0,0,6"/>
+	</DockPanel>
+</UserControl>

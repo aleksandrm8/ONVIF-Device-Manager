@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ProfileCreationView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="profName" clr-type="string" />
+		<prop name="profToken" clr-type="string" />
+
+		<prop name="videoSrcCfg" clr-type="VideoSourceConfiguration" />
+		<prop name="audioSrcCfg" clr-type="AudioSourceConfiguration" />
+
+		<prop name="isVideoSrcCfgEnabled" clr-type="bool" />
+		<prop name="isAudioSrcCfgEnabled" clr-type="bool" />
+
+		<prop name="videoSrcCfgs" clr-type="VideoSourceConfiguration[]" read-only="true"/>
+		<prop name="audioSrcCfgs" clr-type="AudioSourceConfiguration[]" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Finish">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="Abort"/>
+		<option name="Configure">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SelectVideoSrcCfg">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SelectAudioSrcCfg">
+			<param name="model" clr-type="Model"/>
+		</option>
+	</result>
+</activity>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ActionModifyView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+    <prop name="action" clr-type="Action1" />
+    <prop name="supportedActions" clr-type="SupportedActions"/>
+	</model>
+  <result>
+    <option name="Apply">
+      <param name="model" clr-type="Model"/>
+    </option>
+    <option name="Cancel">
+      <param name="model" clr-type="Model"/>
+    </option>
+    <option name="Close"/>
+  </result>
+</activity>

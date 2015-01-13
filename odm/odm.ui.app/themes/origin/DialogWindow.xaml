@@ -1,0 +1,71 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:odm.ui.controls;assembly=odm.ui.views">
+
+	<Style x:Key="dialog" TargetType="{x:Type l:DialogWindow}">
+		<Setter Property="WindowStyle" Value="None"/>
+		<Setter Property="AllowsTransparency" Value="True"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="ShowInTaskbar" Value="False"/>
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="OverridesDefaultStyle" Value="true"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type l:DialogWindow}">
+					<DockPanel>
+						<Border 
+							l:DialogWindow.IsNonClient="True"
+							BorderBrush="{DynamicResource BackgroundHighlight}"
+							BorderThickness="1,1,1,0"
+							DockPanel.Dock="Top" Margin="0" CornerRadius="6,6,0,0" 
+							VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+							Background="{DynamicResource BackgroundHighlight}">
+							<DockPanel Margin="10,6,0,6">
+								<TextBlock 
+									TextWrapping="Wrap" Foreground="White"
+									Text="{TemplateBinding Header}"
+									DockPanel.Dock="Left"
+									HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+									FontSize="12" FontWeight="Bold"/>
+								<Button 
+									Cursor="Hand" ToolTip="Close"
+									HorizontalAlignment="Right"
+									DockPanel.Dock="Right"
+									Command="l:DialogWindow.CloseCommand"
+									OverridesDefaultStyle="True"
+									SnapsToDevicePixels="True"
+									Width="16" Height="16"  Margin="10,0,6,0">
+									<Button.Template>
+										<ControlTemplate TargetType="{x:Type Button}">
+											<Viewbox Stretch="Uniform">
+												<Canvas Width="16" Height="16" IsHitTestVisible="True">
+													<Path 
+														Fill="{DynamicResource ButtonForegroundHighlight}" 
+														Stretch="Fill" 
+														Stroke="{x:Null}" 
+														Data="M4,0 L8,0 8,4 12,4 12,8 8,8 8,12 4,12 4,8 0,8 0,4 4,4" 
+														x:Name="isotype">
+														<Path.LayoutTransform>
+															<RotateTransform Angle="45"/>
+														</Path.LayoutTransform>
+													</Path>
+												</Canvas>
+											</Viewbox>
+										</ControlTemplate>
+									</Button.Template>
+								</Button>
+							</DockPanel>
+						</Border>
+						<Border  
+							Grid.Row="1" Margin="0" Background="White" 
+							CornerRadius="0,0,5,5" BorderThickness="1"
+							BorderBrush="{DynamicResource BackgroundHighlight}">
+							<ContentPresenter Margin="0" Grid.Row="2" ContentSource="Content" VerticalAlignment="Center"/>
+						</Border>
+					</DockPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model name="IdentificationModel" clr-ns="odm.models">
+	<prop name="name" clr-type="string" />
+	<prop name="location" clr-type="string" />
+    <prop name="iconUri" clr-type="string" />
+	<prop name="manufacturer" clr-type="string" />
+	<prop name="model" clr-type="string" />
+	<prop name="firmware" clr-type="string" />
+	<prop name="hardware" clr-type="string" />
+	<prop name="serial" clr-type="string" />
+	<prop name="host" clr-type="string" />
+	<prop name="mac" clr-type="string" />
+	<prop name="ip" clr-type="string" />
+</model>

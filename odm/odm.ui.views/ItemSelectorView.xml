@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ItemSelectorView" clr-ns="odm.ui.activities">
+	<model>
+		<prop name="items" clr-type="Item[]" read-only="true" />
+		<prop name="selection" clr-type="Item" />
+		<prop name="flags" clr-type="Flags" read-only="true"/>
+	</model>
+	<result>
+		<option name="Create"/>
+		<option name="Delete">
+			<param name="item" clr-type="Item"/>
+		</option>
+		<option name="Modify">
+			<param name="item" clr-type="Item"/>
+		</option>
+		<option name="Select">
+			<param name="item" clr-type="Item"/>
+		</option>
+		<option name="Close"/>
+	</result>
+</activity>

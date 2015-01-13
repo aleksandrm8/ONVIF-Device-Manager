@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="vb_color_green_S">#4C00FF00</Color>
+    <Color x:Key="vb_color_green_SM">#6600FF00</Color>
+    <Color x:Key="vb_color_green_M">#7D00FF00</Color>
+    <Color x:Key="vb_color_green_ML">#BB00FF00</Color>
+    <Color x:Key="vb_color_green_L">#E500FF00</Color>
+    <Color x:Key="vb_color_black_S">#19000000</Color>
+    <Color x:Key="vb_color_black_SM">#33000000</Color>
+    <Color x:Key="vb_color_black_M">#4C000000</Color>
+    <Color x:Key="vb_color_black_ML">#66000000</Color>
+    <Color x:Key="vb_color_black_L">#FF000000</Color>
+    <SolidColorBrush x:Key="vb_green_S" Color="{StaticResource vb_color_green_S}" />
+    <SolidColorBrush x:Key="vb_green_SM" Color="{StaticResource vb_color_green_SM}" />
+    <SolidColorBrush x:Key="vb_green_M" Color="{StaticResource vb_color_green_M}" />
+    <SolidColorBrush x:Key="vb_green_ML" Color="{StaticResource vb_color_green_ML}" />
+    <SolidColorBrush x:Key="vb_green_L" Color="{StaticResource vb_color_green_L}" />
+    <!--<SolidColorBrush x:Key="vb_green_S" Color="#1900FF00" />
+    <SolidColorBrush x:Key="vb_green_SM" Color="#3300FF00" />
+    <SolidColorBrush x:Key="vb_green_M" Color="{StaticResource vb_color_green_S}" />
+    <SolidColorBrush x:Key="vb_green_ML" Color="{StaticResource vb_color_green_SM}" />
+    <SolidColorBrush x:Key="vb_green_L" Color="{StaticResource vb_color_green_L}" />-->
+    <SolidColorBrush x:Key="vb_red_10" Color="#19FF0000" />
+    <SolidColorBrush x:Key="vb_red_20" Color="#33FF0000" />
+    <SolidColorBrush x:Key="vb_red_30" Color="#4CFF0000" />
+    <SolidColorBrush x:Key="vb_red_40" Color="#66FF0000" />
+    <SolidColorBrush x:Key="vb_red_90" Color="#E5FF0000" />
+    <SolidColorBrush x:Key="vb_blue_10" Color="#190000FF" />
+    <SolidColorBrush x:Key="vb_blue_20" Color="#330000FF" />
+    <SolidColorBrush x:Key="vb_blue_30" Color="#4C0000FF" />
+    <SolidColorBrush x:Key="vb_blue_40" Color="#660000FF" />
+    <SolidColorBrush x:Key="vb_blue_90" Color="#E50000FF" />
+
+    <SolidColorBrush x:Key="vb_black_S" Color="{StaticResource vb_color_black_S}" />
+    <SolidColorBrush x:Key="vb_black_SM" Color="{StaticResource vb_color_black_SM}" />
+    <SolidColorBrush x:Key="vb_black_M" Color="{StaticResource vb_color_black_M}" />
+    <SolidColorBrush x:Key="vb_black_ML" Color="{StaticResource vb_color_black_ML}" />
+    <SolidColorBrush x:Key="vb_black_L" Color="{StaticResource vb_color_black_L}" />
+</ResourceDictionary>

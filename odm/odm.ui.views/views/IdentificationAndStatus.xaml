@@ -1,0 +1,83 @@
+﻿<l:BasePropertyControl x:Class="odm.ui.controls.IdentificationAndStatus"
+	xmlns:l="clr-namespace:odm.ui.controls"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	x:Name="ctrl">
+    <l:ContentColumn x:Name="title" Background="{DynamicResource ResourceKey=PropertyBrush}">
+        <l:ContentColumn.Footer>
+            <l:SaveCancelControl x:Name="saveCancel"/>
+        </l:ContentColumn.Footer>
+        <DockPanel>
+            <Grid HorizontalAlignment="Stretch" Margin="8,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="250*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+					<RowDefinition  Height="auto"/>
+					<RowDefinition  Height="auto"/>
+				</Grid.RowDefinitions>
+                <Label 
+					x:Name="nameCaption" Grid.Row="0" Grid.Column="0"  
+					Padding="0" VerticalAlignment="Center" Content="Name" />
+				<TextBox x:Name="nameEditor" Margin="6,2,0,2" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
+
+				<Label 
+					x:Name="locationCaption" Grid.Row="1" Grid.Column="0"  
+					Padding="0" VerticalAlignment="Center" Content="Location" />
+				<TextBox x:Name="locationEditor" Margin="6,2,0,2" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center"/>
+
+				<Label 
+					x:Name="manufacturerCaption" Grid.Row="2" Grid.Column="0"
+					Padding="0" VerticalAlignment="Center" Content="Manufacturer"/>
+				<TextBox x:Name="manufacturerValue" Margin="6,2,0,2" Grid.Row="2" Grid.Column="1" 
+					IsReadOnly="True" VerticalContentAlignment="Center"/>
+
+				<Label 
+					x:Name="modelCaption" Grid.Row="3" Grid.Column="0"
+					Padding="0" VerticalAlignment="Center" Content="Model"/>
+				<TextBox x:Name="modelValue" Margin="6,2,0,2" Grid.Row="3" Grid.Column="1" 
+					IsReadOnly="True" VerticalContentAlignment="Center"/>
+
+				<Label 
+					x:Name="hardwareCaption" Grid.Row="4" Grid.Column="0"
+					Padding="0" VerticalAlignment="Center" Content="Hardware"/>
+				<TextBox x:Name="hardwareValue" Margin="6,2,0,2" Grid.Row="4" Grid.Column="1" 
+					IsReadOnly="True" VerticalContentAlignment="Center"/>
+                
+				<Label 
+					x:Name="firmwareCaption" Grid.Row="5" Grid.Column="0"
+					Padding="0" VerticalAlignment="Center" Content="Firmware"/>
+				<TextBox x:Name="firmwareValue" Margin="6,2,0,2" Grid.Row="5" Grid.Column="1" 
+					IsReadOnly="True" VerticalContentAlignment="Center"/>
+
+				<Label 
+					x:Name="serialCaption" Grid.Row="6" Grid.Column="0"
+					Padding="0" VerticalAlignment="Center" Content="Serial"/>
+				<TextBox x:Name="serialValue" Margin="6,2,0,2" Grid.Row="6" Grid.Column="1" 
+					IsReadOnly="True" VerticalContentAlignment="Center"/>
+
+				<Label 
+					x:Name="ipAddressCaption" Grid.Row="7" Grid.Column="0"
+					Padding="0" VerticalAlignment="Center" Content="Ip address"/>
+				<TextBox x:Name="ipAddressValue" Margin="6,2,0,2" Grid.Row="7" Grid.Column="1" 
+					IsReadOnly="True" VerticalContentAlignment="Center"/>
+                
+				<Label 
+					x:Name="macCaption" Grid.Row="8" Grid.Column="0"
+					Padding="0" VerticalAlignment="Center" Content="MAC"/>
+				<TextBox x:Name="macValue" Margin="6,2,0,2" Grid.Row="8" Grid.Column="1" 
+					IsReadOnly="True" VerticalContentAlignment="Center"/>
+            </Grid>
+        </DockPanel>
+    </l:ContentColumn>
+</l:BasePropertyControl>

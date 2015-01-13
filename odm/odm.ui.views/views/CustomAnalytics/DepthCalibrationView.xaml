@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="odm.ui.views.CustomAnalytics.DepthCalibrationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:odm.ui.controls"
+             xmlns:g="clr-namespace:odm.ui.controls.GraphEditor"
+             xmlns:wtk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended" 
+             mc:Ignorable="d"
+             x:Name="ctrl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Visibility="{Binding Marker1DSpecific, ElementName=ctrl}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="{Binding Strings.matrixFormat, ElementName=ctrl}"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="{Binding Strings.focalLength, ElementName=ctrl}"/>
+
+                <ComboBox Name="valueMatrixFormat" ItemsSource="{Binding matrixValueCollection, ElementName=ctrl}" Grid.Column="1" Grid.Row="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <wtk:DoubleUpDown Name="valueFocalLength" Grid.Column="1" Grid.Row="1"/>
+                
+            </Grid>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Command="{Binding Btn1D, ElementName=ctrl}" Name="btn1D" Content="{Binding Strings.heightMarker, ElementName=ctrl}"/>
+                    <RadioButton Command="{Binding Btn2D, ElementName=ctrl}" Name="btn2D" Content="{Binding Strings.marker2D, ElementName=ctrl}"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="{Binding Strings.physWidth, ElementName=ctrl}" Visibility="{Binding Marker2DSpecific, ElementName=ctrl}"/>
+                    <Label Grid.Column="0" Grid.Row="1" Content="{Binding Strings.physHeight, ElementName=ctrl}"/>
+                    <wtk:IntegerUpDown Name="valuePhysicalWidth" Minimum="1" Value="{Binding PhysicalWidth, ElementName=ctrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Visibility="{Binding Marker2DSpecific, ElementName=ctrl}" />
+                    <wtk:IntegerUpDown Name="valuePhysicalHeight" Minimum="1" Value="{Binding PhysicalHeight, ElementName=ctrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Button Visibility="Collapsed" Name="BtnPauseResume" Click="Button_Click" Padding="0,-20,0,0" HorizontalAlignment="Right" Margin="3,0,3,6" Content="Pause/Resume" DockPanel.Dock="Top"/>
+		<ScrollViewer Name="scroller" DockPanel.Dock="Top" Margin="0,0,0,6" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+			<Grid Name="viewPortContainer">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+
+				<Border x:Name="playerHolder" Grid.ColumnSpan="3" Margin="0" Background="Black"/>
+				<Border Name="infoPanel" Visibility="Collapsed" BorderBrush="Green" VerticalAlignment="Top" BorderThickness="1" Background="#7F000000" CornerRadius="3" Grid.Column="2">
+					<StackPanel Orientation="Vertical" VerticalAlignment="Top">
+						<TextBlock Name="infoMarker1" Margin="3" FontWeight="Bold" Text="{Binding Strings.infoMarker1, ElementName=ctrl}" Foreground="Red" TextWrapping="Wrap"/>
+						<TextBlock Name="infoMarker2" Margin="3" FontWeight="Bold" Text="{Binding Strings.infoMarker2, ElementName=ctrl}" Foreground="Red" TextWrapping="Wrap"/>
+						<TextBlock Name="infoMarkerWhidth" Margin="3" FontWeight="Bold" Text="{Binding Strings.infoMarkerWhidth, ElementName=ctrl}" Foreground="Red" TextWrapping="Wrap"/>
+						<TextBlock Name="infoDisplacement" Margin="3" FontWeight="Bold" Text="{Binding Strings.infoDisplacement, ElementName=ctrl}" Foreground="Red" TextWrapping="Wrap" />
+					</StackPanel>
+				</Border>
+				<g:DepthCalibrationEditor Grid.ColumnSpan="3" x:Name="deptheditor"/>
+			</Grid>
+		</ScrollViewer>
+	</DockPanel>
+</UserControl>

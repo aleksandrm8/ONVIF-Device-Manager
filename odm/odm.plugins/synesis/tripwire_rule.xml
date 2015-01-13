@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt:RuleDescription xmlns:tt="http://www.onvif.org/ver10/schema" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:sns="http://www.synesis.ru/onvif/VideoAnalytics"
+    Name="sns:TripWireRule">
+    <tt:Parameters>
+        <tt:ElementItemDescription Name="Points" Type="sns:TripWirePoints"/>
+        <tt:SimpleItemDescription Name="Direction" Type="sns:TripWireDirection"/>
+    </tt:Parameters>
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="VideoSourceToken"
+                Type="tt:ReferenceToken"/>
+            <tt:SimpleItemDescription Name="RuleName" Type="xs:string"/>
+        </tt:Source>
+        <tt:Data>
+            <tt:SimpleItemDescription Name="PositionX" Type="xs:string"/>
+            <tt:SimpleItemDescription Name="PositionY" Type="xs:string"/>
+            <tt:SimpleItemDescription Name="ObjectId" Type="xs:int"/>
+            <tt:SimpleItemDescription Name="Speed" Type="xs:float"/>
+            <tt:SimpleItemDescription Name="Activated" Type="xs:boolean"/>
+            <tt:SimpleItemDescription Name="Timestamp" Type="xs:string"/>
+            <tt:SimpleItemDescription Name="Direction" Type="xs:string"/>
+        </tt:Data>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:TripWireAlarm
+        </tt:ParentTopic>
+    </tt:Messages>
+</tt:RuleDescription>

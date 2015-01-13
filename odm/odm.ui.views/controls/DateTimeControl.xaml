@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="odm.ui.controls.DateTimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="valueTime" Margin="2,0,2,0" Text="13:42:32" Grid.Column="0"/>
+        <TextBlock Name="valueDate" Margin="4,0,2,0" Text="12.10.2012" Grid.Column="1"/>
+        <TextBlock Name="valueCaption" Margin="6,0,2,0" Text="Local" Grid.Column="2"/>
+    </Grid>
+</UserControl>

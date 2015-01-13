@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="odm.ui.activities.ReceiversView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid
+        Margin="10,15,10,10"
+		HorizontalAlignment="Left" VerticalAlignment="Top"		
+        MaxWidth="400" MinWidth="250">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style x:Key="listBlock" TargetType="ContentControl">
+                <Setter Property="Grid.Row" Value="1"/>
+            </Style>
+            <Style x:Key="buttonsBlock" TargetType="ContentControl">
+                <Setter Property="Grid.Row" Value="3"/>
+            </Style>
+        </Grid.Resources>
+        <Rectangle Grid.Row="0" Height="2" HorizontalAlignment="Stretch" Fill="{DynamicResource BackgroundHighlight}" SnapsToDevicePixels="True"/>
+        <ContentControl Style="{StaticResource listBlock}">
+            <ScrollViewer Name="scroll" VerticalScrollBarVisibility="Auto" MaxHeight="400">
+                <ListBox 
+				    Grid.Row="0"
+				    x:Name="listReceivers" 
+				    Margin="0" 
+                    MinWidth="300"
+                    MinHeight="300"
+				    HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Text="Token: "/>
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Text="MediaUri: "/>
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Text="Mode: "/>
+                                    <!--<TextBlock Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Text="Status: "/>-->
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Text="StreamType: "/>
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Text="TransportProtocol: "/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" Text="{Binding token}"/>
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" Text="{Binding configuration.mediaUri}"/>
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" Text="{Binding configuration.mode}"/>
+                                    <!--<TextBlock Margin="0" Padding="0" VerticalAlignment="Center" Text="{Binding Configuration.StreamSetup.Stream}"/>-->
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" Text="{Binding configuration.streamSetup.stream}"/>
+                                    <TextBlock Margin="0" Padding="0" VerticalAlignment="Center" Text="{Binding configuration.streamSetup.transport.protocol}"/>
+                                </StackPanel>
+                                <!--<StackPanel Grid.Column="2">
+                                    <RadioButton Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Content=" Active"/>
+                                    <RadioButton Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Content=" Unactive"/>
+                                    <RadioButton Margin="0" Padding="0" VerticalAlignment="Center" FontWeight="Bold" Content=" Auto"/>                                    
+                                </StackPanel>-->
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonForeground}"/>
+                            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                            <Setter Property="Padding" Value="2,0,0,0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                        <Border
+												Margin="0,0,0,3" CornerRadius="4"
+												Background="{TemplateBinding Background}" 
+												BorderThickness="1" 
+												BorderBrush="{DynamicResource ButtonBorder}">
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="true">
+                                                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}"/>
+                                                <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPressed}"/>
+                                            </Trigger>
+                                            <MultiTrigger>
+                                                <MultiTrigger.Conditions>
+                                                    <Condition Property="IsMouseOver" Value="True"/>
+                                                    <Condition Property="IsSelected" Value="False"/>
+                                                </MultiTrigger.Conditions>
+                                                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundHighlight}"/>
+                                                <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundHighlight}"/>
+                                            </MultiTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.Template>
+                        <ControlTemplate TargetType="{x:Type ListBox}">
+                            <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="0"/>
+                            </ScrollViewer>
+                            <ControlTemplate.Triggers>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ListBox.Template>
+                </ListBox>
+            </ScrollViewer>
+        </ContentControl>
+
+        <Rectangle Grid.Row="2" Height="2" HorizontalAlignment="Stretch" Fill="{DynamicResource BackgroundHighlight}" SnapsToDevicePixels="True"/>
+
+        <ContentControl Style="{StaticResource buttonsBlock}">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 4, 0, 0">
+                <Button x:Name="createReceiverButton" Content="Create" Margin="3,0,0,0" Style="{StaticResource ButtonLeft}"/>
+                <Button x:Name="modifyReceiverButton" Content="Modify" Margin="3,0,0,0" Style="{StaticResource ButtonMiddle}"/>
+                <Button x:Name="deleteReceiverButton" Content="Delete" Margin="3,0,0,0" Style="{StaticResource ButtonRight}"/>
+            </StackPanel>
+        </ContentControl>
+    </Grid>
+</UserControl>

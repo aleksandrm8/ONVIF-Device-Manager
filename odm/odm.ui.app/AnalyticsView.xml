@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="AnalyticsView" clr-ns="odm.ui.activities">
+	<use clr-ns="System.Xml"/>
+	<use clr-ns="System.Xml.Schema"/>
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="profile" clr-type="Profile" read-only="true"/>
+		<prop name="moduleSchemes" clr-type="XmlSchemaSet" read-only="true"/>
+		<prop name="moduleTypes" clr-type="ConfigDescription[]" read-only="true"/>
+		<prop name="modules" clr-type="Config[]" read-only="true"/>
+		<prop name="ruleSchemes" clr-type="XmlSchemaSet" read-only="true"/>
+		<prop name="ruleTypes" clr-type="ConfigDescription[]" read-only="true"/>
+		<prop name="rules" clr-type="Config[]" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="CreateModule"/>
+		<option name="DeleteModule">
+			<param name="name" clr-type="string"/>
+		</option>
+		<option name="ConfigureModule">
+			<param name="module" clr-type="Config"/>
+		</option>
+		<option name="CreateRule"/>
+		<option name="DeleteRule">
+			<param name="name" clr-type="string"/>
+		</option>
+		<option name="ConfigureRule">
+			<param name="rule" clr-type="Config"/>
+		</option>
+		<option name="Close"/>
+	</result>
+</activity>

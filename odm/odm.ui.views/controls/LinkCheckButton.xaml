@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="odm.ui.controls.LinkCheckButton"
+             xmlns:Local="clr-namespace:odm.ui.controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="152">
+    <Grid >
+        <Button Height="13" Margin="18,4,0,0" x:Name="_linkLabel" VerticalAlignment="Top" Style="{StaticResource LinkButtonStyle}"/>
+        <CheckBox Height="13" HorizontalAlignment="Left" Name="_checkBox" VerticalAlignment="Top" Margin="2,4,0,0" />
+    </Grid>
+</UserControl>

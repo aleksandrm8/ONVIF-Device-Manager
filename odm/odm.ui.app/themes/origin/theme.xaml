@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	mc:Ignorable="d">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="Brushes.xaml"/>
+		<ResourceDictionary Source="Button.xaml"/>
+		<ResourceDictionary Source="ImageButton.xaml"/>
+		<ResourceDictionary Source="ComboBox.xaml"/>
+		<ResourceDictionary Source="TextBox.xaml"/>
+		<ResourceDictionary Source="CheckBox.xaml"/>
+		<ResourceDictionary Source="ContentColumn.xaml"/>
+		<ResourceDictionary Source="ScrollViewer.xaml"/>
+		<ResourceDictionary Source="ScrollBar.xaml"/>
+		<ResourceDictionary Source="DeviceListControl.xaml"/>
+		<ResourceDictionary Source="MainWindow.xaml"/>
+		<ResourceDictionary Source="DeviceChannelControl.xaml"/>
+		<ResourceDictionary Source="Slider.xaml"/>
+		<ResourceDictionary Source="DirectionRoseControl.xaml"/>
+		<ResourceDictionary Source="XMLViewControl.xaml"/>
+		<ResourceDictionary Source="DialogWindow.xaml"/>
+		<ResourceDictionary Source="ListBox.xaml"/>
+		<ResourceDictionary Source="EventGridView.xaml"/>
+        <ResourceDictionary Source="Expander.xaml"/>
+        <ResourceDictionary Source="NumericEditor.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+	<Style x:Key="{x:Type Application}"/>
+
+</ResourceDictionary>

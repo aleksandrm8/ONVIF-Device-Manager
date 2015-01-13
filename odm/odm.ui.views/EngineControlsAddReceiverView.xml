@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlsAddReceiverView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+    <prop name="receivers" clr-type="Receiver[]" />
+  </model>
+	<result>
+		<option name="Finish">
+			<param name="receiver" clr-type="Receiver"/>
+		</option>
+		<option name="Abort"/>
+	</result>
+</activity>

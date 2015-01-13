@@ -1,0 +1,68 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style x:Key="VbRadioButton" TargetType="{x:Type RadioButton}">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource vb_green_S}"/>
+		<Setter Property="IsThreeState" Value="False"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type RadioButton}">
+					<StackPanel Orientation="Horizontal">
+							<Viewbox Stretch="Uniform">
+                            <Canvas Width="16" Height="16" IsHitTestVisible="True">
+								<Ellipse x:Name="frame" Width="16" Height="16" Fill="Transparent"  Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                                <Ellipse x:Name="isotype" Width="10" Height="10" Canvas.Left="3" Canvas.Top="3" Fill="Transparent" Stroke="{x:Null}" IsHitTestVisible="False" />
+							</Canvas>
+						</Viewbox>
+                        <ContentPresenter x:Name="content" TextElement.Foreground="{DynamicResource vb_green_S}" Margin="3,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+					</StackPanel>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsChecked" Value="True"/>
+								<Condition Property="IsEnabled" Value="True"/>
+							</MultiTrigger.Conditions>
+                            <Setter Property="Stroke" TargetName="frame" Value="{DynamicResource vb_green_L}"/>
+                            <Setter Property="Fill" TargetName="isotype" Value="{DynamicResource vb_green_L}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="content" Value="{DynamicResource vb_green_L}"/>
+						</MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsChecked" Value="False"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Stroke" TargetName="frame" Value="{DynamicResource vb_green_L}"/>
+                            <Setter Property="Fill" TargetName="isotype" Value="Transparent"/>
+                            <Setter Property="TextElement.Foreground" TargetName="content" Value="{DynamicResource vb_green_L}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Stroke" TargetName="frame" Value="{DynamicResource vb_green_S}"/>
+                            <Setter Property="Fill" TargetName="isotype" Value="{DynamicResource vb_green_S}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="content" Value="{DynamicResource vb_green_S}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsChecked" Value="False"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Stroke" TargetName="frame" Value="{DynamicResource vb_green_S}"/>
+                            <Setter Property="Fill" TargetName="isotype" Value="Transparent"/>
+                            <Setter Property="TextElement.Foreground" TargetName="content" Value="{DynamicResource vb_green_S}"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- Resource dictionary entries should be defined here. -->
+</ResourceDictionary>

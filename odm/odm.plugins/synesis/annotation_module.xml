@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt:AnalyticsModuleDescription xmlns:tt="http://www.onvif.org/ver10/schema" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:sns="http://www.synesis.ru/onvif/VideoAnalytics"
+    Name="sns:AnnotationModule">
+    <tt:Parameters>
+        <tt:SimpleItemDescription Name="EnableMovingRects" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableSpeed" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableTimestamp" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableSystemInformation" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableChannelName" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableTracking" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableUserRegion" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableRules" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="EnableCalibrationResults" Type="xs:boolean"/>
+    </tt:Parameters>
+</tt:AnalyticsModuleDescription>

@@ -1,0 +1,94 @@
+﻿<UserControl 
+	x:Class="odm.ui.activities.ProfileCreationView"
+	xmlns:wtk="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:l="clr-namespace:odm.ui.controls"
+    xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    x:Name="ctrl"
+	mc:Ignorable="d"
+	d:DesignHeight="418"
+	d:DesignWidth="736">
+
+	<Grid Margin="10,15,10,10" VerticalAlignment="Top" HorizontalAlignment="Left">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="10"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="10"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Row="0" Orientation="Horizontal">
+			<TextBlock Name="captionProfileName" Padding="0" Text="Profile name:" VerticalAlignment="Center"/>
+			<TextBox Name="valueProfileName" Margin="3" Text="Default Name" MinWidth="100" VerticalAlignment="Center"/>
+		</StackPanel>
+
+		<Rectangle 
+			Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+			Height="2" Fill="{DynamicResource BackgroundHighlight}"/>
+		
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<CheckBox 
+				Name="chbIsVscfg" Grid.Column="0" Grid.Row="0"
+				Margin="0" IsChecked="True" VerticalAlignment="Center"/>
+			<TextBlock 
+				Name="captionVideoSourceConfig" Grid.Column="1" Grid.Row="0"
+				Margin="3" Text="Video Source Configuration" VerticalAlignment="Center"/>
+			<TextBox
+				Name="valueVscfgToken" Grid.Column="2" Grid.Row="0" MinWidth="100"
+				Text="Some Token" IsReadOnly="True" Margin="3" VerticalAlignment="Stretch"/>
+			<Button 
+				Name="btnSelectVscfg" Grid.Column="3" Grid.Row="0"
+				Command="{Binding SelectVideoSrcCfgCommand, ElementName=ctrl}"
+				Content="..." VerticalAlignment="Center" Margin="0,3"/>
+
+			<CheckBox 
+				Name="chbIsAscfg" Grid.Column="0" Grid.Row="1"
+				Margin="0" IsChecked="True" VerticalAlignment="Center"/>
+			<TextBlock 
+				Name="captionAscfg" Grid.Column="1" Grid.Row="1"
+				Text="Audio Source Configuration" Margin="3" VerticalAlignment="Center"
+				IsEnabled="{Binding IsChecked, ElementName=chbIsAscfg}"/>
+			<TextBox
+				Name="valueAscfg" Grid.Column="2" Grid.Row="1" MinWidth="100"
+				Text="Some token" IsReadOnly="True" Margin="3" VerticalAlignment="Stretch"/>
+				
+			<Button 
+				Name="btnSelectAscfg" Grid.Column="3" Grid.Row="1"
+				Content="..." Margin="0,3" VerticalAlignment="Center" 
+				Command="{Binding SelectAudioSrcCfgCommand, ElementName=ctrl}"
+				IsEnabled="{Binding IsChecked, ElementName=chbIsAscfg}"/>
+		</Grid>
+
+		<Rectangle 
+			Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+			Height="2" Fill="{DynamicResource BackgroundHighlight}"/>
+		<StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button 
+				Name="btnFinish" 
+				Command="{Binding FinishCommand, ElementName=ctrl}"
+				Content="Ok" Style="{StaticResource ButtonLeft}"/>
+			<Button 
+				Name="btnConfigure"
+				Command="{Binding ConfigureCommand, ElementName=ctrl}"
+				Content="Configure" Style="{StaticResource ButtonMiddle}" />
+			<Button 
+				Name="btnAbort"
+				Command="{Binding AbortCommand, ElementName=ctrl}"
+				Content="Cancel" Style="{StaticResource ButtonRight}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

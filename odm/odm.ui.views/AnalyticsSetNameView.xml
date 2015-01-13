@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="AnalyticsSetNameView" clr-ns="odm.ui.activities">
+	<use clr-ns="System.Xml"/>
+	<use clr-ns="System.Xml.Schema"/>
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="types" clr-type="ConfigDescription[]" read-only="true"/>
+	</model>
+
+
+	<result>
+		<option name="Configure">
+			<param name="name" clr-type="string"/>
+			<param name="type" clr-type="ConfigDescription"/>
+		</option>
+		<option name="Abort"/>
+	</result>
+</activity>

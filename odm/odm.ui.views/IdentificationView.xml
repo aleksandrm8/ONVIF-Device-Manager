@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="IdentificationView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="name" clr-type="string" />
+		<prop name="location" clr-type="string" />
+		<prop name="manufacturer" clr-type="string" read-only="true"/>
+		<prop name="model" clr-type="string" read-only="true"/>
+		<prop name="firmware" clr-type="string" read-only="true"/>
+		<prop name="hardware" clr-type="string" read-only="true"/>
+		<prop name="serial" clr-type="string" read-only="true"/>
+		<!--<prop name="host" clr-type="string" read-only="true"/>-->
+		<prop name="mac" clr-type="string" read-only="true"/>
+		<prop name="ip" clr-type="string" read-only="true"/>
+		<prop name="onvifVersion" clr-type="OnvifVersion" read-only="true"/>
+	</model>
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="Close"/>
+	</result>
+</activity>

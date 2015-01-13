@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="LiveVideoView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+    <use clr-ns="odm.player"/>
+	<model>
+        <prop name="videoSourceToken" clr-type="string" read-only="true"/>
+        <prop name="profToken" clr-type="string" read-only="true"/>
+        <prop name="videoSourceConfToken" clr-type="string" read-only="true"/>
+        <prop name="videoAnalyticsConfToken" clr-type="string" read-only="true"/>
+        <!--<prop name="uri" clr-type="string" read-only="true"/>-->
+        <prop name="encoderResolution" clr-type="VideoResolution" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Close"/>
+	</result>
+</activity>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="UserManagementView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="users" clr-type="User[]" read-only="true"/>
+		<prop name="selection" clr-type="User" />
+	</model>
+	<result>
+		<option name="CreateUser">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="DeleteUser">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="ModifyUser">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="UploadPolicy">
+			<param name="model" clr-type="Model"/>
+			<param name="fileName" clr-type="string"/>
+		</option>
+		<option name="DownloadPolicy">
+			<param name="model" clr-type="Model"/>
+			<param name="fileName" clr-type="string"/>
+		</option>
+		<option name="Close"/>
+	</result>
+</activity>

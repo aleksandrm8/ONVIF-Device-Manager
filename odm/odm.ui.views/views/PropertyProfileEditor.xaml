@@ -1,0 +1,80 @@
+﻿<Local:BasePropertyControl x:Name="root" x:Class="odm.views.PropertyProfileEditor"
+             xmlns:Local="clr-namespace:odm.ui.controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Local:ContentColumn x:Name="title" Background="{DynamicResource ResourceKey=PropertyBrush}">
+        <DockPanel Margin="6,0,6,6" >
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top">
+                <ListView Name="profilesList" VerticalAlignment="Top" MinWidth="100" ItemsSource="{Binding ElementName=root, Path=profCollection}" DisplayMemberPath="Name"/>
+                <Grid VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="profileNameEditor" Margin="6,0,0,0" MinWidth="100" Grid.Column="0" 
+                                Text="{Binding ElementName=profilesList, Path=SelectedItem.Name}"/>
+                            <Button Name="rename" Content="Rename" Margin="6,0,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                    <GroupBox Grid.Row="1" Grid.Column="0" Margin="6,6,0,0">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0" Name="l1" Content="Token"/>
+                            <Label Grid.Column="1" Grid.Row="0" Name="l11" Content="{Binding ElementName=profilesList, Path=SelectedItem.token}"/>
+                            <Label Grid.Column="0" Grid.Row="1" Name="l2" Content="Read only"/>
+                            <Label Grid.Column="1" Grid.Row="1" Name="l22" Content="{Binding ElementName=profilesList, Path=SelectedItem.fixed}"/>
+                            <Label Grid.Column="0" Grid.Row="2" Name="l3" Content="Encoder"/>
+                            <Label Grid.Column="1" Grid.Row="2" Name="l33" Content="{Binding ElementName=profilesList, Path=SelectedItem.VideoEncoderConfiguration.Encoding}"/>
+                            <Label Grid.Column="0" Grid.Row="3" Name="l4" Content="Resolution"/>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
+                                <Label Name="l441" Content="{Binding ElementName=profilesList, Path=SelectedItem.VideoEncoderConfiguration.Resolution.Width}"/>
+                                <Label Content="x"/>
+                                <Label Name="l442" Content="{Binding ElementName=profilesList, Path=SelectedItem.VideoEncoderConfiguration.Resolution.Height}"/>
+                            </StackPanel>
+                            <Label Grid.Column="0" Grid.Row="4" Name="l5" Content="FPS"/>
+                            <Label Grid.Column="1" Grid.Row="4" Name="l55" Content="{Binding ElementName=profilesList, Path=SelectedItem.VideoEncoderConfiguration.RateControl.FrameRateLimit}"/>
+                            <Label Grid.Column="0" Grid.Row="5" Name="l6" Content="Bitrate"/>
+                            <Label Grid.Column="1" Grid.Row="5" Name="l66" Content="{Binding ElementName=profilesList, Path=SelectedItem.VideoEncoderConfiguration.RateControl.BitrateLimit}"/>
+                            <Label Grid.Column="0" Grid.Row="6" Name="l7" Content="Analitic"/>
+                            <Label Grid.Column="1" Grid.Row="6" Name="l77" Content="{Binding ElementName=profilesList, Path=SelectedItem.VideoAnalyticsConfiguration}"/>
+                        </Grid>
+                    </GroupBox>
+                    <!--<WebBrowser Name="profileDescription" Grid.Row="1" Margin="6,0,6,0"/>-->
+                </Grid>
+            </StackPanel>
+            <Grid DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="0,6,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Name="createNew" Content="New" Grid.Column="0"/>
+                <Button Name="deleteSelected" Margin="6,0,0,0" Content="Delete" Grid.Column="1"/>
+                <Button Name="selectCurrent"  Margin="6,0,0,0" Content="Apply" Grid.Column="2" />
+            </Grid>
+        </DockPanel>
+    </Local:ContentColumn>
+</Local:BasePropertyControl>

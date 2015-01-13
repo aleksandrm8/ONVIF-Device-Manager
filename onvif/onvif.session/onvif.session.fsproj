@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Net45</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{902a3ff3-e9bd-443d-8fc1-69aa42b5f76b}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>odm.core</RootNamespace>
+    <AssemblyName>onvif.session</AssemblyName>
+    <Name>onvif.session</Name>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)' == 'Net40' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DefineConstants>NET40</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)' == 'Net45' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DefineConstants>NET45</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>bin\$(Configuration)\$(Platform)\</OutputPath>
+    <DebugSymbols Condition="'$(Configuration)' == 'Debug'">true</DebugSymbols>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">full</DebugType>
+    <DebugType Condition="'$(Configuration)' == 'Release'">pdbonly</DebugType>
+    <Optimize Condition="'$(Configuration)' == 'Debug'">false</Optimize>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel Condition="'$(Configuration)' == 'Debug'">4</WarningLevel>
+    <WarningLevel Condition="'$(Configuration)' == 'Release'">3</WarningLevel>
+    <DefineConstants Condition="'$(Configuration)' == 'Debug'">DEBUG;TRACE;$(DefineConstants)</DefineConstants>
+    <DefineConstants Condition="'$(Configuration)' == 'Release'">TRACE;$(DefineConstants)</DefineConstants>
+    <Tailcalls Condition="'$(Configuration)' == 'Debug'">false</Tailcalls>
+    <Tailcalls Condition="'$(Configuration)' == 'Release'">true</Tailcalls>
+    <DocumentationFile>bin\$(Configuration)\$(Platform)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
+    <NoWarn>58</NoWarn>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.5\Microsoft.FSharp.Targets" Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.5\Microsoft.FSharp.Targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition="(!Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')) And (Exists('$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets'))" />
+  <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="(!Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')) And (!Exists('$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets')) And (Exists('$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets'))" />
+  <ItemGroup>
+    <Reference Include="FSharp.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Discovery" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\..\packages\Rx-Core.2.0.20823\lib\$(Platform)\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\..\packages\Rx-Interfaces.2.0.20823\lib\$(Platform)\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\..\packages\Rx-Linq.2.0.20823\lib\$(Platform)\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\utils\utils.async\utils.async.csproj">
+      <Name>utils.async</Name>
+      <Project>{ca45551a-6a4e-4e3d-af2e-e081f209bb14}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.common\utils.common.csproj">
+      <Name>utils.common</Name>
+      <Project>{2faa440a-87d3-41ab-9931-25ac306a25ba}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.diagnostics\utils.diagnostics.csproj">
+      <Name>utils.diagnostics</Name>
+      <Project>{c89d83ca-c0fa-4573-a63e-f716dd628696}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.fsharp\utils.fsharp.fsproj">
+      <Name>utils.fsharp</Name>
+      <Project>{04196c86-66f6-4a9c-be0b-90aa5353b1c6}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj">
+      <Name>utils.xml</Name>
+      <Project>{c00b45e2-5aba-4f7a-bd85-505594794aae}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\onvif.services\onvif.services.csproj">
+      <Name>onvif.services</Name>
+      <Project>{3cb4f764-648f-4aa3-9e85-91992337d3ea}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\~cfg\AssemblyInfo.global.fs">
+      <Link>Properties\AssemblyInfo.global.fs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.fs" />
+    <Compile Include="Services\DeviceAsync.fs" />
+    <Compile Include="Services\MediaAsync.fs" />
+    <Compile Include="Services\ImagingAsync.fs" />
+    <Compile Include="Services\PtzAsync.fs" />
+    <Compile Include="Services\EventAsync.fs" />
+    <Compile Include="Services\AnalyticsAsync.fs" />
+    <Compile Include="Services\NetworkAsync.fs" />
+    <Compile Include="Services\ReceiverAsync.fs" />
+    <Compile Include="Services\DeviceIoAsync.fs" />
+    <Compile Include="Services\DisplayAsync.fs" />
+    <Compile Include="Services\AnalyticsDeviceAsync.fs" />
+    <Compile Include="Services\RecordingAsync.fs" />
+    <Compile Include="Services\ReplayAsync.fs" />
+    <Compile Include="Services\SearchAsync.fs" />
+    <Compile Include="Services\ActionEngineAsync.fs" />
+    <Compile Include="NvtSession.fs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

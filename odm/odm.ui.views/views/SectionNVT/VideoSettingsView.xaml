@@ -1,0 +1,127 @@
+﻿<UserControl 
+	xmlns:wtk="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+	x:Class="odm.ui.activities.VideoSettingsView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:l="clr-namespace:odm.ui.controls"
+    xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    x:Name="ctrl"
+	mc:Ignorable="d"
+	d:DesignHeight="418"
+	d:DesignWidth="736" VerticalAlignment="Stretch">
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button 
+                cmd:Click.Command="{Binding ApplyCommand, ElementName=ctrl}"
+                IsEnabled="{Binding IsModified}"
+                Content="{Binding ButtonsStrings.save, ElementName=ctrl}" HorizontalAlignment="Left" Style="{StaticResource ButtonLeft}"/>
+            <Button 
+                cmd:Click.Command="{Binding RevertCommand, ElementName=ctrl}"
+                IsEnabled="{Binding IsModified}"
+                Content="{Binding ButtonsStrings.cancel, ElementName=ctrl}" HorizontalAlignment="Left" Style="{StaticResource ButtonRight}" />
+        </StackPanel>
+        <DockPanel>
+            <WrapPanel DockPanel.Dock="Bottom" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.IsSharedSizeScope="True" Margin="0,3,0,0">
+                <!-- <Grid Margin="3,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="captionSize"/>
+                        <ColumnDefinition SharedSizeGroup="valueSize"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="{Binding Strings.channelName, ElementName=ctrl}" Margin="0,0,0,6"/>
+                    <TextBox Grid.Column="1" Text="{Binding ChannelName}" Width="{Binding ElementName=resolution, Path=ActualWidth}" Margin="0,0,0,6" />
+                </Grid>-->
+                <Grid Margin="3,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="captionSize"/>
+                        <ColumnDefinition SharedSizeGroup="valueSize"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="resolutionCaption" Content="{Binding Strings.resolution, ElementName=ctrl}" Margin="0,0,0,6" HorizontalAlignment="Right" />
+                    <ComboBox Name="encoderResValue" Grid.Column="1" SelectedItem="{Binding EncoderResolution, ElementName=ctrl}" Margin="0,0,0,6">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Foreground="{Binding Foreground}" Text="{Binding Encoder}" FontWeight="Medium"  Margin="1,1,1,1"/>
+                                    <TextBlock Foreground="#FF595959" Text="{Binding Resolution}" Margin="6,1,1,1"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+                <Grid Margin="3,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="captionSize"/>
+                        <ColumnDefinition SharedSizeGroup="valueSize"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="frameRateCaption" Content="{Binding Strings.frameRate, ElementName=ctrl}" Margin="0,0,0,6" HorizontalAlignment="Right" />
+                    <wtk:DoubleUpDown Name="frameRateValue" Grid.Column="1" Margin="0,0,0,6"
+                                       Minimum="{Binding minFrameRate}"
+                                       Maximum="{Binding maxFrameRate}"
+                                       Value="{Binding frameRate}"/>
+                </Grid>
+                <Grid Margin="3,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="captionSize"/>
+                        <ColumnDefinition SharedSizeGroup="valueSize"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="encodingIntervalCaption" Content="{Binding Strings.encodingInterval, ElementName=ctrl}" Margin="0,0,0,6" HorizontalAlignment="Right"/>
+                    <Grid Grid.Column="1" Margin="0,0,0,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label VerticalAlignment="Center" Grid.Column="1" MinWidth="30" FlowDirection="RightToLeft">
+                            <TextBlock Text="{Binding encodingInterval}"/>
+                        </Label>
+                        <Slider Grid.Column="0" Width="150" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                Minimum="{Binding minEncodingInterval}"
+                                Maximum="{Binding maxEncodingInterval}"
+                                Value="{Binding encodingInterval}"/>
+                    </Grid>
+                </Grid>
+                <Grid Margin="3,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="captionSize"/>
+                        <ColumnDefinition SharedSizeGroup="valueSize"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="bitrateCaption" Content="{Binding Strings.bitrate, ElementName=ctrl}" Margin="0,0,0,6" HorizontalAlignment="Right" />
+                    <wtk:DoubleUpDown Name="valueBitrate"
+                                       Grid.Column="1" Margin="0,0,0,6"
+                                       Minimum="0"
+                                       Maximum="100000"/>
+                    </Grid>
+                <Grid Margin="3,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="captionSize"/>
+                        <ColumnDefinition SharedSizeGroup="valueSize"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="qualityCaption" Content="{Binding Strings.quality, ElementName=ctrl}" Margin="0,0,0,6" HorizontalAlignment="Right" />
+                    <Slider Margin="0,0,0,6" Value="{Binding quality}" Maximum="{Binding maxQuality}" Minimum="{Binding minQuality}"  Grid.Column="1" />
+                </Grid>
+                <Grid Margin="3,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="captionSize"/>
+                        <ColumnDefinition SharedSizeGroup="valueSize"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="govLengthCaption" Content="{Binding Strings.govLength, ElementName=ctrl}" Margin="0,0,0,6" HorizontalAlignment="Right"/>
+                    <wtk:IntegerUpDown Name="valueGovLength"
+                                       Grid.Column="1" Margin="0,0,0,6"/>
+                </Grid>
+                    
+                    <!--<ComboBox ItemsSource="{Binding encoders}" SelectedItem="{Binding encoder}" Grid.Column="1" Grid.Row="4" Margin="0,0,0,6">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>-->
+                    
+                    <!--<l:IntegerTextBox HorizontalAlignment="Left" x:Name="numericTemp" Grid.Row="8" Grid.Column="1"/>-->
+                
+            </WrapPanel>
+			<Border x:Name="player" Margin="0" Background="Black" />
+		</DockPanel>
+    </DockPanel>
+</UserControl>

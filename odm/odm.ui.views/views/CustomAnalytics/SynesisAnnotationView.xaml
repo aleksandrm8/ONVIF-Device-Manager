@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="odm.ui.views.CustomAnalytics.SynesisAnnotationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:odm.ui.controls"
+             mc:Ignorable="d" 
+             x:Name="ctrl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom" Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <CheckBox Grid.Column="0" Grid.Row="0" Name="EnableMovingRects"     Margin="3" Content="{Binding Strings.enableMovingRects, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="0" Grid.Row="1" Name="EnableSpeed"           Margin="3" Content="{Binding Strings.enableSpeed, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="0" Grid.Row="2" Name="EnableTimestamp"       Margin="3" Content="{Binding Strings.enableTimeStamp, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="0" Grid.Row="3" Name="EnableSystemInformation" Margin="3" Content="{Binding Strings.enableSystemInformation, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="0" Grid.Row="4" Name="EnableChannelName"     Margin="3" Content="{Binding Strings.enableChannelName, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="1" Grid.Row="0" Name="EnableTracking"        Margin="3" Content="{Binding Strings.enableTracking, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="1" Grid.Row="1" Name="EnableUserRegion"      Margin="3" Content="{Binding Strings.enableUserRegion, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="1" Grid.Row="2" Name="EnableRules"           Margin="3" Content="{Binding Strings.enableRules, ElementName=ctrl}"/>
+            <CheckBox Grid.Column="1" Grid.Row="3" Name="EnableCalibrationResults" Margin="3" Content="{Binding Strings.enableCalibrationResults, ElementName=ctrl}"/>
+        </Grid>
+
+		<Border x:Name="player" Margin="0" Background="Black"/>
+	</DockPanel>
+</UserControl>

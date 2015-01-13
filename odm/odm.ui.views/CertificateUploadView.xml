@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="CertificateUploadView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="certificate" clr-type="Certificate" read-only="true" />
+	</model>
+	<result>
+		<option name="Cancel"/>
+		<option name="Upload"/>
+	</result>
+</activity>

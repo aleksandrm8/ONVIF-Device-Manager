@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="TimeSettingsView" clr-ns="odm.ui.activities">
+	<model>
+		<prop name="timestamp" clr-type="long" read-only="true"/>
+		<prop name="localDateTime" clr-type="DateTime?" read-only="true"/>
+		<prop name="utcDateTime" clr-type="DateTime?" read-only="true"/>
+		<prop name="useDateTimeFromNtp" clr-type="bool" read-only="true"/>
+		<prop name="timeZone" clr-type="string"/>
+		<prop name="daylightSavings" clr-type="bool" />
+	</model>
+	<result>
+		<option name="SyncWithSystem">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SyncWithNtp">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SetManual">
+			<param name="model" clr-type="Model"/>
+			<param name="utcDateTime" clr-type="DateTime" />
+		</option>
+		<!--<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>-->
+		<option name="Close"/>
+	</result>
+</activity>

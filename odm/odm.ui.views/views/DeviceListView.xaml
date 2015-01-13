@@ -1,0 +1,170 @@
+﻿<UserControl 
+	x:Class="odm.ui.controls.DeviceListView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:l="clr-namespace:odm.ui.controls"
+	mc:Ignorable="d" 
+	x:Name="ctrl"
+	d:DesignHeight="306" d:DesignWidth="231">
+	
+	<UserControl.Resources>
+		<Style x:Key="HideButton" TargetType="{x:Type Button}">
+			<Setter Property="Cursor" Value="Hand"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Border 
+							x:Name="border"
+							BorderBrush="Transparent" BorderThickness="1" CornerRadius="3" 
+							HorizontalAlignment="Left" Background="Transparent">
+							<StackPanel Orientation="Horizontal" Margin="3">
+								<Path 
+									Data="M4,0 L0,4 L4,8" 
+									HorizontalAlignment="Center" SnapsToDevicePixels="True"
+									Stroke="White" StrokeThickness="1" VerticalAlignment="Center"/>
+								<Path 
+									Data="M4,0 L0,4 L4,8" 
+									HorizontalAlignment="Center" SnapsToDevicePixels="True"
+									Stroke="White" StrokeThickness="1" VerticalAlignment="Center"/>
+							</StackPanel>
+							<!--<Grid Margin="3">
+								<Path 
+									Data="M0,0 L8,8" 
+									HorizontalAlignment="Center" SnapsToDevicePixels="True"
+									Stroke="White" StrokeThickness="1" VerticalAlignment="Center"/>
+								<Path 
+									Data="M0,8 L8,0" 
+									HorizontalAlignment="Center" SnapsToDevicePixels="True"
+									Stroke="White" StrokeThickness="1" VerticalAlignment="Center"/>
+							</Grid>-->
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="true">
+								<Setter TargetName="border" Property="BorderBrush" Value="White"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="SearchTextBox" TargetType="{x:Type l:FilterTextBox}">
+			<Setter Property="Background" Value="{DynamicResource TextBoxBackground}"/>
+			<Setter Property="Foreground" Value="{DynamicResource Foreground}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Padding" Value="2"/>
+			<Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+			<Setter Property="HorizontalContentAlignment" Value="Left"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+			<Setter Property="AllowDrop" Value="True"/>
+			<Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+			<Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type l:FilterTextBox}">
+						<Border x:Name="bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2">
+							<ScrollViewer x:Name="PART_ContentHost"/>
+						</Border>
+						<ControlTemplate.Triggers>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="">
+								<Setter Property="Background">
+									<Setter.Value>
+										<VisualBrush Stretch="None">
+											<VisualBrush.Visual>
+												<!--name, location or address-->
+												<TextBlock Text="Name, location or address" Foreground="Gray"/>
+											</VisualBrush.Visual>
+										</VisualBrush>
+									</Setter.Value>
+								</Setter>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="{x:Null}">
+								<Setter Property="Background">
+									<Setter.Value>
+										<VisualBrush Stretch="None">
+											<VisualBrush.Visual>
+												<TextBlock Text="Name, location or address" Foreground="Gray"/>
+											</VisualBrush.Visual>
+										</VisualBrush>
+									</Setter.Value>
+								</Setter>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsFocused}" Value="True">
+								<Setter Property="Background">
+									<Setter.Value>
+										<VisualBrush Stretch="None">
+										</VisualBrush>
+									</Setter.Value>
+								</Setter>
+							</DataTrigger>
+							<Trigger Property="IsReadOnly" Value="True">
+								<Setter Property="Background" Value="{DynamicResource BackgroundReadOnly}"/>
+								<Setter Property="BorderBrush" Value="{DynamicResource ForegroundReadOnly}"/>
+								<Setter Property="Foreground" Value="{DynamicResource ForegroundReadOnly}"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="False">
+								<Setter Property="Background" Value="{DynamicResource BackgroundDisabled}"/>
+								<Setter Property="BorderBrush" Value="{DynamicResource ForegroundDisabled}"/>
+								<Setter Property="Foreground" Value="{DynamicResource Foreground}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+	<l:ContentColumn Title="{Binding Titles.devicesList}">
+		<l:ContentColumn.Header>
+			<StackPanel 
+				Margin="6,4,6,4" Orientation="Horizontal" 
+				HorizontalAlignment="Right" VerticalAlignment="Center">
+				<Button 
+					x:Name="hideButton"
+					Command="l:DeviceListView.HideCommand"
+					ToolTip="Collapse"
+					Background="Transparent"
+					Padding="0" Style="{StaticResource HideButton}" Margin="3,0,0,0"/>
+			</StackPanel>
+		</l:ContentColumn.Header>
+
+		<l:ContentColumn.Footer>
+			<DockPanel>
+				<Button DockPanel.Dock="Right"
+					HorizontalAlignment="Right" Content="{Binding Strings.refresh}" 
+					cmd:Click.Command="{Binding onRefresh}"/>
+				<Button DockPanel.Dock="Left"
+					cmd:Click.Command="{Binding onAdd}"
+					HorizontalAlignment="Left" Content="{Binding Strings.manualadd}"
+					ToolTip="Manually add"/>
+			</DockPanel>
+		</l:ContentColumn.Footer>
+		<DockPanel>
+			<Grid DockPanel.Dock="Top" Name="gridFilter" HorizontalAlignment="Stretch" Background="LightGray">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<!--<Button Name="pls" HorizontalAlignment="Stretch" Height="0"/>-->
+				<TextBox Margin="4,1,0,0" VerticalAlignment="Center"/>
+				<l:FilterTextBox Margin="4,1,0,0" x:Name="valueFilter" 
+						 VerticalAlignment="Center"
+						 Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource SearchTextBox}">
+				</l:FilterTextBox>
+				<Button Margin="4,1,2,2" 
+						Grid.Column="1" 
+						Name="btnresetFilter" 
+						Content="{Binding BtnStrings.cancel}"/>
+			</Grid>
+			<l:DeviceListControl 
+				MaxWidth="350"
+				x:Name="deviceList"
+				selectedDevice="{Binding SelectedDevice, Mode=TwoWay}" 
+				devices="{Binding DisplayDevices}"/>
+		</DockPanel>
+	</l:ContentColumn>
+</UserControl>

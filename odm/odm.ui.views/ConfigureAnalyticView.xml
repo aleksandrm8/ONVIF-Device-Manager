@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ConfigureAnalyticView" clr-ns="odm.ui.activities">
+	<use clr-ns="System.Xml"/>
+	<use clr-ns="System.Xml.Schema"/>
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="schemes" clr-type="XmlSchemaSet" read-only="true"/>
+		<prop name="config" clr-type="Config" read-only="true"/>
+		<prop name="configDescription" clr-type="ConfigDescription" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="Abort"/>
+	</result>
+</activity>

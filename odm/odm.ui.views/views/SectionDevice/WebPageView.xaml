@@ -1,0 +1,21 @@
+﻿<Local:BasePropertyControl x:Class="odm.ui.views.WebPageView"
+			 xmlns:Local="clr-namespace:odm.ui.controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	<Local:ContentColumn Title="{Binding Titles.webPage}" Background="{DynamicResource ResourceKey=PropertyBrush}" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False">
+		<DockPanel>
+			<DockPanel DockPanel.Dock="Top">
+				<StackPanel Margin="2" Orientation="Horizontal" DockPanel.Dock="Left">
+					<Button Name="navigateLeft" Margin="0,0,1,0"/>
+					<Button Name="navigateRight"/>
+				</StackPanel>
+				<TextBox Margin="4,0,0,0" Name="valueUri" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Background="White" Foreground="Black" IsReadOnly="True"/>
+			</DockPanel>
+			<WebBrowser ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="webContent"/>
+		</DockPanel>
+	</Local:ContentColumn>
+</Local:BasePropertyControl>

@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="odm.ui.activities.ReceiversModifyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid
+        Margin="10,15,10,10"
+		HorizontalAlignment="Left" VerticalAlignment="Top"		
+        MaxWidth="400" MinWidth="250">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style x:Key="buttonsBlock" TargetType="ContentControl">
+                <Setter Property="Grid.Row" Value="5"/>
+                <Setter Property="Grid.ColumnSpan" Value="2"/>
+            </Style>
+        </Grid.Resources>
+        
+        <TextBlock Name="captionToken" VerticalAlignment="Center" Margin="0,2,4,4" Text="Token" Grid.Column="0" Grid.Row="0"/>
+        <TextBlock Name="valueToken" VerticalAlignment="Center" Text="Token" Margin="0,2,0,2" Grid.Column="1" Grid.Row="0"/>
+
+        <TextBlock Name="captionMediaUri" VerticalAlignment="Center" Margin="0,2,4,2" Text="MediaUri" Grid.Column="0" Grid.Row="1"/>
+        <TextBox Name="valueMediaUri" VerticalAlignment="Center" MaxWidth="250" Text="MediaUri" Margin="0,2,0,4" Grid.Column="1" Grid.Row="1"/>
+
+        <TextBlock Name="captionMode" VerticalAlignment="Center" Margin="0,2,4,2" Text="Mode" Grid.Column="0" Grid.Row="2"/>
+        <ComboBox Name="valueMode" VerticalAlignment="Center" Margin="0,2,0,4" Grid.Column="1" Grid.Row="2"/>
+
+        <TextBlock Name="captionStreamType" VerticalAlignment="Center" Margin="0,2,4,2" Text="Stream Type" Grid.Column="0" Grid.Row="3"/>
+        <ComboBox Name="valueStreamType" VerticalAlignment="Center" Margin="0,2,0,4" Grid.Column="1" Grid.Row="3"/>
+
+        <TextBlock Name="captionTransport" VerticalAlignment="Center" Margin="0,2,4,2" Text="Transport" Grid.Column="0" Grid.Row="4"/>
+        <ComboBox Name="valueTransport" VerticalAlignment="Center" Margin="0,2,0,4" Grid.Column="1" Grid.Row="4"/>
+
+        <ContentControl Style="{StaticResource buttonsBlock}">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 4, 0, 0">
+                <Button x:Name="applyButton" Content="Apply" Margin="3,0,0,0" Style="{StaticResource ButtonLeft}"/>
+                <Button x:Name="cancelButton" Content="Cancel" Margin="3,0,0,0" Style="{StaticResource ButtonRight}"/>
+            </StackPanel>
+        </ContentControl>
+    </Grid>
+</UserControl>

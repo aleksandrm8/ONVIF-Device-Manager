@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.synesis.ru/onvif/VideoAnalytics"
+    xmlns="http://www.synesis.ru/onvif/VideoAnalytics"
+    elementFormDefault="qualified">
+
+    <xs:complexType name="Point">
+        <xs:sequence>
+            <xs:element name="X" type="xs:float"/>
+            <xs:element name="Y" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Rect">
+        <xs:sequence>
+            <xs:element name="LeftTop" type="Point"/>
+            <xs:element name="RightBottom" type="Point"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Rose">
+        <xs:sequence>
+            <xs:element name="Up" type="xs:boolean"/>
+            <xs:element name="UpRight" type="xs:boolean"/>
+            <xs:element name="Right" type="xs:boolean"/>
+            <xs:element name="DownRight" type="xs:boolean"/>
+            <xs:element name="Down" type="xs:boolean"/>
+            <xs:element name="DownLeft" type="xs:boolean"/>
+            <xs:element name="Left" type="xs:boolean"/>
+            <xs:element name="UpLeft" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="AntishakerCrop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="XOffs" type="xs:float"/>
+                <xs:element name="YOffs" type="xs:float"/>
+                <xs:element name="CropWidth" type="xs:float"/>
+                <xs:element name="CropHeight" type="xs:float"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="MatrixFormat">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2/3"/>
+            <xs:enumeration value="1/1,6"/>
+            <xs:enumeration value="1/1,8"/>
+            <xs:enumeration value="1/2"/>
+            <xs:enumeration value="1/2,3"/>
+            <xs:enumeration value="1/2,5"/>
+            <xs:enumeration value="1/2,7"/>
+            <xs:enumeration value="1/3"/>
+            <xs:enumeration value="1/3,2"/>
+            <xs:enumeration value="1/3,6"/>
+            <xs:enumeration value="1/4"/>
+            <xs:enumeration value="1/5"/>
+            <xs:enumeration value="1/6"/>
+            <xs:enumeration value="1/8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="SurfaceNormal">
+        <xs:sequence>
+            <xs:element name="Point" type="Point"/>
+            <xs:element name="Height" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="HeightMarker"> 
+        <xs:sequence>
+            <xs:element name="Height" type="xs:int"/>
+            <xs:element name="SurfaceNormals" type="SurfaceNormal" minOccurs="2" maxOccurs="10"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CombinedMarker">
+        <xs:sequence>
+            <xs:element name="Height" type="xs:int"/>
+            <xs:element name="Width" type="xs:int"/>
+            <xs:element name="Rectangles" type="Rect" minOccurs="2" maxOccurs="10"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="HeightMarkerCalibration">
+            <xs:sequence>
+                <xs:element name="FocalLength" type="xs:float"/>
+                <xs:element name="MatrixFormat" type="MatrixFormat"/>
+                <xs:element name="HeightMarkers" type="HeightMarker" minOccurs="1" maxOccurs="10"/>
+            </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CombinedMarkerCalibration">
+            <xs:sequence>
+                <xs:element name="CombinedMarkers" type="CombinedMarker" minOccurs="1" maxOccurs="10"/>
+            </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="MarkerCalibration">
+        <xs:complexType> 
+            <xs:choice>
+                <xs:element name="HeightMarkerCalibration" type="HeightMarkerCalibration"/>
+                <xs:element name="CombinedMarkerCalibration" type="CombinedMarkerCalibration"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UserRegion">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Rose" type="Rose"/>
+                <xs:element name="Points" type="Point" minOccurs="3" maxOccurs="10"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="RegionPoints">
+        <xs:complexType> 
+            <xs:sequence>
+                <xs:element name="Points" type="Point" minOccurs="3" maxOccurs="20"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TripWirePoints">
+        <xs:complexType> 
+            <xs:sequence>
+                <xs:element name="P1" type="Point"/>
+                <xs:element name="P2" type="Point"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DirectionAlarm">
+        <xs:complexType> 
+            <xs:sequence>
+                <xs:element name="Enabled" type="xs:boolean"/>
+                <xs:element name="Rose" type="Rose"/>
+                <xs:element name="MinShift" type="xs:float"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SpeedAlarm">
+        <xs:complexType> 
+            <xs:sequence>
+                <xs:element name="Enabled" type="xs:boolean"/>
+                <xs:element name="Speed" type="xs:float"/>
+                <xs:element name="Time" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="LoiteringAlarm">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Enabled" type="xs:boolean"/>
+                <xs:element name="Radius" type="xs:float"/>
+                <xs:element name="Time" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AbandonedItemAlarm">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Enabled" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="RegionMotionAlarm">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Enabled" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="ObjectAreaValue">
+            <xs:restriction base="xs:float">
+                <xs:minInclusive value="0.0"/>
+                <xs:maxInclusive value="100.0"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+    <xs:simpleType name="ObjectSpeedValue">
+            <xs:restriction base="xs:float">
+                <xs:minInclusive value="0.0"/>
+                <xs:maxInclusive value="100.0"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+    <xs:simpleType name="DisplacementSensitivityValue">
+            <xs:restriction base="xs:int">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="5"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+    <xs:simpleType name="StabilizationTimeValue">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="40"/>
+            <xs:maxInclusive value="10000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ContrastSensitivityValue">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TripWireDirection">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FromLeft"/>
+            <xs:enumeration value="FromRight"/>
+            <xs:enumeration value="FromBoth"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

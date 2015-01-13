@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="PtzView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="profile" clr-type="Profile" read-only="true"/>
+		<prop name="presets" clr-type="PTZPreset[]" read-only="true"/>
+		<!--<prop name="presetsMax" clr-type="int" read-only="true"/>-->
+		<!--<prop name="nodes" clr-type="PTZNode[]" read-only="true"/>-->
+		<prop name="status" clr-type="PTZStatus" read-only="true"/>
+		<prop name="node" clr-type="PTZNode" read-only="true"/>
+		<!--<prop name="currentPtzConfig" clr-type="PTZConfiguration" read-only="true"/>-->
+	</model>
+
+	<result>
+		<option name="Close"/>
+	</result>
+</activity>

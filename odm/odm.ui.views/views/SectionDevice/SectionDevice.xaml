@@ -1,0 +1,25 @@
+﻿<UserControl 
+	x:Class="odm.ui.views.SectionDevice"
+	xmlns:l="clr-namespace:odm.ui.viewModels"
+	xmlns:my="clr-namespace:odm.ui.controls"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:ctrl="clr-namespace:odm.ui.controls"
+	xmlns:link="clr-namespace:odm.ui.links"
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	mc:Ignorable="d">
+
+	<ContentControl
+        MinWidth="200" 
+		VerticalAlignment="Stretch" HorizontalAlignment="Left" MaxWidth="320"
+		x:Name="content">
+		<DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="2,1,2,2">
+				<Image Name="devImage" Height="128" Width="128" HorizontalAlignment="Center" Stretch="Uniform" VerticalAlignment="Center" Margin="0,3" />
+            <ctrl:BtnListBox x:Name="buttonsList" HorizontalAlignment="Left" Margin="3,0,3,3" Style="{DynamicResource links}"/>
+			</StackPanel>
+		</DockPanel>
+	</ContentControl>
+</UserControl>

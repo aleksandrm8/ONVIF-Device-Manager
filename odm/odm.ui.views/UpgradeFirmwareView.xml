@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="UpgradeFirmwareView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<use clr-ns="Microsoft.FSharp.Control"/>
+	<use clr-ns="Microsoft.FSharp.Core"/>
+	<use clr-ns="System.Threading"/>
+	
+	<model>
+		<prop name="activity" clr-type="Func&lt;FSharpAsync&lt;Unit&gt;&gt;" read-only="true"/>
+	</model>
+	<result>
+		<option name="Completed">
+			<param name="displayCompleteNotification" clr-type="bool"/>
+		</option>
+		<option name="Canceled"/>
+		<option name="Background">
+			<param name="disposable" clr-type="IDisposable"/>
+		</option>
+	</result>
+</activity>

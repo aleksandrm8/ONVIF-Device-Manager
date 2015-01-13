@@ -1,0 +1,111 @@
+﻿<UserControl 
+	x:Class="odm.ui.activities.MaintenanceView"
+	xmlns:l="clr-namespace:odm.ui.controls"
+	xmlns:ctrl="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	mc:Ignorable="d" 
+	d:DesignHeight="299" d:DesignWidth="687">
+
+    <DockPanel>
+        <Grid Margin="8,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="120"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label 
+				x:Name="configurationCaption"
+				Content="Configuration"
+				Grid.Row="0" Grid.Column="0"
+				Margin="0" Padding="0" VerticalAlignment="Center"/>
+            <Label 
+				x:Name="softResetCaption"
+				Content="Soft factory reset"
+				Grid.Row="1" Grid.Column="0"
+				Margin="0" Padding="0" VerticalAlignment="Center"/>
+            <Label 
+				x:Name="hardResetCaption"
+				Content="Hard factory reset"
+				Grid.Row="2" Grid.Column="0"
+				Margin="0" Padding="0" VerticalAlignment="Center"/>
+            <Label 
+				x:Name="resetCaption"
+				Content="Reboot device"
+				Grid.Row="3" Grid.Column="0"
+				Margin="0" Padding="0" VerticalAlignment="Center"/>
+            <Label 
+				x:Name="diagnosticsCaption"
+				Visibility="Collapsed"
+				Content="{Binding Strings.diagnostics}"
+				Grid.Row="4" Padding="0" VerticalAlignment="Center"/>
+            <Label 
+				x:Name="upgradeCaption"
+				Content="Upgarde Firmware"
+				Grid.Row="5" Grid.Column="0"
+				Margin="0" Padding="0" VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <Button 
+					x:Name="backupBtn"
+					HorizontalAlignment="Left"
+					Content="Backup"
+					Margin="3"/>
+                <Button
+					x:Name="restoreBtn"
+					HorizontalAlignment="Left"
+					Content="Restore"
+					Margin="3"/>
+                <TextBlock 
+					x:Name="backupUnsupportedTxt"
+					Text="Unsupported" VerticalAlignment="Center" Margin="3"/>
+            </StackPanel>
+            <Button Grid.Row="1" Grid.Column="1"
+					x:Name="softResetBtn"
+					HorizontalAlignment="Left"
+					Content="Reset"
+				    Margin="3" />
+            <Button Grid.Row="2" Grid.Column="1"
+					x:Name="hardResetBtn"
+					HorizontalAlignment="Left"
+					Content="Reset"
+					Margin="3" />
+            <Button Grid.Row="3" Grid.Column="1"
+					x:Name="rebootBtn"
+					HorizontalAlignment="Left"
+					Content="Reboot"
+					Margin="3" />
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                <Button 
+					x:Name="diagnosticsBtn"
+					Visibility="Collapsed"
+					HorizontalAlignment="Left"
+					Content="Diagnostics"
+					IsEnabled="False" Margin="3"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                <Button 
+					x:Name="upgradeBtn"
+					Content="Upgrade"
+					Margin="2"/>
+				<TextBox 
+					x:Name="fimwareTxt"
+					Text="fimware version"
+					Margin="3" VerticalAlignment="Stretch" IsReadOnly="true"/>
+                <TextBlock 
+					x:Name="upgradeUnsupportedTxt"
+					Text="Unsupported" 
+					VerticalAlignment="Center" Margin="3" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>

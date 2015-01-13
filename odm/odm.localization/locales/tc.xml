@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<localized-strings lang-iso3="zho">
+
+<!-- REGION Common Application -->
+  <module name="CommonApplicationStrings" namespace="odm.ui.controls">
+    <string name="On" value="On" />
+    <string name="Off" value="Off" />
+    <string name="Yes" value="Yes" />
+    <string name="No" value="No" />
+    <string name="streaming" value="串流" />
+    <string name="analytics" value="分析" />
+    <string name="details" value="Details :" />
+    <string name="startExpanded" value="Start view expanded" />
+    <string name="applicationName" value="ONVIF 裝置管理員" />
+    <string name="aboutTitle" value="About ONVIF Device Manager" />
+    <string name="aboutCommon" value="Copyright 2011 Synesis &#169;  ONVIF Device Manager is a free software distributed under the GNU General Public License." />
+    <string name="aboutRus" value="LLC Synesis Russia, 119019, Moscow Gogolevskiy bulvard, dom 2/18/1, stroenie 1" />
+    <string name="aboutBelarus" value="LLC Synesis Belarus, 220043, Minsk pr.-t Nezavisimosti, d. 95, zd. 12, kom. 316" />
+    <string name="aboutBelarusPhone" value="+375 (17) 281-77-85" />
+    <string name="aboutRusPhone" value="+7 (495) 660-77-47" />
+  </module>
+  <module name="DeviceControlStrings" namespace="odm.ui.controls">
+    <string name="currentAccount" value="Current account: " />
+    <string name="apply" value="Apply" />
+    <string name="accountManager" value="Account manager" />
+    <string name="title" value="裝置組態" />
+    <string name="languageEng" value="English" />
+    <string name="languageRus" value="Русский" />
+    <string name="languagetc" value="繁中" />
+  </module>
+  <module name="SaveCancelStrings" namespace="odm.ui.controls">
+    <string name="save" value="儲存" />
+    <string name="apply" value="儲存" />
+    <string name="abort" value="Abort" />
+    <string name="finish" value="Finish" />
+    <string name="cancel" value="取消" />
+    <string name="create" value="Create" />
+    <string name="delete" value="Delete" />
+    <string name="modify" value="Modify" />
+    <string name="select" value="Select" />
+    <string name="close" value="Close" />
+    <string name="pause" value="Pause" />
+    <string name="resume" value="Resume" />
+  </module>
+  <module name="LinkButtonsStrings" namespace="odm.ui.controls">
+    <string name="identificationAndStatus" value="基本設定" />
+    <string name="usermanager" value="User management" />
+    <string name="accountmanager" value="Account management" />
+    <string name="about" value="About" />
+    <string name="sequrity" value="Certificates" />
+    <string name="networkSettings" value="網路設定" />
+    <string name="digitalIO" value="數位輸入/輸出" />
+    <string name="maintenance" value="維護" />
+    <string name="systemLog" value="System log" />
+    <string name="onvifExplorer" value="ONVIF explorer" />
+    <string name="commonEvents" value="一般事件" />
+    <string name="liveVideo" value="現場影像" />
+    <string name="sensorSettings" value="Imaging settings" />
+    <string name="events" value="事件" />
+    <string name="metadata" value="Metadata" />
+    <string name="depthCalibration" value="Depth calibration" />
+    <string name="videoStreaming" value="影像串流" />
+    <string name="displayAnnotation" value="註解" />
+    <string name="tamperingDetectors" value="竄改偵測" />
+    <string name="objectTracker" value="物件追蹤" />
+    <string name="ruleEngine" value="規則引擎" />
+    <string name="cantishaker" value="防手振" />
+    <string name="rotation" value="旋轉" />
+    <string name="analogueOutput" value="類比輸出" />
+    <string name="profileEditor" value="Profiles" />
+    <string name="modules" value="Analytics modules management" />
+    <string name="ptz" value="PTZ сontrol" />
+    <string name="analytics" value="Analytics" />
+    <string name="confAnalyticsModules" value="Configure Analytics Modules" />
+    <string name="analyticsModuleCofig" value="Analytics module config" />
+    <string name="annotationModuleCofig" value="Annotation module config" />
+    <string name="regionRuleCofig" value="Region rule config" />
+    <string name="wireRuleCofig" value="Trip wire rule config" />
+    <string name="configuration" value="Configuration" />
+  </module>
+	<module name="InfoFormStrings" namespace="odm.controllers">
+    <string name="titleSave" value="儲存中..." />
+    <string name="titleInfo" value="資訊 ..." />
+    <string name="close" value="關閉" />
+    <string name="refresh" value="Refresh" />
+    <string name="loadingData" value="讀取資料中..." />
+    <string name="applyChangesTitle" value="套用中..." />
+    <string name="ifoTitle" value="資訊..." />
+    <string name="errorTitle" value="錯誤..." />
+    <string name="applyChanges" value="請等待直到修改套用為止" />
+    <string name="needToReboot" value="裝置需要重新啟動. 請更新裝置列." />
+	</module>
+  <module name="EmptySelectionStrings" namespace="odm.ui.controls">
+    <string name="title" value="無連接裝置." />
+    <string name="text" value="請確認裝置已連上." />
+    <string name="textContacts" value="" />
+    <!--<string name="sNotifierImg" value="Resources\Images\BigLogo.png" />-->
+  </module>
+<!-- ENDOFREGION Common Application -->
+
+<!-- REGION Errors -->
+  <module name="ExceptionStrings" namespace="nvc">
+    <string name="sExceptionWSDiscoveryTitle" value="WSDiscovery 錯誤" />
+    <string name="sErrorDevInfoNull" value="讀取裝置組態錯誤. 請更新此裝置." />
+    <string name="sErrorDeviceName" value="none" />
+    <!--<string name="sErrorDeviceIPAddress" value="0.0.0.0" />-->
+    <string name="sErrorDeviceFirmware" value="none" />
+    <string name="sErrorSaveVideoStreaming" value="儲存影像串流設定錯誤. 請更新此裝置." />
+    <string name="sErrorSaveNetworkSettings" value="儲存網路設定錯誤. 請更新此裝置." />
+    <string name="sErrorSaveDeviceNameSettings" value="儲存裝置名稱錯誤. 請更新此裝置." />
+    <string name="sErrorVlc" value="多媒體串流錯誤" />
+    <string name="sErrorVlcPlayer" value="無法播放多媒體串流" />
+    <string name="sErrorVlcMediaUriIsEmpty" value="串流uri是空的" />
+    <string name="sErrorVlcMediaUriIsBad" value="串流uri未知" />
+    <string name="sErrorNotAuthorized" value="Authorization error. Please select account with proper rights." />
+  </module>
+<!-- ENDOFREGION Errors -->
+
+<!-- REGION Device List -->
+  <module name="DevicesListControlStrings" namespace="odm.ui.controls">
+    <string name="title" value="Device list" />
+    <string name="refresh" value="更新" />
+    <string name="columnName" value="名稱" />
+    <string name="columnIPadress" value="IP 位址" />
+    <string name="columnType" value="韌體" />
+  </module>
+<!-- ENDOFREGION Device List -->
+  
+<!-- REGION Device settings -->
+  <module name="PropertyXMLExplorerStrings" namespace="odm.ui.controls">
+    <string name="title" value="Xml eExplorer" />
+    <string name="save" value="Save" />
+  </module>
+  <module name="PropertyIdentificationStrings" namespace="odm.ui.controls">
+    <string name="title" value="基本設定" />
+    <string name="name" value="名稱" />
+    <string name="location" value="Location" />
+    <string name="curTime" value="目前時間" />
+    <string name="deviceID" value="裝置 ID" />
+    <string name="firmware" value="韌體" />
+    <string name="hardware" value="硬體" />
+    <string name="version" value="版本" />
+    <string name="ipAddress" value="IP 位址" />
+    <string name="macAddress" value="MAC 位址" />
+    <string name="manufacturer" value="Manufacturer" />
+    <string name="model" value="Model" />
+  </module>
+  <module name="PropertyNetworkSettingsStrings" namespace="odm.ui.controls">
+    <string name="title" value="網路設定" />
+    <string name="dhcp" value="DHCP" />
+    <string name="ipAddr" value="裝置IP 位址 " />
+    <string name="subnetMask" value="子網路遮罩" />
+    <string name="gateAddr" value="閘道位址" />
+    <string name="dnsAddr" value="DNS 位址" />
+    <string name="ntpAddr" value="NTP address" />
+    <string name="obtainNtp" value="Obtain NTP from DHCP" />
+    <string name="obtainDns" value="Obtain DNS from DHCP" />
+    <string name="macAddr" value="MAC 位址" />
+  </module>
+  <module name="PropertyDigitalIOStrings" namespace="odm.ui.controls">
+    <string name="outputs" value="Digital outputs (relays)" />
+    <string name="relayOptions" value="Relay options:" />
+    <string name="relayState" value="Relay state:" />
+    <string name="relayToken" value="Relay token" />
+    <string name="relayMode" value="Relay mode" />
+    <string name="relayIdleState" value="Relay idle state" />
+    <string name="delayTime" value="Delay time" />
+    <string name="btnSet" value="Set" />
+    <string name="btnActivate" value="Activate" />
+    <string name="btnDeactivate" value="Deactivate" />
+  </module>
+  <module name="PropertyTimeZoneStrings" namespace="odm.ui.controls">
+    <string name="title" value="Time settings" />
+    <string name="currentTime" value="Current time" />
+    <string name="timeZone" value="Time zone:" />
+    <string name="autoAdjustString" value="Autometically adjust for daylight saving time changes." />
+    <string name="synchronizeWithComp" value="Synchronize with computer time" />
+    <string name="date" value="Date:" />
+    <string name="time" value="Time:" />
+    <string name="synchronizeWithNtp" value="Synchronize with NTP server" />
+    <string name="NTPserver" value="NTP server:" />
+    <string name="manually" value="Set manually" />
+    <string name="timeMode" value="Time mode:" />
+    <string name="ntpServerSetupTitle" value="NTP server setup" />
+    <string name="ntpServerSetupSet" value="Set" />
+    <string name="warning" value="Warning: the time zone of the device is not the same as the time zone of the PC" />
+    <string name="ntpSetupInfo" value="Please go to Network settings link to set up NTP servers"/>
+    <string name="fromDHCP" value="From DHCP"/>
+    <string name="newDateTime" value="New time:"/>
+  </module>
+  <module name="PropertyMaintenanceStrings" namespace="odm.ui.controls">
+    <string name="title" value="維護" />
+    <string name="configuration" value="組態" />
+    <string name="btnBackup" value="備份" />
+    <string name="btnRestore" value="回存" />
+    <string name="factoryReset" value="重置" />
+    <string name="btnSoftReset" value="重新啟動" />
+    <string name="btnHardReset" value="回復出廠設定值" />
+    <string name="btnReboot" value="Reboot" />
+    <string name="diagnostics" value="偵錯以及支援" />
+    <string name="btnDownloadDump" value="下載日誌" />
+    <!--<string name="sPropertyMaintenanceBTNSupportLink" value="support@gtrg.ru" />-->
+    <string name="firmwareVer" value="目前韌體版本" />
+    <string name="upgrateFirmware" value="韌體升級" />
+    <string name="btnUpgrate" value="升級" />
+    <string name="uploadingFirmware" value="Firmware is uploading. Please wait.." />
+    <string name="btnCancel" value="Cancel" />
+    <string name="btnClose" value="Close" />
+    <string name="updateCompleate" value="Firmware update is complete. Please wait for your device to reboot. " />
+    <string name="backupCompleate" value="Backup is complete." />
+    <string name="restoreCompleate" value="Restore is complete. Please wait for your device to reboot. " />
+    <string name="unsupported" value="Unsupported" />
+  </module>
+  <module name="UserManagementStrings" namespace="odm.ui.controls">
+    <string name="users" value="Users:" />
+    <string name="polices" value="Polices:" />
+    <string name="createNew" value="Create new user" />
+    <string name="modifyUser" value="Modify user" />
+    <string name="name" value="Name/Login" />
+    <string name="password" value="Password" />
+    <string name="role" value="Role" />
+    <string name="set" value="Set" />
+    <string name="newUser" value="New" />
+    <string name="delete" value="Delete" />
+    <string name="uploadPolicy" value="Upload Policy" />
+    <string name="downloadPolicy" value="Download Policy" />
+  </module>
+  <module name="SequrityStrings" namespace="odm.ui.controls">
+    <string name="activate" value="Set active" />
+    <string name="active" value="Active Certificate:" />
+    <string name="certificates" value="Certificates:" />
+    <string name="enableClientAuth" value="Enable Client Authentification :" />
+    <string name="uploadCertificate" value="Upload Certificate" />
+    <string name="downloadCertificate" value="Download Certificate" />
+  </module>
+  <module name="SystemLogStrings" namespace="odm.ui.controls">
+    <string name="logTypeSystem" value="System" />
+    <string name="logTypeAccess" value="Access" />
+    <string name="logType" value="Select system log type: " />
+    <string name="Get" value="Get" />
+  </module>
+  <module name="CommonEventsStrings" namespace="odm.ui.controls">
+    <string name="title" value="一般事件" />
+    <string name="ruleID" value="規則 ID" />
+    <string name="eventID" value="事件 ID" />
+    <string name="dateTime" value="日期/時間" />
+    <string name="type" value="類別" />
+    <string name="details" value="細節" />
+  </module>
+<!-- ENDOFREGION Device settings -->
+
+<!-- REGION Chanels settings -->
+  <module name="AnalyticsStrings" namespace="odm.ui.controls">
+    <string name="setNameType" value="Set analytics configuration data" />
+    <string name="modules" value="Modules :" />
+    <string name="rules" value="Rules :" />
+  </module>
+  <module name="PropertyProfileEditorStrings" namespace="odm.ui.controls">
+    <string name="title" value="Profile editor" />
+    <string name="profdetails" value="Profile details" />
+    <string name="newProf" value="New" />
+    <string name="rename" value="Rename" />
+    <string name="delete" value="Delete" />
+    <string name="select" value="Apply" />
+  </module>
+  <module name="PropertyModulesStrings" namespace="odm.ui.controls">
+
+  </module>
+  <module name="PropertyPTZStrings" namespace="odm.ui.controls">
+    <string name="presets" value="Presets:" />
+    <string name="settings" value="Settings:" />
+    <string name="quicksets" value="Quick sets:" />
+    <string name="zoom" value="Relative Zoom:" />
+    <string name="absoluteZoom" value="Absolute Zoom:" />
+    <string name="relativemove" value="Relative move:" />
+    <string name="absolute" value="Absolute move:" />
+    <string name="select" value="Select" />
+    <string name="delete" value="Delete" />
+    <string name="apply" value="Apply" />
+    <string name="go_to" value="Goto" />
+    <string name="sethome" value="Set Home position" />
+    <string name="setpreset" value="Set Preset" />
+    <string name="panspeed" value="Pan speed:" />
+    <string name="tiltspeed" value="Tilt speed:" />
+    <string name="zoomspeed" value="Zoom speed:" />
+    <string name="selectnode" value="Select Node:" />
+    <string name="setlimits" value="Set up limits:" />
+    <string name="tiltmin" value="Tilt min:" />
+    <string name="tiltmax" value="Tilt max:" />
+    <string name="panmin" value="Pan min:" />
+    <string name="panmax" value="Pan max:" />
+    <string name="zoommin" value="Zoom min:" />
+    <string name="zoommax" value="Zoom max:" />
+  </module>
+  <module name="PropertyLiveVideoStrings" namespace="odm.ui.controls">
+    <string name="title" value="現場影像" />
+    <string name="folder" value="Select" />
+  </module>
+  <module name="PropertySensorSettingsStrings" namespace="odm.ui.controls">
+    <string name="title" value="Sensor settings" />
+    <string name="brightness" value="Brightness" />
+    <string name="saturation" value="Color saturation" />
+    <string name="contrast" value="Contrast" />
+    <string name="sharpness" value="Sharpness" />
+    <string name="whitemode" value="White balance AUTO mode" />
+    <string name="whiteBalanceCb" value="White balance Cb" />
+    <string name="whiteBalanceCr" value="White balance Cr" />
+    <string name="backlightMode" value="Backlight compensation Mode" />
+    <string name="backlightLevel" value="Backlight compensation Level" />
+    <string name="auto" value="Auto" />
+    <string name="min" value="min" />
+    <string name="max" value="max" />
+  </module>
+  <module name="PropertyChannelEventsStrings" namespace="odm.ui.controls">
+    <string name="title" value="事件" />
+    <string name="ruleID" value="規則 ID" />
+    <string name="eventID" value="事件 ID" />
+    <string name="dateTime" value="日期/時間" />
+    <string name="type" value="類別" />
+    <string name="details" value="細節" />
+  </module>
+  <module name="PropertyDepthCalibrationStrings" namespace="odm.ui.controls">
+    <string name="focalLength" value="Focal length, mm" />
+    <string name="sensorPixel" value="Photosensor pixel size, m*" />
+    <string name="matrixFormat" value="Matrix format" />
+    <string name="heightMarker" value="Height marker" />
+    <string name="marker2D" value="2D-marker" />
+    <string name="physHeight" value="Real perspector Heigth, cm" />
+    <string name="physWidth" value="Real perspector Width, cm" />
+    <string name="infoMarker1" value="INFO: Proportions of the marker #1 is not valid. Please increase its width, or to reduce its height." />
+    <string name="infoMarker2" value="INFO: Proportions of the marker #2 is not valid. Please increase its width, or to reduce its height." />
+    <string name="infoMarkerWhidth" value="INFO: The width of the lower marker must be greater than the upper marker." />
+    <string name="infoDisplacement" value="INFO: The depth of the scene is not enough. Please extend the distance between the upper and the lower markers. The distance must be not less than 1 / 4 of screen." />
+  </module>
+  <module name="PropertyVideoStreamingStrings" namespace="odm.ui.controls">
+    <string name="title" value="Video streaming" />
+    <string name="resolution" value="Resolution, pixels" />
+    <string name="frameRate" value="Frame rate, fps" />
+    <string name="encoder" value="Encoder" />
+    <string name="bitrate" value="Bitrate limit, kbps" />
+    <string name="prioriy" value="Priority" />
+    <string name="quality" value="Quality" />
+    <string name="metadata" value="Metadata stream On/Off" />
+  </module>
+  <module name="PropertyMetadataStrings" namespace="odm.ui.controls">
+    <string name="title" value="Metadata" />
+    <string name="empty" value="No metadata available" />
+    <string name="details" value="Metadata details" />
+    <string name="config" value="Metadata configuration" />
+    <string name="includeAnalitycs" value="Include analitycs" />
+    <string name="includePtzPosition" value="Include ptz position" />
+    <string name="includePtzStatus" value="Include ptz status" />
+    <string name="filter" value="Filter:" />
+    <string name="collect" value="Collect data" />
+  </module>
+  <module name="PropertyDisplayAnnotationStrings" namespace="odm.ui.controls">
+    <string name="enableMovingRects" value="Enable moving rects" />
+    <string name="enableSpeed" value="Enable speed" />
+    <string name="enableTimeStamp" value="Enable time stamp" />
+    <string name="enableSystemInformation" value="Enable system information" />
+    <string name="enableChannelName" value="Enable channel name" />
+    <string name="enableTracking" value="Enable tracking" />
+    <string name="enableUserRegion" value="Enable user region" />
+    <string name="enableRules" value="Enable rules" />
+    <string name="enableCalibrationResults" value="Enable calibration results" />
+  </module>
+  <module name="PropertyTamperingDetectorsStrings" namespace="odm.ui.controls">
+    <string name="cameraRedirected" value="Camera redirected" />
+    <string name="imageTooDark" value="Image too Dark" />
+    <string name="cameraObstructed" value="Camera obstructed" />
+    <string name="imageTooBlurry" value="Image out of focuse" />
+    <string name="imageTooBright" value="Iage too btight" />
+    <string name="imageTooNoisy" value="Image too noisy" />
+  </module>
+  <module name="PropertyObjectTrackerStrings" namespace="odm.ui.controls">
+    <string name="useObjectTracker" value="Use object tracker" />
+    <string name="contrast" value="Contrast sensitivity" />
+    <string name="areaMin" value="Object area min, m*m" />
+    <string name="areaMax" value="Object area max, m*m" />
+    <string name="speedMax" value="Speed max, m/s" />
+    <string name="stabilization" value="Stabilization time, ms" />
+    <string name="displacement" value="Displacement sensitivity" />
+    <string name="all" value="All" />
+    <string name="none" value="None" />
+    <string name="sensitivity" value="Sensitivity" />
+  </module>
+  <module name="PropertyRuleEngineStrings" namespace="odm.ui.controls">
+    <string name="enableRule" value="Enable moving in region" />
+    <string name="btnAdd" value="Add" />
+    <string name="btnRemove" value="Remove" />
+    <string name="name" value="Name" />
+    <string name="groupRule" value="Generate alarm when:" />
+    <string name="groupAction" value="Upon alarm:" />
+    <string name="moving" value="Moving " />
+    <string name="meters" value="m" />
+    <string name="movingInDirections" value="in directions:" />
+    <string name="loitering" value="Loitering " />
+    <string name="seconds" value="s" />
+    <string name="runtime" value="during " />
+    <string name="within" value="s within" />
+    <string name="running" value="Running faster then " />
+    <string name="speed" value=" m/s" />
+    <string name="abandoning" value="Abandoning item" />
+    <string name="sendOnvif" value="Send ONVIF message" />
+    <string name="setFramerate" value="Set Framerate to" />
+    <string name="fps" value="fps" />
+    <string name="turnOnRelay" value="開啟" />
+    <string name="turnOnAnalog" value="開啟類比輸出" />
+    <string name="direction" value="Direction: " />
+    <string name="record" value="Record to local or network drive" />
+    <string name="ptz" value="Target PTZ-camera" />
+  </module>
+  <module name="PropertyAntishakerStrings" namespace="odm.ui.controls">
+    <string name="useAntishaker" value="Use antishaker" />
+    <string name="enableDisplacement" value="Enable camera redirected event" />
+    <string name="enableOutputShift" value="Enable stabilization of output picture" />
+  </module>
+  <module name="PropertyRotationStrings" namespace="odm.ui.controls">
+    <string name="title" value="旋轉" />
+    <string name="rotate" value="旋轉:" />
+    <string name="rotate0" value="0'(無)" />
+    <string name="rotate90" value="90'" />
+    <string name="rotate180" value="180'" />
+    <string name="rotate270" value="270'" />
+    <string name="flip" value="上下顛倒:" />
+    <string name="flipH0" value="None" />
+    <string name="flipH" value="水平" />
+    <string name="flipV0" value="無" />
+    <string name="flipV" value="垂直" />
+  </module>
+  <module name="PropertyAnalogueOutputStrings" namespace="odm.ui.controls">
+    <string name="title" value="類比輸出" />
+    <string name="loop" value="Loop-through" />
+    <string name="digital" value="數位處理" />
+    <string name="off" value="Off" />
+  </module>
+  <module name="ApproAnalyticsStrings" namespace="odm.ui.controls">
+    <string name="title" value="Appro motion detector" />
+    <string name="sensitivity" value="Sensitivity value" />
+  </module>
+<!-- ENDOFREGION Chanels settings -->
+  
+</localized-strings>

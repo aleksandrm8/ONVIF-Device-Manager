@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88A8B3A8-7758-4E5A-8DA8-692BAC98B07B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>odm.localization</RootNamespace>
+    <AssemblyName>odm.localization</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)' == 'Net40' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DefineConstants>NET40; $(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)' == 'Net45' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DefineConstants>NET45; $(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>bin\$(Configuration)\$(Platform)\</OutputPath>
+    <DebugSymbols Condition="'$(Configuration)' == 'Debug'">true</DebugSymbols>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">full</DebugType>
+    <DebugType Condition="'$(Configuration)' == 'Release'">pdbonly</DebugType>
+    <Optimize Condition="'$(Configuration)' == 'Debug'">false</Optimize>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel Condition="'$(Configuration)' == 'Debug'">4</WarningLevel>
+    <WarningLevel Condition="'$(Configuration)' == 'Release'">3</WarningLevel>
+    <DefineConstants Condition="'$(Configuration)' == 'Debug'">DEBUG;TRACE;$(DefineConstants)</DefineConstants>
+    <DefineConstants Condition="'$(Configuration)' == 'Release'">TRACE;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Reactive.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Rx-Core.2.0.20823\lib\$(Platform)\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Rx-Interfaces.2.0.20823\lib\$(Platform)\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Rx-Linq.2.0.20823\lib\$(Platform)\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\~cfg\AssemblyInfo.global.cs">
+      <Link>Properties\AssemblyInfo.global.cs</Link>
+    </Compile>
+    <Compile Include="LanguageManager.cs" />
+    <Compile Include="localization.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="strings.generated.cs">
+      <DependentUpon>strings.xml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xslt Include="strings.xml">
+      <Transformation>strings.generator.xslt</Transformation>
+      <Out>strings.generated.cs</Out>
+      <SubType>Designer</SubType>
+    </Xslt>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="locales\-dir.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="strings.generator.xslt">
+      <DependentUpon>strings.xml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="locales\eng.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="locales\rus.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\utils\utils.bindings\utils.bindings.csproj">
+      <Project>{161F40E9-5DB5-4AAC-93E3-20533C8EC463}</Project>
+      <Name>utils.bindings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.bootstrapping\utils.bootstrapping.csproj">
+      <Project>{90b75c37-636e-40fd-9005-4fd885a83eb2}</Project>
+      <Name>utils.bootstrapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.common\utils.common.csproj">
+      <Project>{2FAA440A-87D3-41AB-9931-25AC306A25BA}</Project>
+      <Name>utils.common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.diagnostics\utils.diagnostics.csproj">
+      <Project>{C89D83CA-C0FA-4573-A63E-F716DD628696}</Project>
+      <Name>utils.diagnostics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.linq\utils.linq.csproj">
+      <Project>{65FB2C9F-3A0F-4E3F-ADBD-912BC6F08508}</Project>
+      <Name>utils.linq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\utils.xml\utils.xml.csproj">
+      <Project>{C00B45E2-5ABA-4F7A-BD85-505594794AAE}</Project>
+      <Name>utils.xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- 
+		To modify your build process, add your task inside one of the targets below and uncomment it. 
+		Other similar extension points exist, see Microsoft.Common.targets.
+	-->
+  <Target Name="xslt" Inputs="@(Xslt)" Outputs="%(Out)">
+    <XslTransformation XmlInputPaths="@(Xslt)" XslInputPath="%(Transformation)" OutputPaths="%(Out)" />
+  </Target>
+  <Target Name="BeforeBuild" DependsOnTargets="xslt">
+  </Target>
+  <!--
+	<Target Name="AfterBuild">
+  </Target>
+	-->
+</Project>

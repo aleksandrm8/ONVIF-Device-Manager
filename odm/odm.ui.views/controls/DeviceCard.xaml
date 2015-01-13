@@ -1,0 +1,49 @@
+﻿<l:DeviceCard
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:l="clr-namespace:odm.ui.controls"
+	mc:Ignorable="d">
+	<!--<ContentControl.Resources>
+		<Style TargetType="{x:Type l:DeviceCard}">
+			<Setter Property="Template">
+				<Setter.Value>
+					
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</ContentControl.Resources>-->
+
+	<l:DeviceCard.Template>
+		<ControlTemplate TargetType="{x:Type l:DeviceCard}">
+            <Border x:Name="border" Width="200" CornerRadius="4" HorizontalAlignment="Stretch" Margin="2, 2, 2 ,2">
+            	<Border.Effect>
+            		<DropShadowEffect BlurRadius="10" ShadowDepth="0" Direction="0"/>
+            	</Border.Effect>
+			    <Grid Margin="5">
+				    <Grid.ColumnDefinitions>
+					    <ColumnDefinition Width="50"/>
+					    <ColumnDefinition Width="Auto"/>
+				    </Grid.ColumnDefinitions>
+				    <Image Name="snapshot" Grid.Column="0"/>
+				    <StackPanel Grid.Column="1">
+					    <TextBlock Name="name" Text="{TemplateBinding DeviceName}"/>
+					    <TextBlock Name="address" Text="{TemplateBinding Address}"/>
+					    <TextBlock Name="firmware" Text="{TemplateBinding Firmware}"/>
+				    </StackPanel>
+			    </Grid>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFEFAF4" Offset="0" />
+                        <GradientStop Color="#FF95A5B1" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+			<ControlTemplate.Triggers>
+				<Trigger Property="Address" Value="{x:Null}"/>
+			</ControlTemplate.Triggers>
+        </ControlTemplate>
+	</l:DeviceCard.Template>	
+		
+</l:DeviceCard>

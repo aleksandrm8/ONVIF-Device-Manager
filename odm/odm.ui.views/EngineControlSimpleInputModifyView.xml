@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlSimpleInputModifyView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="isEnable" clr-type="bool" />
+		<prop name="input" clr-type="AnalyticsEngineInput" />
+		<prop name="receiver" clr-type="Receiver" />
+		<prop name="receivers" clr-type="Receiver[]" read-only="true" />
+	</model>
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+	</result>
+</activity>

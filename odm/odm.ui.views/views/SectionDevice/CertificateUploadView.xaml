@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="odm.ui.activities.CertificateUploadView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             x:Name="ctrl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel Margin="7,15,10,10"
+		HorizontalAlignment="Left" VerticalAlignment="Top">
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <TextBlock 
+			    Margin="3"
+			    Name="certificateNameCaption" Text="Enter certificate name: "/>
+            <TextBox
+			    Margin="3"
+                HorizontalAlignment="Left"
+                MinWidth="150"
+			    Name="certificateNameValue" Text="Certificate ##"/>
+        </StackPanel>
+
+        <TextBlock DockPanel.Dock="Top" Text="Details:" Name="captionDetails" Margin="3,10,3,6" Foreground="Black" FontWeight="Bold"/>
+        
+
+        <StackPanel 
+            DockPanel.Dock="Bottom"
+            Margin="3" 
+            Orientation="Horizontal" >
+            <Button Command="{Binding UploadCommand, ElementName=ctrl}" Name="btnUpload" Content="Upload"/>
+            <Button Command="{Binding CancelCommand, ElementName=ctrl}" Name="btnCancel" Margin="3,0,0,0" Content="Cancel"/>
+        </StackPanel>
+
+        <ScrollViewer>
+            <TextBlock 
+			    Margin="3"
+			    Name="certificateDetails"/>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

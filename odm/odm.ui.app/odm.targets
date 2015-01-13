@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="BeforeBuild">
+		<XslTransformation XmlInputPaths="@(Xslt)" XslInputPath="%(Transformation)" OutputPaths="%(Out)" />
+	</Target>
+	<Target Name="BeforeBuild">
+		<XslTransformation XmlInputPaths="@(Model)" XslInputPath="%(RelativeDir)\generator\modgen.xslt" OutputPaths="%(RelativeDir)\generated\%(Filename).generated.cs" />
+	</Target>
+</Project>
+

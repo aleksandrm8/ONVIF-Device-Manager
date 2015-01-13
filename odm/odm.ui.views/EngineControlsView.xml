@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlsView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="controlstates" clr-type="Dictionary&lt;AnalyticsEngineControl, AnalyticsState&gt;" read-only="true" />
+		<prop name="selection" clr-type="AnalyticsEngineControl" />
+	</model>
+	<result>
+		<option name="Create"/>
+		<option name="Delete">
+			<param name="control" clr-type="AnalyticsEngineControl"/>
+		</option>
+		<option name="Modify">
+			<param name="control" clr-type="AnalyticsEngineControl"/>
+		</option>
+		<option name="Select">
+			<param name="control" clr-type="AnalyticsEngineControl"/>
+		</option>
+	</result>
+</activity>

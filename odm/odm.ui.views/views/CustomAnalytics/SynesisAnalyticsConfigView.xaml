@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="odm.ui.views.CustomAnalytics.SynesisAnalyticsConfigView"
+             xmlns:l="clr-namespace:odm.ui.views.CustomAnalytics"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             x:Name="ctrl"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl HorizontalAlignment="Stretch" Background="White" Name="analyticsTabCtrl" VerticalAlignment="Stretch">
+            <TabItem Header="{Binding Titles.objectTracker, ElementName=ctrl}" Name="tabObjectTracker">
+                <l:ObjectTrackerView x:Name="pageObjectTracker"/>
+            </TabItem>
+            <TabItem Header="{Binding Titles.depthCalibration, ElementName=ctrl}" Name="tabDepthCalibration">
+                <l:DepthCalibrationView x:Name="pageDepthCalibration"/>
+            </TabItem>
+            <TabItem Header="{Binding Titles.tamperingDetectors, ElementName=ctrl}" Name="tabTampering">
+                <l:TamperingDetectorsView  
+                    x:Name="pageTampering"
+                    isCameraObstructedEnabled="{Binding IsModuleEnabled, ElementName=pageObjectTracker}" 
+                    isCameraRedirectedEnabled="{Binding IsModuleEnabled, ElementName=pageAntishaker}"/>
+            </TabItem>
+            <TabItem Header="{Binding Titles.cantishaker, ElementName=ctrl}" Name="tabAntishaker">
+                <l:AntishakerView x:Name="pageAntishaker"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

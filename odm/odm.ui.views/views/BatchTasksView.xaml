@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="odm.ui.views.BatchTasksView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:utils="clr-namespace:odm.ui.views"
+             mc:Ignorable="d" 
+             x:Name="ctrl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel VerticalAlignment="Top">
+        <StackPanel Margin="3" DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Margin="0,0,0,0" Content="Upgrade firmware"/>
+            <Button Margin="3,0,0,0" Content="Mass restore"/>
+        </StackPanel>
+        <ScrollViewer VerticalAlignment="Top" 
+                      HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto">
+            <ListView Margin="3" Name="devicesList" 
+                     utils:GridViewSort.AutoSort="True"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                     ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="True">
+                        <GridViewColumn 
+                            Header="Selected" 
+                            Width="Auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsEnabled="{Binding IsEnabled}" IsChecked="{Binding IsChecked}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn 
+                            Header="Name" 
+                            Width="Auto"
+                            utils:GridViewSort.PropertyName="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" IsEnabled="{Binding IsEnabled}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn 
+                            Header="Manufacturer" 
+                            Width="Auto"
+                            utils:GridViewSort.PropertyName="Manufacturer">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Manufacturer}" IsEnabled="{Binding IsEnabled}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn 
+                            Header="Model" 
+                            Width="Auto"
+                            DisplayMemberBinding="{Binding Model}"
+                            utils:GridViewSort.PropertyName="Model">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Model}" IsEnabled="{Binding IsEnabled}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn 
+                            Header="Firmware" 
+                            Width="Auto"
+                            DisplayMemberBinding="{Binding Firmware}"
+                            utils:GridViewSort.PropertyName="Firmware">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Firmware}" IsEnabled="{Binding IsEnabled}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

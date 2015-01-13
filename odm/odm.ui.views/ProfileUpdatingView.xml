@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ProfileUpdatingView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="videoEncCfg" clr-type="VideoEncoderConfiguration" />
+		<prop name="audioEncCfg" clr-type="AudioEncoderConfiguration" />
+		<prop name="analyticsCfg" clr-type="VideoAnalyticsConfiguration" />
+		<prop name="ptzCfg" clr-type="PTZConfiguration" />
+		<prop name="metaCfg" clr-type="MetadataConfiguration" />
+
+		<prop name="isVideoEncCfgEnabled" clr-type="bool" />
+		<prop name="isAudioEncCfgEnabled" clr-type="bool" />
+		<prop name="isAnalyticsCfgEnabled" clr-type="bool" />
+		<prop name="isPtzCfgEnabled" clr-type="bool" />
+		<prop name="isMetaCfgEnabled" clr-type="bool" />
+
+		<prop name="videoEncCfgs" clr-type="VideoEncoderConfiguration[]" read-only="true"/>
+		<prop name="audioEncCfgs" clr-type="AudioEncoderConfiguration[]" read-only="true"/>
+		<prop name="ptzCfgs" clr-type="PTZConfiguration[]" read-only="true"/>
+		<prop name="analyticsCfgs" clr-type="VideoAnalyticsConfiguration[]" read-only="true"/>
+		<prop name="metaCfgs" clr-type="MetadataConfiguration[]" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Finish">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="Abort"/>
+		<option name="SelectVideoEncCfg">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SelectAudioEncCfg">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SelectAnalyticsCfg">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SelectPtzCfg">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="SelectMetaCfg">
+			<param name="model" clr-type="Model"/>
+		</option>
+	</result>
+</activity>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="VideoSettingsView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="profToken" clr-type="string" read-only="true"/>
+		
+		<prop name="resolution" clr-type="VideoResolution" />
+		<!--<prop name="resolutions" clr-type="VideoResolution[]" read-only="true"/>-->
+
+		<prop name="maxFrameRate" clr-type="int" read-only="true"/>
+		<prop name="minFrameRate" clr-type="int" read-only="true"/>
+		<prop name="frameRate" clr-type="double" />
+
+		<prop name="maxEncodingInterval" clr-type="int" read-only="true"/>
+		<prop name="minEncodingInterval" clr-type="int" read-only="true"/>
+		<prop name="encodingInterval" clr-type="int" />
+
+		<prop name="maxQuality" clr-type="int" read-only="true"/>
+		<prop name="minQuality" clr-type="int" read-only="true"/>
+		<prop name="quality" clr-type="float" />
+
+		<prop name="maxBitrate" clr-type="int" read-only="true"/>
+		<prop name="minBitrate" clr-type="int" read-only="true"/>
+		<prop name="bitrate" clr-type="double" />
+
+		<prop name="maxGovLength" clr-type="int" read-only="true"/>
+		<prop name="minGovLength" clr-type="int" read-only="true"/>
+		<prop name="govLength" clr-type="int" />
+
+		<prop name="encoder" clr-type="VideoEncoding" />
+		<!--<prop name="encoders" clr-type="VideoEncoding[]" read-only="true"/>-->
+
+		<prop name="encoderOptions" clr-type="VideoEncoderConfigurationOptions" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Apply">
+			<param name="model" clr-type="Model"/>
+		</option>
+		<option name="None"/>
+	</result>
+</activity>

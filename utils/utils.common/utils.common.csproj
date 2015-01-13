@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Net45</Platform>
+    <ProjectGuid>{2FAA440A-87D3-41AB-9931-25AC306A25BA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>utils</RootNamespace>
+    <AssemblyName>utils.common</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)' == 'Net40' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DefineConstants>NET40; $(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)' == 'Net45' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DefineConstants>NET45; $(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>bin\$(Configuration)\$(Platform)\</OutputPath>
+    <DebugSymbols Condition="'$(Configuration)' == 'Debug'">true</DebugSymbols>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">full</DebugType>
+    <DebugType Condition="'$(Configuration)' == 'Release'">pdbonly</DebugType>
+    <Optimize Condition="'$(Configuration)' == 'Debug'">false</Optimize>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel Condition="'$(Configuration)' == 'Debug'">4</WarningLevel>
+    <WarningLevel Condition="'$(Configuration)' == 'Release'">3</WarningLevel>
+    <DefineConstants Condition="'$(Configuration)' == 'Debug'">DEBUG;TRACE;$(DefineConstants)</DefineConstants>
+    <DefineConstants Condition="'$(Configuration)' == 'Release'">TRACE;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\..\packages\Rx-Core.2.0.20823\lib\$(Platform)\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\..\packages\Rx-Interfaces.2.0.20823\lib\$(Platform)\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\..\packages\Rx-Linq.2.0.20823\lib\$(Platform)\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\~cfg\AssemblyInfo.global.cs">
+      <Link>Properties\AssemblyInfo.global.cs</Link>
+    </Compile>
+    <Compile Include="NullExtensions.cs" />
+    <Compile Include="Lambda.cs" />
+    <Compile Include="NamedWrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ActionFlow.cs" />
+    <Compile Include="ActionFlowScheduler.cs" />
+    <Compile Include="CircularBuffer.cs" />
+    <Compile Include="AssemblyExtensions.cs" />
+    <Compile Include="HttpReader.cs" />
+    <Compile Include="PosixTz.Dst.cs" />
+    <Compile Include="PosixTz.DstRule.cs" />
+    <Compile Include="PosixTz.TimeUnit.cs" />
+    <Compile Include="HashCode.cs" />
+    <Compile Include="PosixTzExtensions.cs" />
+    <Compile Include="PosixTzWriter.cs" />
+    <Compile Include="PosixTzReader.cs" />
+    <Compile Include="DoubleExtensions.cs" />
+    <Compile Include="InternationalAtomicTime.cs" />
+    <Compile Include="PosixTz.cs" />
+    <Compile Include="SerializationExtensions.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="SynchronizationContextExtensions.cs" />
+    <Compile Include="Trampoline.cs" />
+    <Compile Include="TrampolineSynCtx.cs" />
+    <Compile Include="UtfBasicAuthenticationModule.cs" />
+    <Compile Include="Weak.cs" />
+    <Compile Include="ExposedObject.cs" />
+    <Compile Include="SerialDisposable.cs" />
+    <Compile Include="StreamExtensions.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="CollectionExtensions.cs" />
+    <Compile Include="EncodingExtensions.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="WeakReference.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\utils.diagnostics\utils.diagnostics.csproj">
+      <Project>{C89D83CA-C0FA-4573-A63E-F716DD628696}</Project>
+      <Name>utils.diagnostics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\utils.linq\utils.linq.csproj">
+      <Project>{65FB2C9F-3A0F-4E3F-ADBD-912BC6F08508}</Project>
+      <Name>utils.linq</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

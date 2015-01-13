@@ -1,0 +1,120 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero">
+	<Style x:Key="RectangleEditor" TargetType="{x:Type Rectangle}">
+		<Setter Property="Fill" Value="#3200FF00"/>
+		<Setter Property="Stroke" Value="#FF009B00"/>
+		<Setter Property="RadiusX" Value="4"/>
+		<Setter Property="RadiusY" Value="4"/>
+		<Setter Property="StrokeThickness" Value="2"/>
+	</Style>
+    <Style x:Key="MarkerPhys" TargetType="{x:Type Ellipse}">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <RadialGradientBrush>
+                    <GradientStop Color="#7F005000" Offset="1"/>
+                    <GradientStop Color="#7F00FF00" Offset="0"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MarkerPointer" TargetType="{x:Type Ellipse}">
+		<Setter Property="Fill">
+			<Setter.Value>
+				<RadialGradientBrush>
+					<GradientStop Color="#FF005000" Offset="1"/>
+					<GradientStop Color="Lime" Offset="0"/>
+				</RadialGradientBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+    <Style x:Key="TrackerPointer" TargetType="{x:Type Ellipse}">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <RadialGradientBrush>
+                    <GradientStop Color="OrangeRed" Offset="1"/>
+                    <GradientStop Color="Orange" Offset="0"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="RectanglePointer" TargetType="{x:Type Ellipse}">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF62C2CC" Offset="1"/>
+                    <GradientStop Color="#FF62C2CC" Offset="0"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="RegionStyle" TargetType="{x:Type Polygon}">
+    	<Setter Property="Fill" Value="#19FF5D00"/>
+    </Style>
+    <Style x:Key="RegionLineStyle" TargetType="{x:Type Line}">
+        <Setter Property="Stroke" Value="#FFFF8000"/>
+        <Setter Property="StrokeThickness" Value="2"/>
+    </Style>
+    <Style x:Key="RecordCheckBox" TargetType="{x:Type CheckBox}">
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type CheckBox}">
+    				<Grid>
+    					<VisualStateManager.VisualStateGroups>
+    						<VisualStateGroup x:Name="CommonStates">
+    							<VisualState x:Name="Normal"/>
+    							<VisualState x:Name="MouseOver">
+    								<Storyboard>
+    									<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+    										<EasingColorKeyFrame KeyTime="0" Value="Red"/>
+    									</ColorAnimationUsingKeyFrames>
+    									<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="path">
+    										<EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+    									</DoubleAnimationUsingKeyFrames>
+    								</Storyboard>
+    							</VisualState>
+    							<VisualState x:Name="Pressed"/>
+    							<VisualState x:Name="Disabled"/>
+    						</VisualStateGroup>
+    						<VisualStateGroup x:Name="CheckStates">
+    							<VisualState x:Name="Checked">
+    								<Storyboard>
+    									<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+    										<EasingColorKeyFrame KeyTime="0" Value="Red"/>
+    									</ColorAnimationUsingKeyFrames>
+    									<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+    										<EasingColorKeyFrame KeyTime="0" Value="#FFC80000"/>
+    									</ColorAnimationUsingKeyFrames>
+    								</Storyboard>
+    							</VisualState>
+    							<VisualState x:Name="Unchecked"/>
+    							<VisualState x:Name="Indeterminate"/>
+    						</VisualStateGroup>
+    					</VisualStateManager.VisualStateGroups>
+    					<Path x:Name="path" Data="M29.572516,7.2688494 L29.572516,11.425122 31.030819,11.425122 C31.753027,11.425122 32.332876,11.216787 32.770367,10.800118 33.214803,10.376505 33.437021,9.8521962 33.437021,9.2271929 33.437021,7.9216309 32.655786,7.2688489 31.093318,7.2688494 z M40.134603,4.7480022 L48.749012,4.7480022 48.749012,7.4876001 43.499119,7.4876001 43.499119,10.810534 48.384436,10.810534 48.384436,13.539717 43.499119,13.539717 43.499119,16.956402 49.092754,16.956402 49.092754,19.685583 40.134603,19.685583 z M26.208,4.7480022 L31.541226,4.7480022 C35.166152,4.7480028 36.978616,6.1021764 36.978616,8.8105235 36.978616,9.3313599 36.898756,9.8122654 36.739038,10.25324 36.579319,10.694215 36.353629,11.091786 36.061968,11.445955 35.770308,11.800124 35.417883,12.105681 35.004697,12.362627 34.591511,12.619573 34.131451,12.820961 33.624518,12.966797 L33.624518,13.008464 C33.846735,13.077909 34.062007,13.190757 34.270337,13.347008 34.478665,13.503258 34.680051,13.685551 34.874492,13.893885 35.068932,14.10222 35.254692,14.32618 35.431772,14.565764 35.608851,14.805347 35.770307,15.039724 35.916138,15.268893 L38.738997,19.685583 34.874492,19.685583 32.551622,15.841811 C32.378014,15.550145 32.211351,15.289725 32.051632,15.060558 31.891912,14.831391 31.730458,14.635209 31.567266,14.472013 31.404075,14.308818 31.23394,14.183818 31.05686,14.097013 30.87978,14.010205 30.687076,13.966803 30.478747,13.966803 L29.572516,13.966803 29.572516,19.685583 26.208,19.685583 z M58.508579,4.4980008 C59.966881,4.4980014 61.196022,4.6820301 62.195999,5.0500865 L62.195999,8.2896874 C61.196022,7.692462 60.057156,7.3938496 58.779404,7.3938496 57.376656,7.3938496 56.244734,7.8348246 55.383638,8.7167735 54.522545,9.5987234 54.091999,10.793174 54.091999,12.300127 54.091999,13.744578 54.49824,14.895626 55.310724,15.75327 56.123207,16.610914 57.216936,17.039736 58.591908,17.039736 59.904381,17.039736 61.105747,16.72029 62.195999,16.081397 L62.195999,19.15433 C61.105747,19.682112 59.682163,19.946001 57.925253,19.946001 55.633633,19.946001 53.831587,19.272386 52.519114,17.925157 51.20664,16.577929 50.550404,14.78278 50.550404,12.539711 50.550404,10.15081 51.288237,8.2132993 52.763901,6.7271788 54.239565,5.241061 56.154457,4.4980014 58.508579,4.4980008 z M12,0 C18.627417,0 24,5.3725832 24,12 24,18.627418 18.627417,24.000001 12,24.000001 5.3725834,24.000001 0,18.627418 0,12 0,5.3725832 5.3725834,0 12,0 z" Fill="#FF640000" RenderTransformOrigin="0.710688802983849,0.509249985804161" Stretch="Fill" Stroke="#FFC80000">
+    						<Path.RenderTransform>
+    							<TransformGroup>
+    								<ScaleTransform/>
+    								<SkewTransform/>
+    								<RotateTransform/>
+    								<TranslateTransform/>
+    							</TransformGroup>
+    						</Path.RenderTransform>
+    					</Path>
+    					<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+    				</Grid>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <Style x:Key="RectangleEditorStyle" TargetType="{x:Type Rectangle}">
+    	<Setter Property="Fill" Value="#33F1FF00"/>
+    	<Setter Property="Opacity" Value="1"/>
+    	<Setter Property="Stroke" Value="#FFF1FF00"/>
+    	<Setter Property="StrokeThickness" Value="2"/>
+    	<Setter Property="RadiusX" Value="2"/>
+    	<Setter Property="RadiusY" Value="2"/>
+    </Style>
+    <!-- Resource dictionary entries should be defined here. -->
+	
+</ResourceDictionary>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ErrorView" clr-ns="odm.ui.activities">
+	<model>
+		<prop name="error" clr-type="Exception" read-only="true"/>
+	</model>
+	<result>
+		<option name="Ok"/>
+	</result>
+</activity>

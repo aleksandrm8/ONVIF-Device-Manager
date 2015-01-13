@@ -1,0 +1,429 @@
+﻿<UserControl 
+	x:Class="odm.ui.activities.NetworkSettingsView"
+	xmlns:l="clr-namespace:odm.ui"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:onvif="clr-namespace:onvif.services;assembly=onvif.services"
+    xmlns:uiloc="clr-namespace:odm.ui;assembly=odm.localization"
+	x:Name="ctrl">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="LocalNetworkSettingsStrings" MethodName="GetInstance" ObjectType="{x:Type uiloc:LocalNetworkSettings}"/>
+    </UserControl.Resources>
+	<Grid 
+		Margin="10,15,10,10" MaxWidth="400" MinWidth="250"
+		HorizontalAlignment="Left" VerticalAlignment="Top">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" MinWidth="60"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.Resources>
+			<Style x:Key="valueContainer" TargetType="ContentControl">
+				<Setter Property="Grid.Column" Value="1"/>
+				<Setter Property="Margin" Value="6,0,0,4"/>
+			</Style>
+			<Style x:Key="captionContainer" TargetType="ContentControl">
+				<Setter Property="Grid.Column" Value="0"/>
+				<Setter Property="Margin" Value="0,0,0,4"/>
+				<Setter Property="VerticalAlignment" Value="Center"/>
+			</Style>
+		</Grid.Resources>
+
+		<ContentControl Grid.Row="0" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="dhcpCaption" Text="DHCP:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="0" Style="{StaticResource valueContainer}">
+			<ComboBox x:Name="dhcpValue">
+				<sys:Boolean>true</sys:Boolean>
+				<sys:Boolean>false</sys:Boolean>
+				<ComboBox.SelectedValue>
+					<sys:Boolean>true</sys:Boolean>
+				</ComboBox.SelectedValue>
+				<ComboBox.ItemTemplate>
+					<DataTemplate DataType="sys:Boolean">
+						<TextBlock x:Name="item"/>
+						<DataTemplate.Triggers>
+							<DataTrigger Binding="{Binding}" Value="True" >
+								<DataTrigger.Setters>
+									<Setter TargetName="item" Property="Text" Value="{Binding on, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+								</DataTrigger.Setters>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding}" Value="False" >
+								<DataTrigger.Setters>
+									<Setter TargetName="item" Property="Text" Value="{Binding off, Source={StaticResource LocalNetworkSettingsStrings}}" />
+								</DataTrigger.Setters>
+							</DataTrigger>
+						</DataTemplate.Triggers>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+		</ContentControl>
+
+		<ContentControl Grid.Row="1" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="ipAddressCaption" Text="IP Address:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="1" Style="{StaticResource valueContainer}">
+			<TextBox x:Name="ipAddressValue" Text="192.168.0.199"/>
+		</ContentControl>
+
+		<ContentControl Grid.Row="2" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="ipMaskCaption" Text="IP mask:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="2" Style="{StaticResource valueContainer}">
+			<TextBox x:Name="ipMaskValue" Text="255.255.248.0"/>
+		</ContentControl>
+
+		<ContentControl Grid.Row="3" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="gatewayCaption" Text="Default gateway:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="3" Style="{StaticResource valueContainer}">
+			<TextBox x:Name="gatewayValue" Text="192.168.0.1; 192.168.0.2"/>
+		</ContentControl>
+
+		<!--<ContentControl Grid.Row="4" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="hostFromDhcpCaption" Text="Obtain host name from DHCP:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="4" Style="{StaticResource valueContainer}">
+			<CheckBox x:Name="hostFromDhcpValue" IsChecked="True"/>
+		</ContentControl>-->
+		<Rectangle 
+			Grid.Row="4" Grid.ColumnSpan="2"  Margin="0,6,0,10" 
+			HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+			Height="1" Fill="{DynamicResource BackgroundHighlight}"/>
+
+		<ContentControl Grid.Row="5" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="hostCaption" Text="Host name:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="5" Style="{StaticResource valueContainer}">
+			<DockPanel>
+				<ComboBox x:Name="hostFromDhcpValue" DockPanel.Dock="left" Margin="0,0,6,0">
+					<sys:Boolean>true</sys:Boolean>
+					<sys:Boolean>false</sys:Boolean>
+					<ComboBox.SelectedValue>
+						<sys:Boolean>true</sys:Boolean>
+					</ComboBox.SelectedValue>
+					<ComboBox.ItemTemplate>
+						<DataTemplate DataType="sys:Boolean">
+							<TextBlock x:Name="item"/>
+							<DataTemplate.Triggers>
+								<DataTrigger Binding="{Binding}" Value="True" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding fromDhcp, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+									</DataTrigger.Setters>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding}" Value="False" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding manual, Source={StaticResource LocalNetworkSettingsStrings}}" />
+									</DataTrigger.Setters>
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBox x:Name="hostValue" Text="elevator-cam" />
+			</DockPanel>
+		</ContentControl>
+
+		<!--<Rectangle 
+			Grid.Row="8" Grid.ColumnSpan="2"  Margin="0,6,0,10" 
+			HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+			Height="2" Fill="{DynamicResource BackgroundHighlight}"/>-->
+
+		<!--<ContentControl Grid.Row="9" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="dnsFromDhcpCaption" Text="Obtain DNS from DHCP:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="9" Style="{StaticResource valueContainer}">
+			<CheckBox x:Name="dnsFromDhcpValue" IsChecked="True"/>
+		</ContentControl>-->
+
+		<ContentControl Grid.Row="6" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="dnsCaption" Text="DNS:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="6" Style="{StaticResource valueContainer}">
+			<DockPanel>
+				<ComboBox x:Name="dnsFromDhcpValue" DockPanel.Dock="left" Margin="0,0,6,0">
+					<sys:Boolean>true</sys:Boolean>
+					<sys:Boolean>false</sys:Boolean>
+					<ComboBox.SelectedValue>
+						<sys:Boolean>true</sys:Boolean>
+					</ComboBox.SelectedValue>
+					<ComboBox.ItemTemplate>
+						<DataTemplate DataType="sys:Boolean">
+							<TextBlock x:Name="item"/>
+							<DataTemplate.Triggers>
+								<DataTrigger Binding="{Binding}" Value="True" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding fromDhcp, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+									</DataTrigger.Setters>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding}" Value="False" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding manual, Source={StaticResource LocalNetworkSettingsStrings}}" />
+									</DataTrigger.Setters>
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBox x:Name="dnsValue" Text="192.168.0.1"/>
+			</DockPanel>
+		</ContentControl>
+
+		<!--<ContentControl Grid.Row="11" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="ntpFromDhcpCaption" Text="Obtain NTP servers from DHCP:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="11" Style="{StaticResource valueContainer}">
+			<CheckBox x:Name="ntpFromDhcpValue" IsChecked="True"/>
+		</ContentControl>-->
+
+		<ContentControl Grid.Row="7" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="ntpCaption" Text="NTP servers:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="7" Style="{StaticResource valueContainer}">
+			<DockPanel>
+				<ComboBox x:Name="ntpFromDhcpValue" DockPanel.Dock="left" Margin="0,0,6,0">
+					<sys:Boolean>true</sys:Boolean>
+					<sys:Boolean>false</sys:Boolean>
+					<ComboBox.SelectedValue>
+						<sys:Boolean>true</sys:Boolean>
+					</ComboBox.SelectedValue>
+					<ComboBox.ItemTemplate>
+						<DataTemplate DataType="sys:Boolean">
+							<TextBlock x:Name="item"/>
+							<DataTemplate.Triggers>
+								<DataTrigger Binding="{Binding}" Value="True" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding fromDhcp, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+									</DataTrigger.Setters>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding}" Value="False" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding manual, Source={StaticResource LocalNetworkSettingsStrings}}" />
+									</DataTrigger.Setters>
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBox x:Name="ntpValue" Text="192.168.0.1; 192.168.0.2"/>
+			</DockPanel>
+		</ContentControl>
+
+		<Rectangle 
+			Grid.Row="8" Grid.ColumnSpan="2"  Margin="0,6,0,10" 
+			HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+			Height="1" Fill="{DynamicResource BackgroundHighlight}"/>
+
+		<ContentControl Grid.Row="9" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="captionPortsHttp" Text="HTTP ports:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="9" Style="{StaticResource valueContainer}">
+			<DockPanel>
+				<ComboBox x:Name="valueEnableHttp" DockPanel.Dock="left" Margin="0,0,6,0">
+					<sys:Boolean>true</sys:Boolean>
+					<sys:Boolean>false</sys:Boolean>
+					<ComboBox.SelectedValue>
+						<sys:Boolean>true</sys:Boolean>
+					</ComboBox.SelectedValue>
+					<ComboBox.ItemTemplate>
+						<DataTemplate DataType="sys:Boolean">
+							<TextBlock x:Name="item"/>
+							<DataTemplate.Triggers>
+								<DataTrigger Binding="{Binding}" Value="True" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding enable, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+									</DataTrigger.Setters>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding}" Value="False" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding disable, Source={StaticResource LocalNetworkSettingsStrings}}" />
+									</DataTrigger.Setters>
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBox x:Name="valuePortsHttp" Text="80; 8080"/>
+			</DockPanel>
+		</ContentControl>
+
+		<ContentControl Grid.Row="10" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="captionPortsHttps" Text="HTTPS ports:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="10" Style="{StaticResource valueContainer}">
+			<DockPanel>
+				<ComboBox x:Name="valueEnableHttps" DockPanel.Dock="left" Margin="0,0,6,0">
+					<sys:Boolean>true</sys:Boolean>
+					<sys:Boolean>false</sys:Boolean>
+					<ComboBox.SelectedValue>
+						<sys:Boolean>true</sys:Boolean>
+					</ComboBox.SelectedValue>
+					<ComboBox.ItemTemplate>
+						<DataTemplate DataType="sys:Boolean">
+							<TextBlock x:Name="item"/>
+							<DataTemplate.Triggers>
+								<DataTrigger Binding="{Binding}" Value="True" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding enable, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+									</DataTrigger.Setters>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding}" Value="False" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding disable, Source={StaticResource LocalNetworkSettingsStrings}}" />
+									</DataTrigger.Setters>
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBox x:Name="valuePortsHttps" Text="443; 543"/>
+			</DockPanel>
+		</ContentControl>
+
+
+		<ContentControl Grid.Row="11" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="captionPortsRtsp" Text="RTSP ports:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="11" Style="{StaticResource valueContainer}">
+			<DockPanel>
+				<ComboBox x:Name="valueEnableRtsp" DockPanel.Dock="left" Margin="0,0,6,0">
+					<sys:Boolean>true</sys:Boolean>
+					<sys:Boolean>false</sys:Boolean>
+					<ComboBox.SelectedValue>
+						<sys:Boolean>true</sys:Boolean>
+					</ComboBox.SelectedValue>
+					<ComboBox.ItemTemplate>
+						<DataTemplate DataType="sys:Boolean">
+							<TextBlock x:Name="item"/>
+							<DataTemplate.Triggers>
+								<DataTrigger Binding="{Binding}" Value="True" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding enable, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+									</DataTrigger.Setters>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding}" Value="False" >
+									<DataTrigger.Setters>
+										<Setter TargetName="item" Property="Text" Value="{Binding disable, Source={StaticResource LocalNetworkSettingsStrings}}" />
+									</DataTrigger.Setters>
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBox x:Name="valuePortsRtsp" Text="554"/>
+			</DockPanel>
+		</ContentControl>
+
+		<!--<StackPanel 
+            Grid.Row="14" Grid.ColumnSpan="2"  Margin="0,6,0,10" 
+            Orientation="Vertical">
+            <GroupBox HorizontalAlignment="Stretch">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Name="valueEnableHttp"/>
+                        <TextBlock Name="captionGBoxHttp" Text="HTTP"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <DockPanel HorizontalAlignment="Stretch">
+                    <TextBlock Name="captionPortsHttp" DockPanel.Dock="Left" Margin="3,0,3,0" VerticalAlignment="Center" Text="Ports"/>
+                    <TextBox Name="valuePortsHttp" MinWidth="140" HorizontalAlignment="Stretch"/>
+                </DockPanel>
+            </GroupBox>
+            <GroupBox HorizontalAlignment="Stretch">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Name="valueEnableHttps"/>
+                        <TextBlock Name="captionGBoxHttps" Text="HTTPS"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <DockPanel HorizontalAlignment="Stretch">
+                    <TextBlock Name="captionPortsHttps" DockPanel.Dock="Left" Margin="3,0,3,0" VerticalAlignment="Center" Text="Ports"/>
+                    <TextBox Name="valuePortsHttps" MinWidth="140" HorizontalAlignment="Stretch"/>
+                </DockPanel>
+            </GroupBox>
+            <GroupBox HorizontalAlignment="Stretch">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Name="valueEnableRtsp"/>
+                        <TextBlock Name="captionGBoxRtsp" Text="RTSP"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <DockPanel HorizontalAlignment="Stretch">
+                    <TextBlock Name="captionPortsRtsp" DockPanel.Dock="Left" Margin="3,0,3,0" VerticalAlignment="Center" Text="Ports"/>
+                    <TextBox Name="valuePortsRtsp" MinWidth="140" HorizontalAlignment="Stretch"/>
+                </DockPanel>
+            </GroupBox>
+        </StackPanel>-->
+		<Rectangle 
+			Grid.Row="12" Grid.ColumnSpan="2"  Margin="0,6,0,10" 
+			HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+			Height="1" Fill="{DynamicResource BackgroundHighlight}"/>
+		<ContentControl Grid.Row="13" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="zeroCaption" Text="Use zero configuration:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="13" Style="{StaticResource valueContainer}">
+			<DockPanel >
+				<CheckBox x:Name="zeroValue" DockPanel.Dock="Left"/>
+				<!--<TextBlock x:Name="zeroIp" Margin="3,0,0,0" Text="100.100.100.100"/>-->
+				<TextBox IsReadOnly="True" BorderThickness="0" Background="White" x:Name="zeroIp" Margin="0" Padding="3,0,0,0" Text="100.100.100.100" />
+			</DockPanel>
+		</ContentControl>
+
+		<ContentControl Grid.Row="14" Style="{StaticResource captionContainer}">
+			<TextBlock x:Name="discoveryModeCaption" Text="ONVIF discovery mode:"/>
+		</ContentControl>
+		<ContentControl Grid.Row="14" Style="{StaticResource valueContainer}">
+			<ComboBox x:Name="discoveryModeValue">
+				<onvif:DiscoveryMode>Discoverable</onvif:DiscoveryMode>
+				<onvif:DiscoveryMode>NonDiscoverable</onvif:DiscoveryMode>
+				<ComboBox.SelectedValue>
+					<onvif:DiscoveryMode>Discoverable</onvif:DiscoveryMode>
+				</ComboBox.SelectedValue>
+				<ComboBox.ItemTemplate>
+					<DataTemplate DataType="sys:Boolean">
+						<TextBlock x:Name="item"/>
+						<DataTemplate.Triggers>
+							<DataTrigger Binding="{Binding}"  Value="Discoverable">
+								<DataTrigger.Setters>
+									<Setter TargetName="item" Property="Text" Value="{Binding discoverable, Source={StaticResource LocalNetworkSettingsStrings}}"/>
+								</DataTrigger.Setters>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding}" Value="NonDiscoverable" >
+								<DataTrigger.Setters>
+									<Setter TargetName="item" Property="Text" Value="{Binding nonDiscoverable, Source={StaticResource LocalNetworkSettingsStrings}}" />
+								</DataTrigger.Setters>
+							</DataTrigger>
+						</DataTemplate.Triggers>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+		</ContentControl>
+		
+		<StackPanel 
+			Grid.Row="15" Grid.ColumnSpan="2" 
+			Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button x:Name="applyButton" Command="{Binding ApplyCommand, ElementName=ctrl}" Content="Apply" Style="{StaticResource ButtonLeft}"/>
+			<Button x:Name="cancelButton" Command="{Binding CancelCommand, ElementName=ctrl}" Content="Cancel" Style="{StaticResource ButtonRight}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

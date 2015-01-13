@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="UserCreationView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="existingUsers" clr-type="string[]" read-only="true"/>
+		<prop name="defaultUserName" clr-type="string" read-only="true"/>
+		<prop name="defaultPassword" clr-type="string" read-only="true"/>
+		<prop name="defaultUserLevel" clr-type="UserLevel" read-only="true"/>
+	</model>
+	<result>
+		<option name="Apply">
+			<param name="userName" clr-type="string"/>
+			<param name="password" clr-type="string"/>
+			<param name="userLevel" clr-type="UserLevel"/>
+		</option>
+		<option name="Cancel"/>
+	</result>
+</activity>

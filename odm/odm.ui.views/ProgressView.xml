@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="ProgressView" clr-ns="odm.ui.activities">
+	<model>
+		<prop name="title" clr-type="string" read-only="true"/>
+		<prop name="text" clr-type="string" read-only="true"/>
+		<prop name="isCancellable" clr-type="bool" read-only="true"/>
+	</model>
+	<result>
+		<option name="Canceled"/>
+		<option name="Completed"/>
+	</result>
+</activity>

@@ -1,0 +1,38 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<SolidColorBrush x:Key="ButtonBorder" Color="Gray" />
+	<!--<SolidColorBrush x:Key="ButtonBackground" Color="#FFACACA6" />-->
+	<!--<SolidColorBrush x:Key="ButtonBackground" Color="#FFAAAAAA" />-->
+	<SolidColorBrush x:Key="ButtonBackground" Color="#FFCDCDCD" />
+	<SolidColorBrush x:Key="ButtonBackgroundDark" Color="#FFB9B9B9" />
+	<!--<SolidColorBrush x:Key="ButtonBackground" Color="#AAAA99" />-->
+	<SolidColorBrush x:Key="ButtonForeground" Color="Black" />
+	<SolidColorBrush x:Key="ButtonBackgroundHighlight" Color="#FF595959" />
+	<SolidColorBrush x:Key="ButtonForegroundHighlight" Color="White" />
+	<SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#FF3D3D3D" />
+	<SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
+
+	<!--<SolidColorBrush x:Key="Background" Color="#FFACACA6"/>-->
+	<!--<SolidColorBrush x:Key="Background" Color="#FFAAAAAA"/>-->
+	<SolidColorBrush x:Key="Background" Color="#FFCDCDCD"/>
+	<!--<SolidColorBrush x:Key="Background" Color="#AAAA99"/>-->
+	<SolidColorBrush x:Key="Foreground" Color="Black"/>
+	<SolidColorBrush x:Key="BackgroundHighlight" Color="#FF595959"/>
+    <SolidColorBrush x:Key="BackgroundHeader" Color="#FF595959"/>
+    <SolidColorBrush x:Key="BackgroundHeaderSelected" Color="#FF494949"/>
+    <SolidColorBrush x:Key="BackgroundHeaderChecked" Color="#FF292929"/>
+	<SolidColorBrush x:Key="ForegroundHighlight" Color="White"/>
+	<SolidColorBrush x:Key="BackgroundPressed" Color="#FF3D3D3D"/>
+	<SolidColorBrush x:Key="ForegroundPressed" Color="White"/>
+	<SolidColorBrush x:Key="BackgroundDisabled" Color="#FFCDCDCD"/>
+	<SolidColorBrush x:Key="ForegroundDisabled" Color="#FFCDCDCD"/>
+	<SolidColorBrush x:Key="BorderBrush" Color="Gray"/>
+	<SolidColorBrush x:Key="BackgroundReadOnly" Color="#FFDEDEDE"/>
+	<SolidColorBrush x:Key="ForegroundReadOnly" Color="#FF8D8D8D"/>
+	<SolidColorBrush x:Key="TextBoxBackground" Color="White"/>
+	<SolidColorBrush x:Key="ColumnBackground" Color="#FF595959"/> 
+	<SolidColorBrush x:Key="PropertyBrush" Color="#FFCDCDCD"/>
+   
+</ResourceDictionary>

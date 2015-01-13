@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="EngineControlsCreationView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<model>
+		<prop name="name" clr-type="string" />
+    <prop name="token" clr-type="string" />
+
+    <prop name="vacToken" clr-type="string" />
+	</model>
+	<result>
+		<option name="Finish">
+			<param name="config" clr-type="Model"/>
+		</option>
+    <option name="ConfigureInputs">
+      <param name="config" clr-type="Model"/>
+    </option>
+    <option name="ConfigureVac">
+      <param name="config" clr-type="Model"/>
+    </option>
+		<option name="Abort"/>
+	</result>
+</activity>

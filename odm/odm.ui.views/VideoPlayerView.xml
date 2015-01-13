@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity name="VideoPlayerView" clr-ns="odm.ui.activities">
+	<use clr-ns="onvif.services"/>
+	<use clr-ns="odm.player"/>
+	<model>
+		<prop name="streamSetup" clr-type="StreamSetup" read-only="true"/>
+		<prop name="mediaUri" clr-type="MediaUri" read-only="true"/>
+		<prop name="encoderResolution" clr-type="VideoResolution" read-only="true"/>
+		<prop name="isUriEnabled" clr-type="bool" read-only="true"/>
+		<prop name="metadataReceiver" clr-type="IMetadataReceiver" read-only="true"/>
+	</model>
+
+	<result>
+		<option name="Close"/>
+	</result>
+</activity>

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="odm.ui.views.SectionNVA.EnginesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:odm.ui.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Name="content">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="134"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Cursor="Hand" Name="vsSnapshot" MaxHeight="128" MinHeight="48" MaxWidth="128" HorizontalAlignment="Center" Stretch="Uniform" VerticalAlignment="Center" Margin="0,3" />
+        <ctrl:BtnListBox Grid.Column="1" x:Name="buttonsList" HorizontalAlignment="Left" Margin="3,0,3,3" Style="{DynamicResource links}"/>
+    </Grid>
+</UserControl>

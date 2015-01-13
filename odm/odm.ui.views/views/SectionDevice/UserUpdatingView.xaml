@@ -1,0 +1,137 @@
+﻿<UserControl 
+	x:Class="odm.ui.activities.UserUpdatingView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:l="clr-namespace:odm.ui.controls"
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	x:Name="ctrl"
+	mc:Ignorable="d">
+	<Grid 
+		Margin="10,15,10,10" MinWidth="250" MaxWidth="400"
+		HorizontalAlignment="Left" VerticalAlignment="Top">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="6"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" MinWidth="60"/>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.Resources>
+				<Style TargetType="TextBox" BasedOn="{StaticResource ResourceKey={x:Type TextBox}}">
+					<Setter Property="Margin" Value="6,0,0,4" />
+					<Setter Property="VerticalContentAlignment" Value="Center" />
+					<Setter Property="MaxLines" Value="1" />
+					<Setter Property="Grid.Column" Value="1" />
+				</Style>
+				<Style TargetType="ComboBox" BasedOn="{StaticResource ResourceKey={x:Type ComboBox}}">
+					<Setter Property="Margin" Value="6,0,0,4" />
+					<Setter Property="VerticalContentAlignment" Value="Center" />
+					<Setter Property="Grid.Column" Value="1" />
+				</Style>
+				<Style TargetType="Label" BasedOn="{StaticResource ResourceKey={x:Type Label}}">
+					<Setter Property="Margin" Value="0,0,0,4" />
+					<Setter Property="Padding" Value="0" />
+					<Setter Property="VerticalContentAlignment" Value="Center" />
+				</Style>
+			</Grid.Resources>
+			<Label 
+				x:Name="userNameCaption"
+				Content="User name:"
+				Grid.Row="0"/>
+			<TextBox 
+				x:Name="userNameValue"
+				Text="Name" 
+				Grid.Row="0" IsReadOnly="True"/>
+
+			<Label 
+				x:Name="passwordCaption"
+				Content="Password:"
+				Grid.Row="1"/>
+			<TextBox 
+				x:Name="passwordValue"
+				Text="a78erWQty"
+				Grid.Row="1"/>
+
+			<Label 
+				x:Name="repeatPasswordCaption"
+				Content="Repeat password:"
+				Grid.Row="2"/>
+			<TextBox 
+				x:Name="repeatPasswordValue"
+				Text="a78erWQty"
+				Grid.Row="2"/>
+
+			<Label 
+				x:Name="roleCaption"
+				Content="Role:"
+				Grid.Row="3"/>
+			<ComboBox 
+				x:Name="roleValue" 
+				Grid.Row="3"/>
+		</Grid>
+		<StackPanel 
+			Grid.Row="2"
+			Orientation="Horizontal"
+			HorizontalAlignment="Right">
+			<Button 
+				x:Name="applyButton"
+				Content="Apply" 
+				Margin="0" Style="{StaticResource ButtonLeft}"/>
+			<Button 
+				x:Name="cancelButton"
+				Content="Cancel"
+				Margin="3,0,0,0" Style="{StaticResource ButtonRight}"/>
+		</StackPanel>
+	</Grid>
+</UserControl>
+
+
+<!--<UserControl x:Class="odm.ui.activities.UserUpdatingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:odm.ui.controls"
+             xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+             x:Name="ctrl"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <DockPanel>
+        <StackPanel Orientation="Vertical">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Margin="3" Grid.Column="0" Grid.Row="0" Content="{Binding Strings.name, ElementName=ctrl}"/>
+                <Label Margin="3" Grid.Column="0" Grid.Row="1" Content="{Binding Strings.password, ElementName=ctrl}"/>
+                <Label Margin="3" Grid.Column="0" Grid.Row="2" Content="{Binding Strings.role, ElementName=ctrl}"/>
+
+                <TextBlock Margin="3" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Text="{Binding name}" MinWidth="150"/>
+                <TextBox Margin="3" Grid.Column="1" Grid.Row="1" Text="{Binding password}"/>
+                <ComboBox Name="cmbRoles" Margin="3" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="3">
+                <Button Content="{Binding SaveCancel.apply, ElementName=ctrl}" Command="{Binding cmdApply, ElementName=ctrl}" Margin="0,3,3,3"/>
+                <Button Content="{Binding SaveCancel.cancel, ElementName=ctrl}" Command="{Binding cmdCancel, ElementName=ctrl}" Margin="0,3,3,3"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</UserControl>-->

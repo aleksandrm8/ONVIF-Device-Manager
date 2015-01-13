@@ -1,0 +1,62 @@
+﻿<UserControl 
+	x:Class="odm.ui.ToolBarView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:l="clr-namespace:odm.ui"
+    xmlns:views="clr-namespace:odm.ui.views"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Name="ctrl"
+	mc:Ignorable="d" d:DesignWidth="500">
+	<Grid Margin="0,6" HorizontalAlignment="Stretch">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="auto"/>
+		</Grid.ColumnDefinitions>
+		
+        <ContentPresenter x:Name="auth" Grid.Column="0"/>
+        
+		<StackPanel Grid.Column="2" Orientation="Horizontal">
+			<l:ImageButton
+				ToolTip="{Binding Titles.backgroundTasks, ElementName=ctrl}" Margin="2,0,0,0" 
+				Command="l:ToolBarView.BackgroundTasksCommand"
+				imageSource="/odm.ui.views;component/images/administrative_tools.png" />
+			<l:ImageButton 
+				Visibility="Collapsed"
+				ToolTip="Settings" Margin="2,0,0,0" 
+				Command="l:ToolBarView.SecuritySettingsCommand"
+				imageSource="/odm.ui.views;component/images/preferences_desktop_cryptography.png" />
+			<!--imageSource="/clip-art;component/images/preferences_desktop_cryptography.png"-->
+			<l:ImageButton 
+				ToolTip="{Binding Titles.appsettings, ElementName=ctrl}" Margin="2,0,0,0" 
+				Command="l:ToolBarView.AppSettingsCommand"
+				imageSource="/odm.ui.views;component/images/preferences-system-th.png" />
+			<!--imageSource="/clip-art;component/images/preferences-system-th.png"-->
+			<l:ImageButton 
+				ToolTip="{Binding Titles.about, ElementName=ctrl}" Margin="2,0,0,0"
+				Command="l:ToolBarView.AboutCommand" imageSource="/odm.ui.views;component/images/help.png" />
+			<!--imageSource="/clip-art;component/images/help.png"-->
+		</StackPanel>
+	</Grid>
+            <!--<ComboBox x:Name="themeSelector" SelectedValue="{Binding CurrentTheme}" >
+                <sys:String>origin-theme</sys:String>
+                <sys:String>swamp-theme</sys:String>
+            </ComboBox>-->
+            <!--<ComboBox DockPanel.Dock="Left" 
+                      Visibility="Visible"
+                      VerticalAlignment="Center" 
+                      ToolTip="select language" 
+                      Margin="0,0,6,0" 
+                      FlowDirection="LeftToRight"
+                      ItemsSource="{Binding LocalesCollection}"
+                      SelectedItem="{Binding SelectedLocale}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>-->
+</UserControl>

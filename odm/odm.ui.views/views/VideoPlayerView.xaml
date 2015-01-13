@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="odm.ui.activities.VideoPlayerView"
+			 xmlns:l="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+             xmlns:Local="clr-namespace:odm.ui.controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="BaseVideoPlayer_Loaded" xmlns:my="clr-namespace:odm.ui.controls.GraphEditor">
+		<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Image Grid.Row="0" Name="_imgVIew" Stretch="Uniform" StretchDirection="Both"/>
+
+        <Border Background="#7F000000" Visibility="{Binding Visibility, ElementName=noSignalPanel}"/>
+        <Border Name="noSignalPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="24,4,24,4" Grid.Row="0" BorderBrush="#7FFF0000" BorderThickness="4" CornerRadius="4" Background="#7FFF0000">
+            <TextBlock Name="captionNoSignal" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#FFFFFFFF"
+                   FontSize="36" FontWeight="Bold" Text="NO SIGNAL"/>
+        </Border>
+            
+		<DockPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<StackPanel DockPanel.Dock="Top" Name="playbackStatistics">
+				<TextBlock DockPanel.Dock="Top" Name="renderingFps" Text="91.35" Foreground="#FFF3FA00" />
+				<TextBlock DockPanel.Dock="Top" Name="decodingFps" Text="12.33" Foreground="#FFF3FA00" />
+			</StackPanel>
+			<Grid Margin="6">
+				<Button Name="btnPause" Width="32" Height="32" Style="{DynamicResource btnPause}"/>
+				<Button Name="btnResume" Width="32" Height="32" Style="{DynamicResource btnPlay}"/>
+			</Grid>
+		</DockPanel>
+		
+		<Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"/>
+		<TextBox Grid.Row="1" Name="uriString"  Margin="2,4,2,0" HorizontalAlignment="Stretch" Background="White" Foreground="Black" IsReadOnly="True"/>
+	</Grid>
+</UserControl>

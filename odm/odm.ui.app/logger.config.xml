@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<logger-config >
+	<columns xmlns:tt="http://www.onvif.org/ver10/schema">
+		<column name="id" xpath="/log-message/id"/>
+		<column name="source" xpath="/log-message/source"/>
+		<column name="eventType" xpath="/log-message/event-type"/>
+		<column name="message" xpath="/log-message/message"/>
+	</columns>
+	<tabs>
+		<tab name="XML" xpath="" xslt=""/>
+		<tab name="XML" xpath="" xslt=""/>
+		<tab name="XML" xpath="" xslt=""/>
+	</tabs>
+</logger-config>

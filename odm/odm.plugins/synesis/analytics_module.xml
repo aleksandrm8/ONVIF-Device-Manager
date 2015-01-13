@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt:AnalyticsModuleDescription xmlns:tt="http://www.onvif.org/ver10/schema" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:sns="http://www.synesis.ru/onvif/VideoAnalytics"
+    Name="sns:AnalyticsModule">
+    <tt:Parameters>
+        <tt:SimpleItemDescription Name="UseObjectTracker" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="MaxObjectArea" Type="sns:ObjectAreaValue"/>
+        <tt:SimpleItemDescription Name="MinObjectArea" Type="sns:ObjectAreaValue"/>
+        <tt:SimpleItemDescription Name="MaxObjectSpeed" Type="sns:ObjectSpeedValue"/>
+        <tt:SimpleItemDescription Name="DisplacementSensitivity" Type="sns:DisplacementSensitivityValue"/>
+        <tt:SimpleItemDescription Name="StabilizationTime" Type="sns:StabilizationTimeValue"/>
+        <tt:SimpleItemDescription Name="ContrastSensitivity" Type="sns:ContrastSensitivityValue"/>
+
+
+        <tt:SimpleItemDescription Name="UseAntishaker" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="ShiftOutputPicture" Type="xs:boolean"/>
+        <tt:ElementItemDescription Name="AntishakerCrop" Type="sns:AntishakerCrop"/>
+
+        <tt:ElementItemDescription Name="MarkerCalibration" Type="sns:MarkerCalibration"/>
+        <tt:ElementItemDescription Name="UserRegion" Type="sns:UserRegion"/>
+
+        <!-- Depends on Antishaker-->
+        <tt:SimpleItemDescription Name="CameraRedirected" Type="xs:boolean"/>
+        <!-- Depends on ObjectTracker-->
+        <tt:SimpleItemDescription Name="CameraObstructed" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="ImageTooDark" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="ImageTooBlurry" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="ImageTooBright" Type="xs:boolean"/>
+        <tt:SimpleItemDescription Name="ImageTooNoisy" Type="xs:boolean"/>
+    </tt:Parameters>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="Source" Type="tt:ReferenceToken"/>
+        </tt:Source>
+        <tt:Data>
+            <tt:SimpleItemDescription Name="State" Type="xs:boolean"/>
+        </tt:Data>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:ImageTooNoisy
+        </tt:ParentTopic>
+    </tt:Messages>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="Source" Type="tt:ReferenceToken"/>
+        </tt:Source>
+        <tt:Data>
+            <tt:SimpleItemDescription Name="State" Type="xs:boolean"/>
+        </tt:Data>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:ImageTooDark
+        </tt:ParentTopic>
+    </tt:Messages>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="Source" Type="tt:ReferenceToken"/>
+        </tt:Source>
+        <tt:Data>
+            <tt:SimpleItemDescription Name="State" Type="xs:boolean"/>
+        </tt:Data>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:ImageTooBright
+        </tt:ParentTopic>
+    </tt:Messages>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="Source" Type="tt:ReferenceToken"/>
+        </tt:Source>
+        <tt:Data>
+            <tt:SimpleItemDescription Name="State" Type="xs:boolean"/>
+        </tt:Data>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:ImageTooBlurry
+        </tt:ParentTopic>
+    </tt:Messages>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="Source" Type="tt:ReferenceToken"/>
+        </tt:Source>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:CameraRedirected
+        </tt:ParentTopic>
+    </tt:Messages>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:Source>
+                <tt:SimpleItemDescription Name="Source" Type="tt:ReferenceToken"/>
+            </tt:Source>
+        </tt:Source>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:CameraObstructed
+        </tt:ParentTopic>
+    </tt:Messages>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="Source" Type="tt:ReferenceToken"/>
+        </tt:Source>
+        <tt:Data>
+            <tt:SimpleItemDescription Name="State" Type="xs:boolean"/>
+        </tt:Data>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:MotionAlarm
+        </tt:ParentTopic>
+    </tt:Messages>
+
+    <tt:Messages isProperty="true">
+        <tt:Source>
+            <tt:SimpleItemDescription Name="VideoSourceToken" Type="tt:ReferenceToken"/>
+        </tt:Source>
+        <tt:Key>
+            <tt:SimpleItemDescription Name="ObjectId" Type="xs:int"/>
+        </tt:Key>
+        <tt:Data>
+            <tt:SimpleItemDescription Name="BoundingBox" Type="xs:string"/>
+            <tt:SimpleItemDescription Name="StartPosition" Type="xs:string"/>
+            <tt:SimpleItemDescription Name="CurrentPosition" Type="xs:string"/>
+        </tt:Data>
+        <tt:ParentTopic>
+            tns1:VideoAnalytics/tnssynesis:ObjectMotion
+        </tt:ParentTopic>
+    </tt:Messages>
+
+</tt:AnalyticsModuleDescription>

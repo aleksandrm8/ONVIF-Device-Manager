@@ -1,0 +1,89 @@
+﻿<UserControl 
+	x:Class="odm.ui.activities.MetadataSettingsView"
+	xmlns:Local="clr-namespace:odm.ui.controls"
+	xmlns:util="clr-namespace:odm.ui.views"
+	xmlns:cmd="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:my="clr-namespace:odm.ui.controls"
+	mc:Ignorable="d" 
+	x:Name="ctrl"
+	d:DesignHeight="600" d:DesignWidth="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <util:NullSelectionToBooleanConverter x:Key="nullToBooleanConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+	
+    <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+<!--Metadata filters section-->
+        <Expander Visibility="Visible" DockPanel.Dock="Top" Header="{Binding strings.config, ElementName=ctrl}" IsExpanded="False">
+			<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+				<Grid Margin="0,6,0,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<!--Current fliters list-->
+					<Grid Grid.Row="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+					
+						<CheckBox Margin="3" Grid.Column="0" VerticalAlignment="Top" Grid.Row="1" Name="includeAnalitycs" Content="{Binding strings.includeAnalitycs, ElementName=ctrl}"/>
+						<StackPanel Orientation="Vertical" Grid.Column="1">
+							<CheckBox Margin="3" Name="includePtzPosition" Content="{Binding strings.includePtzPosition, ElementName=ctrl}"/>
+							<CheckBox Margin="3" Name="includePtzStatus" Content="{Binding strings.includePtzStatus, ElementName=ctrl}"/>
+						</StackPanel>
+						
+					</Grid>
+					<!--<GroupBox 
+						Margin="4"
+						Grid.Row="1"
+						Header="Fliter settings:">-->
+						<Local:ExpressionFilterControl x:Name="expressionFilters"
+													   Margin="4"
+													   Grid.Row="1"/>
+					<!--</GroupBox>-->
+					<!--Apply Button-->
+					<StackPanel Grid.Row="2" Margin="3,6,3,6" Orientation="Horizontal">
+						<Button Content="{Binding SaveCanel.apply, ElementName=ctrl}" Command="{Binding ApplyCmd, ElementName=ctrl}"/>
+					</StackPanel>
+					<!--End metadata filters section-->
+				</Grid>
+			</ScrollViewer>
+            
+        </Expander>
+        <Expander DockPanel.Dock="Top" Header="{Binding strings.details, ElementName=ctrl}">
+            <WebBrowser Margin="6" MaxHeight="300" Local:WebBrowserHelper.Body="{Binding SelectedMeta.html, ElementName=ctrl}"/>
+        </Expander>
+        <!--<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+            <CheckBox IsChecked="{Binding Collect}" Content="{Binding strings.collect}" Margin="3"/>
+            <TextBlock Text="{Binding MetaPath}" Margin="3"/>
+        </StackPanel>-->
+        <ListBox 
+            Name="metaListBox" ItemsSource="{Binding MetaData, ElementName=ctrl, Mode=TwoWay}" 
+            util:ListBoxUtility.LastItem="{Binding LastMeta, ElementName=ctrl}"
+            util:ListBoxUtility.IsUnselectOnRBTN="True"
+            SelectionMode="Single" 
+			HorizontalAlignment="Stretch"
+            SelectedItem="{Binding SelectedMeta, ElementName=ctrl}"
+            ItemContainerStyle="{StaticResource MetadataItemStyle}"
+            >
+           
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+					<TextBlock HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding TextView}" MaxWidth="1080" TextWrapping="Wrap" MaxHeight="250"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>

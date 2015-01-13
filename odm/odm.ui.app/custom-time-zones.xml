@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<time-zones>
+	<!--<tz value=":impl-spec1"/>
+	<tz name="no-tz"/>
+	<tz name="utc+5" value="std-5"/>
+	<tz name="utc+4" value="std-4"/>
+	<tz name="utc+3" value="std-3"/>
+	<tz name="utc+2" value="std-2"/>
+	<tz name="utc+1" value="std-1"/>
+	<tz name="utc-0" value="std0"/>
+	<tz name="utc-1" value="std1"/>
+	<tz name="utc-2" value="std2"/>
+	<tz name="utc-3" value="std3"/>
+	<tz name="utc-4" value="std4"/>
+	<tz name="utc-5" value="std5"/>-->
+</time-zones>
