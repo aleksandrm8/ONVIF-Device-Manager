@@ -1,13 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{9D58181E-BC7B-470A-AC72-564E4A2838C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "odm.player", "odm.player", "{E873AEE8-3AFE-41B0-B365-8B2542ACFA6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utils", "utils", "{C0B6D110-9422-4135-8208-926C67909788}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "onvif", "onvif", "{72DD410B-7DF6-40C3-90F4-BCDFF6F20E97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "odm.plugins", "odm.plugins", "{2AEFA9F9-B9CE-46E5-8303-09E482E3D513}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crypto", "libs\bccrypto-net-1.7-src-ext\crypto.csproj", "{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToolkit.Extended", "libs\WPFToolkit.Extended-v1.5.0\WPFToolkit.Extended.csproj", "{72E591D6-8F83-4D8C-8F67-9C325E623234}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "odm.player", "odm.player", "{E873AEE8-3AFE-41B0-B365-8B2542ACFA6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "odm.player.media", "odm\odm.player\odm.player.media\odm.player.media.csproj", "{5EE86409-3EA7-482A-8702-6DCA0D3BC4B1}"
 EndProject
@@ -16,8 +24,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "odm.player.lib.v110", "odm\odm.player\odm.player.lib\odm.player.lib.v110.vcxproj", "{28075439-FFFD-4E7A-AE50-A7C315566F87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "odm.player.host", "odm\odm.player\odm.player.host\odm.player.host.csproj", "{31A6319F-F5E4-4DA4-8258-76B8E3A09EA4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utils", "utils", "{C0B6D110-9422-4135-8208-926C67909788}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils.async", "utils\utils.async\utils.async.csproj", "{CA45551A-6A4E-4E3D-AF2E-E081F209BB14}"
 EndProject
@@ -37,8 +43,6 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "utils.fsharp", "utils\utils
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils.bootstrapping", "utils\utils.bootstrapping\utils.bootstrapping.csproj", "{90B75C37-636E-40FD-9005-4FD885A83EB2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "onvif", "onvif", "{72DD410B-7DF6-40C3-90F4-BCDFF6F20E97}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "onvif.services", "onvif\onvif.services\onvif.services.csproj", "{3CB4F764-648F-4AA3-9E85-91992337D3EA}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "onvif.session", "onvif\onvif.session\onvif.session.fsproj", "{902A3FF3-E9BD-443D-8FC1-69AA42B5F76B}"
@@ -54,8 +58,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "odm.localization", "odm\odm.localization\odm.localization.csproj", "{88A8B3A8-7758-4E5A-8DA8-692BAC98B07B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "odm.ui.views", "odm\odm.ui.views\odm.ui.views.csproj", "{FB9F3DD8-4B0E-4ED8-8F1D-DC52650D3596}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "odm.plugins", "odm.plugins", "{2AEFA9F9-B9CE-46E5-8303-09E482E3D513}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "synesis", "odm\odm.plugins\synesis\synesis.csproj", "{26D449A6-B607-4E7F-A605-9A3BAB803B8B}"
 EndProject
