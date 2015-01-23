@@ -327,6 +327,12 @@ Boolean writeSocket(UsageEnvironment& env,
 			char tmpBuf[100];
 			sprintf(tmpBuf, "writeSocket(%d), sendTo() error: wrote %d bytes instead of %u: ", socket, bytesSent, bufferSize);
 			socketErr(env, tmpBuf);
+			if (-1 == bytesSent)
+			{
+				char tmpBufLocal[100];
+				sprintf(tmpBufLocal, "errono(%d), error string: %s: ", errno, strerror(errno));
+				socketErr(env, tmpBufLocal);
+			}
 			break;
 		}
 

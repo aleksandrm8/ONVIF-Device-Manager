@@ -254,8 +254,13 @@ Boolean Groupsock::output(UsageEnvironment& env, u_int8_t ttlToSend,
     // First, do the datagram send, to each destination:
     Boolean writeSuccess = True;
     for (destRecord* dests = fDests; dests != NULL; dests = dests->fNext) {
-      if (!write(dests->fGroupEId.groupAddress().s_addr, dests->fPort, ttlToSend,
-		 buffer, bufferSize)) {
+	  int res = 0;
+	  if (!(res = write(dests->fGroupEId.groupAddress().s_addr, dests->fPort, ttlToSend,
+		 buffer, bufferSize))) {
+		  if (-1 == res)
+		  {
+			  fprintf(stderr, "errno = %d, errorsrting = %s\n", strerror(errno));
+		  }
 	writeSuccess = False;
 	break;
       }

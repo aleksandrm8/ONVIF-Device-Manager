@@ -40,6 +40,7 @@ void BasicUsageEnvironment0::reset() {
 // Implementation of virtual functions:
 
 char const* BasicUsageEnvironment0::getResultMsg() const {
+	fprintf(stderr, "%s\n", fResultMsgBuffer);
   return fResultMsgBuffer;
 }
 
@@ -80,6 +81,7 @@ void BasicUsageEnvironment0::appendToResultMsg(MsgString msg) {
   memmove(curPtr, (char*)msg, msgLength);
   fCurBufferSize += msgLength;
   fResultMsgBuffer[fCurBufferSize] = '\0';
+  fprintf(stderr, "%s\n", fResultMsgBuffer);
 }
 
 void BasicUsageEnvironment0::reportBackgroundError() {
